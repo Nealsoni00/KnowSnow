@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36AEFC881E576E7E0098FD5F /* Graphics in Resources */ = {isa = PBXBuildFile; fileRef = 36AEFC871E576E7E0098FD5F /* Graphics */; };
 		49F66DD51E576B8000F4168D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F66DD41E576B8000F4168D /* AppDelegate.swift */; };
 		49F66DD71E576B8000F4168D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F66DD61E576B8000F4168D /* FirstViewController.swift */; };
 		49F66DD91E576B8000F4168D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F66DD81E576B8000F4168D /* SecondViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36AEFC871E576E7E0098FD5F /* Graphics */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Graphics; sourceTree = "<group>"; };
 		49F66DD11E576B8000F4168D /* KnowSnow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowSnow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F66DD41E576B8000F4168D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49F66DD61E576B8000F4168D /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +44,7 @@
 			children = (
 				49F66DD31E576B8000F4168D /* KnowSnow */,
 				49F66DD21E576B8000F4168D /* Products */,
+				36AEFC871E576E7E0098FD5F /* Graphics */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49F66DE11E576B8000F4168D /* LaunchScreen.storyboard in Resources */,
+				36AEFC881E576E7E0098FD5F /* Graphics in Resources */,
 				49F66DDE1E576B8000F4168D /* Assets.xcassets in Resources */,
 				49F66DDC1E576B8000F4168D /* Main.storyboard in Resources */,
 			);
@@ -303,6 +307,7 @@
 				49F66DE71E576B8000F4168D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
