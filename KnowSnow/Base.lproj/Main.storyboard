@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--mapView-->
+        <scene sceneID="6uC-Bk-EWf">
+            <objects>
+                <viewController title="mapView" id="c2i-PM-Tuq" customClass="FirstViewController" customModule="KnowSnow" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WlM-bf-PJL"/>
+                        <viewControllerLayoutGuide type="bottom" id="ix7-TV-RvD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Cx-F6-JeB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="map" image="first" id="YxL-i7-0Dv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yEQ-GW-5tZ" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="73" y="0.0"/>
+        </scene>
+        <!--defaultView-->
+        <scene sceneID="XHv-Y4-A6B">
+            <objects>
+                <viewController title="defaultView" id="qP5-7f-Moi" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="n0I-E6-25I"/>
+                        <viewControllerLayoutGuide type="bottom" id="fts-ld-b11"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="05S-6l-I8Q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="closings" id="iL9-Nv-VTv"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2hS-ZS-nRF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1729" y="0.0"/>
+        </scene>
+        <!--closingsView-->
+        <scene sceneID="5Au-gy-Zsy">
+            <objects>
+                <viewController title="closingsView" id="fh0-7e-gtw" customClass="SecondViewController" customModule="KnowSnow" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ach-38-Ulh"/>
+                        <viewControllerLayoutGuide type="bottom" id="NFd-UT-OA8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9sZ-0d-8QP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="westport" image="second" id="9EH-XB-Baf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fPx-3U-8Fe" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="930" y="0.0"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="dN1-HG-6vu">
+            <objects>
+                <tabBarController id="p9o-V2-fe5" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="SDR-34-sjk">
+                        <rect key="frame" x="0.0" y="975" width="768" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="c2i-PM-Tuq" kind="relationship" relationship="viewControllers" id="jJg-uk-JPB"/>
+                        <segue destination="fh0-7e-gtw" kind="relationship" relationship="viewControllers" id="9LK-J4-bMF"/>
+                        <segue destination="qP5-7f-Moi" kind="relationship" relationship="viewControllers" id="TnZ-cu-pXG"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rlm-K8-RgJ" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-868" y="0.0"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="first" width="30" height="30"/>
+        <image name="second" width="30" height="30"/>
+    </resources>
+</document>
