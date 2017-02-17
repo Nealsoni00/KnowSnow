@@ -1,0 +1,6 @@
+framework module Pods_KnowSnow {
+  umbrella header "Pods-KnowSnow-umbrella.h"
+
+  export *
+  module * { export * }
+}

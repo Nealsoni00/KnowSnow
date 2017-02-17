@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DE07E44B2B1CA759E702364 /* Pods_KnowSnow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633838DEB853F270504F21A4 /* Pods_KnowSnow.framework */; };
 		49F66DD51E576B8000F4168D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F66DD41E576B8000F4168D /* AppDelegate.swift */; };
 		49F66DD71E576B8000F4168D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F66DD61E576B8000F4168D /* FirstViewController.swift */; };
 		49F66DD91E576B8000F4168D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F66DD81E576B8000F4168D /* SecondViewController.swift */; };
@@ -24,6 +25,9 @@
 		49F66DDD1E576B8000F4168D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49F66DE01E576B8000F4168D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49F66DE21E576B8000F4168D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C82FC58E25917960D8884C7 /* Pods-KnowSnow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowSnow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KnowSnow/Pods-KnowSnow.debug.xcconfig"; sourceTree = "<group>"; };
+		633838DEB853F270504F21A4 /* Pods_KnowSnow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnowSnow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA4D4E7734F376BC58FEDA2E /* Pods-KnowSnow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowSnow.release.xcconfig"; path = "Pods/Target Support Files/Pods-KnowSnow/Pods-KnowSnow.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DE07E44B2B1CA759E702364 /* Pods_KnowSnow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BC44F8659119E37AFD3DFE2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				633838DEB853F270504F21A4 /* Pods_KnowSnow.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		49F66DC81E576B8000F4168D = {
 			isa = PBXGroup;
 			children = (
 				49F66DD31E576B8000F4168D /* KnowSnow */,
 				49F66DD21E576B8000F4168D /* Products */,
+				540AE504C7CA9F6261ADDD6B /* Pods */,
+				2BC44F8659119E37AFD3DFE2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +82,15 @@
 			path = KnowSnow;
 			sourceTree = "<group>";
 		};
+		540AE504C7CA9F6261ADDD6B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4C82FC58E25917960D8884C7 /* Pods-KnowSnow.debug.xcconfig */,
+				FA4D4E7734F376BC58FEDA2E /* Pods-KnowSnow.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49F66DE51E576B8000F4168D /* Build configuration list for PBXNativeTarget "KnowSnow" */;
 			buildPhases = (
+				7B135EAEB75180F238D6AB61 /* [CP] Check Pods Manifest.lock */,
 				49F66DCD1E576B8000F4168D /* Sources */,
 				49F66DCE1E576B8000F4168D /* Frameworks */,
 				49F66DCF1E576B8000F4168D /* Resources */,
+				01F1A9DA2F74FB7E739A6A5A /* [CP] Embed Pods Frameworks */,
+				F8DA97D67B364F092E0905FE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -133,6 +160,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		01F1A9DA2F74FB7E739A6A5A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KnowSnow/Pods-KnowSnow-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B135EAEB75180F238D6AB61 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F8DA97D67B364F092E0905FE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KnowSnow/Pods-KnowSnow-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		49F66DCD1E576B8000F4168D /* Sources */ = {
@@ -262,6 +337,7 @@
 		};
 		49F66DE61E576B8000F4168D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C82FC58E25917960D8884C7 /* Pods-KnowSnow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = KnowSnow/Info.plist;
@@ -274,6 +350,7 @@
 		};
 		49F66DE71E576B8000F4168D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA4D4E7734F376BC58FEDA2E /* Pods-KnowSnow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = KnowSnow/Info.plist;
