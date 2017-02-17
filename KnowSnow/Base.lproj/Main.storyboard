@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +21,30 @@
                     <view key="view" contentMode="scaleToFill" id="9Cx-F6-JeB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ObW-dE-NLG">
+                                <rect key="frame" x="49" y="277" width="95" height="30"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="HI SHARKY" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SoV-bm-Amh">
+                                        <rect key="frame" x="0.0" y="0.0" width="95" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="95" id="OKu-wG-Sbp"/>
+                                    <constraint firstAttribute="height" constant="30" id="T4M-vP-WsU"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ObW-dE-NLG" firstAttribute="leading" secondItem="9Cx-F6-JeB" secondAttribute="leadingMargin" constant="33" id="8QU-9J-xHL"/>
+                            <constraint firstItem="ix7-TV-RvD" firstAttribute="top" secondItem="ObW-dE-NLG" secondAttribute="bottom" constant="311" id="Cy8-MR-n97"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ObW-dE-NLG" secondAttribute="trailing" constant="215" id="K4K-pV-ceX"/>
+                            <constraint firstItem="ObW-dE-NLG" firstAttribute="top" secondItem="WlM-bf-PJL" secondAttribute="bottom" constant="257" id="kna-zl-UP3"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="map" image="first" id="YxL-i7-0Dv"/>
                 </viewController>
