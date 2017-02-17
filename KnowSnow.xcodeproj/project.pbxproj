@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2DE07E44B2B1CA759E702364 /* Pods_KnowSnow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633838DEB853F270504F21A4 /* Pods_KnowSnow.framework */; };
+		49D76EF91E5773F60062746C /* GetLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D76EF81E5773F60062746C /* GetLocation.swift */; };
 		49F66DD51E576B8000F4168D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F66DD41E576B8000F4168D /* AppDelegate.swift */; };
 		49F66DD71E576B8000F4168D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F66DD61E576B8000F4168D /* FirstViewController.swift */; };
 		49F66DD91E576B8000F4168D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F66DD81E576B8000F4168D /* SecondViewController.swift */; };
@@ -17,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		36AEFC871E576E7E0098FD5F /* Graphics */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Graphics; sourceTree = "<group>"; };
+		49D76EF81E5773F60062746C /* GetLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetLocation.swift; sourceTree = "<group>"; };
 		49F66DD11E576B8000F4168D /* KnowSnow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowSnow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F66DD41E576B8000F4168D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49F66DD61E576B8000F4168D /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +80,7 @@
 				49F66DDD1E576B8000F4168D /* Assets.xcassets */,
 				49F66DDF1E576B8000F4168D /* LaunchScreen.storyboard */,
 				49F66DE21E576B8000F4168D /* Info.plist */,
+				49D76EF81E5773F60062746C /* GetLocation.swift */,
 			);
 			path = KnowSnow;
 			sourceTree = "<group>";
@@ -155,7 +157,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				49F66DE11E576B8000F4168D /* LaunchScreen.storyboard in Resources */,
-				36AEFC881E576E7E0098FD5F /* Graphics in Resources */,
 				49F66DDE1E576B8000F4168D /* Assets.xcassets in Resources */,
 				49F66DDC1E576B8000F4168D /* Main.storyboard in Resources */,
 			);
@@ -217,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49F66DD91E576B8000F4168D /* SecondViewController.swift in Sources */,
+				49D76EF91E5773F60062746C /* GetLocation.swift in Sources */,
 				49F66DD51E576B8000F4168D /* AppDelegate.swift in Sources */,
 				49F66DD71E576B8000F4168D /* FirstViewController.swift in Sources */,
 			);
