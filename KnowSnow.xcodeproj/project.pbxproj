@@ -81,6 +81,7 @@
 				49F66DDD1E576B8000F4168D /* Assets.xcassets */,
 				49F66DDF1E576B8000F4168D /* LaunchScreen.storyboard */,
 				49F66DE21E576B8000F4168D /* Info.plist */,
+				49D76EF81E5773F60062746C /* GetLocation.swift */,
 			);
 			path = KnowSnow;
 			sourceTree = "<group>";
@@ -219,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49F66DD91E576B8000F4168D /* SecondViewController.swift in Sources */,
+				49D76EF91E5773F60062746C /* GetLocation.swift in Sources */,
 				49F66DD51E576B8000F4168D /* AppDelegate.swift in Sources */,
 				49F66DD71E576B8000F4168D /* FirstViewController.swift in Sources */,
 			);
