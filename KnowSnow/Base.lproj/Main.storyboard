@@ -20,13 +20,22 @@
                     <view key="view" contentMode="scaleToFill" id="9Cx-F6-JeB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdm-dd-fEd">
+                                <rect key="frame" x="58" y="323" width="155" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="map" image="first" id="YxL-i7-0Dv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yEQ-GW-5tZ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="73" y="0.0"/>
+            <point key="canvasLocation" x="72.799999999999997" y="-0.44977511244377816"/>
         </scene>
         <!--defaultView-->
         <scene sceneID="XHv-Y4-A6B">
