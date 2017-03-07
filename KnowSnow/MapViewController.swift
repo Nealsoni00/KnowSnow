@@ -13,6 +13,7 @@ class FirstViewController: UIViewController {
     //init
     override func viewDidLoad() {
         super.viewDidLoad()
+        RetrieveMapInfo.init();
         // Do any additional setup after loading the view, typically from a nib.
     }
 
