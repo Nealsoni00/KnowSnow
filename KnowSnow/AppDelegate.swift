@@ -9,11 +9,15 @@
 import UIKit
 import Firebase
 
+
 @UIApplicationMain
+
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let defaults = UserDefaults.standard
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -21,7 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var ref: FIRDatabaseReference!
         
         ref = FIRDatabase.database().reference()
-        return true
+        RetrieveMapInfo().initFunc();
+        
+        defaults.set("westport", forKey: "default")
+
+      return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

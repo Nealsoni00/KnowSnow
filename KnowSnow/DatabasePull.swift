@@ -10,24 +10,35 @@ import Foundation
 import FirebaseDatabase
 import Firebase
 
+
+var towns = ["weston", "norwalk", "redding", "westport", "shelton", "danbury", "sherman", "newCanaan", "ridgefield", "newFairfield", "bridgeport", "trumbull", "newtown", "darien", "bethel", "fairfield", "stamford", "brookfield", "easton", "monroe", "greenwich", "wilton", "stratford"]
+
+var allTownObjects = [TownObject]()
+
 class RetrieveMapInfo {
     
-    init () {
-    var ref: FIRDatabaseReference!
     
-    ref = FIRDatabase.database().reference()
+    var ref: FIRDatabaseReference!
+
+
+    func initFunc() {
         
-        let userID = FIRAuth.auth()?.currentUser?.uid
-        ref.child("towns").child("westport").observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            let value = snapshot.value as? NSDictionary
-            let username = value?["closing"] as? String ?? ""
-            print(value);
-            print(username)
-            // ...
-        }) { (error) in
-            print(error.localizedDescription)
+        ref = FIRDatabase.database().reference()
+        
+        for town in towns {
+        ref.child("towns").child(town).observeSingleEvent(of: .value, with: { (snapshot)  in
+            // Get all percentages
+            let totalData = snapshot.value as? NSDictionary
+            //iterate through array and set each one
+            
+            allTownObjects.append(TownObject(name: town, delay: totalData?["delay"] as? String ?? "", closing: totalData?["closing"] as? String ?? "", early: totalData?["early"] as? String ?? ""))
+            
+            
+        })
+
         }
     }
+
+
 
 }

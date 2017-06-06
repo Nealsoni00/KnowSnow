@@ -8,10 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		2DE07E44B2B1CA759E702364 /* Pods_KnowSnow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633838DEB853F270504F21A4 /* Pods_KnowSnow.framework */; };
+		491D57641EE61EE40027F11C /* SetSchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491D57631EE61EE40027F11C /* SetSchoolViewController.swift */; };
+		491D57661EE61F2A0027F11C /* TownCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491D57651EE61F2A0027F11C /* TownCellTableViewCell.swift */; };
+		492F08801ED5CBB600167D05 /* UISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492F087F1ED5CBB600167D05 /* UISegmentedControl.swift */; };
+		492F08821ED5EFFD00167D05 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492F08811ED5EFFD00167D05 /* LaunchScreenViewController.swift */; };
+		4940397C1ED3AA0E000F028F /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4940397B1ED3AA0E000F028F /* SideMenuViewController.swift */; };
+		494AE5CB1EDE5892000E1BEC /* WeatherObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494AE5CA1EDE5892000E1BEC /* WeatherObject.swift */; };
+		4966CADA1ED8BCC90034C251 /* cloudy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4966CAD21ED8BCC90034C251 /* cloudy.png */; };
+		4966CADB1ED8BCC90034C251 /* rain.png in Resources */ = {isa = PBXBuildFile; fileRef = 4966CAD31ED8BCC90034C251 /* rain.png */; };
+		4966CADC1ED8BCC90034C251 /* fog.png in Resources */ = {isa = PBXBuildFile; fileRef = 4966CAD41ED8BCC90034C251 /* fog.png */; };
+		4966CADD1ED8BCC90034C251 /* tornado.png in Resources */ = {isa = PBXBuildFile; fileRef = 4966CAD51ED8BCC90034C251 /* tornado.png */; };
+		4966CADE1ED8BCC90034C251 /* snow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4966CAD61ED8BCC90034C251 /* snow.png */; };
+		4966CADF1ED8BCC90034C251 /* thunderstorm.png in Resources */ = {isa = PBXBuildFile; fileRef = 4966CAD71ED8BCC90034C251 /* thunderstorm.png */; };
+		4966CAE01ED8BCC90034C251 /* partly-cloudy-day.png in Resources */ = {isa = PBXBuildFile; fileRef = 4966CAD81ED8BCC90034C251 /* partly-cloudy-day.png */; };
+		4966CAE11ED8BCC90034C251 /* clear-day.png in Resources */ = {isa = PBXBuildFile; fileRef = 4966CAD91ED8BCC90034C251 /* clear-day.png */; };
 		496829AF1E68CE3000D7A9AC /* fairfield county outline.png in Resources */ = {isa = PBXBuildFile; fileRef = 496829AE1E68CE3000D7A9AC /* fairfield county outline.png */; };
 		496829B11E68DA4400D7A9AC /* Search Filled-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 496829B01E68DA4400D7A9AC /* Search Filled-25.png */; };
 		496829B31E68E0BE00D7A9AC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 496829B21E68E0BE00D7A9AC /* GoogleService-Info.plist */; };
-		49AB94B31E6680850094EDAB /* Cloud Filled-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AB94B21E6680850094EDAB /* Cloud Filled-25.png */; };
 		49AB94B51E66826E0094EDAB /* Calendar Filled-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AB94B41E66826E0094EDAB /* Calendar Filled-25.png */; };
 		49AB94B71E6687C70094EDAB /* Appointment Reminders Filled-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AB94B61E6687C70094EDAB /* Appointment Reminders Filled-25.png */; };
 		49AB94B91E668D5E0094EDAB /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AB94B81E668D5E0094EDAB /* Logo.png */; };
@@ -51,11 +64,15 @@
 		49AB95041E669C6B0094EDAB /* Icon-44@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AB94E01E669C6B0094EDAB /* Icon-44@2x.png */; };
 		49AB95051E669C6B0094EDAB /* Icon-86@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AB94E11E669C6B0094EDAB /* Icon-86@2x.png */; };
 		49AB95061E669C6B0094EDAB /* Icon-98@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AB94E21E669C6B0094EDAB /* Icon-98@2x.png */; };
+		49C527441ED6327A002C938A /* GetWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C527431ED6327A002C938A /* GetWeather.swift */; };
+		49C527471ED633D9002C938A /* TownObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C527461ED633D9002C938A /* TownObject.swift */; };
+		49C527491ED77D97002C938A /* windy.png in Resources */ = {isa = PBXBuildFile; fileRef = 49C527481ED77D97002C938A /* windy.png */; };
 		49CB8EC31E671A66008A266C /* Info Filled-38.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CB8EC21E671A66008A266C /* Info Filled-38.png */; };
 		49CB8EC51E671A87008A266C /* Lock Filled-38.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CB8EC41E671A87008A266C /* Lock Filled-38.png */; };
 		49CB8EC71E671B10008A266C /* Approval Filled-38.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CB8EC61E671B10008A266C /* Approval Filled-38.png */; };
 		49CB8EC91E671C08008A266C /* New Post Filled-38.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CB8EC81E671C08008A266C /* New Post Filled-38.png */; };
 		49CEB6991E6DD3DA007F0B70 /* DatabasePull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CEB6981E6DD3DA007F0B70 /* DatabasePull.swift */; };
+		49DDBFD81EE0D172009BC505 /* cloud toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DDBFD71EE0D172009BC505 /* cloud toolbar.png */; };
 		49EF4D951E651593006763A9 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EF4D731E651593006763A9 /* clock.png */; };
 		49EF4D961E651593006763A9 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EF4D741E651593006763A9 /* clock@2x.png */; };
 		49EF4D971E651593006763A9 /* clockFilled.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EF4D751E651593006763A9 /* clockFilled.png */; };
@@ -76,8 +93,6 @@
 		49EF4DB01E651593006763A9 /* Settings-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EF4D901E651593006763A9 /* Settings-50.png */; };
 		49EF4DB11E651593006763A9 /* users.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EF4D911E651593006763A9 /* users.png */; };
 		49EF4DB21E651593006763A9 /* users@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EF4D921E651593006763A9 /* users@2x.png */; };
-		49EF4DB31E651593006763A9 /* Windy Weather Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EF4D931E651593006763A9 /* Windy Weather Filled-50.png */; };
-		49EF4DB41E651593006763A9 /* Windy Weather-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EF4D941E651593006763A9 /* Windy Weather-50.png */; };
 		49F5347D1E67F4F2009DDFF1 /* Marker Filled-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F5347C1E67F4F2009DDFF1 /* Marker Filled-40.png */; };
 		49F66DD51E576B8000F4168D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F66DD41E576B8000F4168D /* AppDelegate.swift */; };
 		49F66DD71E576B8000F4168D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F66DD61E576B8000F4168D /* MapViewController.swift */; };
@@ -85,13 +100,27 @@
 		49F66DDC1E576B8000F4168D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49F66DDA1E576B8000F4168D /* Main.storyboard */; };
 		49F66DDE1E576B8000F4168D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49F66DDD1E576B8000F4168D /* Assets.xcassets */; };
 		49F66DE11E576B8000F4168D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49F66DDF1E576B8000F4168D /* LaunchScreen.storyboard */; };
+		49FF61591ED3A44D0037D246 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FF61581ED3A44D0037D246 /* CustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		491D57631EE61EE40027F11C /* SetSchoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetSchoolViewController.swift; sourceTree = "<group>"; };
+		491D57651EE61F2A0027F11C /* TownCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TownCellTableViewCell.swift; sourceTree = "<group>"; };
+		492F087F1ED5CBB600167D05 /* UISegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISegmentedControl.swift; sourceTree = "<group>"; };
+		492F08811ED5EFFD00167D05 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		4940397B1ED3AA0E000F028F /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		494AE5CA1EDE5892000E1BEC /* WeatherObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherObject.swift; sourceTree = "<group>"; };
+		4966CAD21ED8BCC90034C251 /* cloudy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloudy.png; sourceTree = "<group>"; };
+		4966CAD31ED8BCC90034C251 /* rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rain.png; sourceTree = "<group>"; };
+		4966CAD41ED8BCC90034C251 /* fog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fog.png; sourceTree = "<group>"; };
+		4966CAD51ED8BCC90034C251 /* tornado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tornado.png; sourceTree = "<group>"; };
+		4966CAD61ED8BCC90034C251 /* snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snow.png; sourceTree = "<group>"; };
+		4966CAD71ED8BCC90034C251 /* thunderstorm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thunderstorm.png; sourceTree = "<group>"; };
+		4966CAD81ED8BCC90034C251 /* partly-cloudy-day.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "partly-cloudy-day.png"; sourceTree = "<group>"; };
+		4966CAD91ED8BCC90034C251 /* clear-day.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clear-day.png"; sourceTree = "<group>"; };
 		496829AE1E68CE3000D7A9AC /* fairfield county outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fairfield county outline.png"; sourceTree = "<group>"; };
 		496829B01E68DA4400D7A9AC /* Search Filled-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Search Filled-25.png"; sourceTree = "<group>"; };
 		496829B21E68E0BE00D7A9AC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		49AB94B21E6680850094EDAB /* Cloud Filled-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cloud Filled-25.png"; sourceTree = "<group>"; };
 		49AB94B41E66826E0094EDAB /* Calendar Filled-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Calendar Filled-25.png"; sourceTree = "<group>"; };
 		49AB94B61E6687C70094EDAB /* Appointment Reminders Filled-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Appointment Reminders Filled-25.png"; sourceTree = "<group>"; };
 		49AB94B81E668D5E0094EDAB /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
@@ -131,11 +160,15 @@
 		49AB94E01E669C6B0094EDAB /* Icon-44@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-44@2x.png"; sourceTree = "<group>"; };
 		49AB94E11E669C6B0094EDAB /* Icon-86@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-86@2x.png"; sourceTree = "<group>"; };
 		49AB94E21E669C6B0094EDAB /* Icon-98@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-98@2x.png"; sourceTree = "<group>"; };
+		49C527431ED6327A002C938A /* GetWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetWeather.swift; sourceTree = "<group>"; };
+		49C527461ED633D9002C938A /* TownObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TownObject.swift; sourceTree = "<group>"; };
+		49C527481ED77D97002C938A /* windy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = windy.png; sourceTree = "<group>"; };
 		49CB8EC21E671A66008A266C /* Info Filled-38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info Filled-38.png"; sourceTree = "<group>"; };
 		49CB8EC41E671A87008A266C /* Lock Filled-38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Lock Filled-38.png"; sourceTree = "<group>"; };
 		49CB8EC61E671B10008A266C /* Approval Filled-38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Approval Filled-38.png"; sourceTree = "<group>"; };
 		49CB8EC81E671C08008A266C /* New Post Filled-38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "New Post Filled-38.png"; sourceTree = "<group>"; };
 		49CEB6981E6DD3DA007F0B70 /* DatabasePull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabasePull.swift; sourceTree = "<group>"; };
+		49DDBFD71EE0D172009BC505 /* cloud toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cloud toolbar.png"; sourceTree = "<group>"; };
 		49EF4D731E651593006763A9 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		49EF4D741E651593006763A9 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
 		49EF4D751E651593006763A9 /* clockFilled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clockFilled.png; sourceTree = "<group>"; };
@@ -156,8 +189,6 @@
 		49EF4D901E651593006763A9 /* Settings-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings-50.png"; sourceTree = "<group>"; };
 		49EF4D911E651593006763A9 /* users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = users.png; sourceTree = "<group>"; };
 		49EF4D921E651593006763A9 /* users@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "users@2x.png"; sourceTree = "<group>"; };
-		49EF4D931E651593006763A9 /* Windy Weather Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Windy Weather Filled-50.png"; sourceTree = "<group>"; };
-		49EF4D941E651593006763A9 /* Windy Weather-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Windy Weather-50.png"; sourceTree = "<group>"; };
 		49F5347C1E67F4F2009DDFF1 /* Marker Filled-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Marker Filled-40.png"; sourceTree = "<group>"; };
 		49F66DD11E576B8000F4168D /* KnowSnow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowSnow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F66DD41E576B8000F4168D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +198,7 @@
 		49F66DDD1E576B8000F4168D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49F66DE01E576B8000F4168D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49F66DE21E576B8000F4168D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49FF61581ED3A44D0037D246 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		4C82FC58E25917960D8884C7 /* Pods-KnowSnow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowSnow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KnowSnow/Pods-KnowSnow.debug.xcconfig"; sourceTree = "<group>"; };
 		633838DEB853F270504F21A4 /* Pods_KnowSnow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnowSnow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4D4E7734F376BC58FEDA2E /* Pods-KnowSnow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowSnow.release.xcconfig"; path = "Pods/Target Support Files/Pods-KnowSnow/Pods-KnowSnow.release.xcconfig"; sourceTree = "<group>"; };
@@ -267,12 +299,23 @@
 			path = AppIcon.appiconset;
 			sourceTree = "<group>";
 		};
+		49C527451ED633CA002C938A /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				49C527461ED633D9002C938A /* TownObject.swift */,
+				494AE5CA1EDE5892000E1BEC /* WeatherObject.swift */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
 		49C9473D1E68E29500CD65FD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				49F66DDA1E576B8000F4168D /* Main.storyboard */,
 				49F66DD81E576B8000F4168D /* DefaultViewController.swift */,
 				49F66DD61E576B8000F4168D /* MapViewController.swift */,
+				4940397B1ED3AA0E000F028F /* SideMenuViewController.swift */,
+				492F08811ED5EFFD00167D05 /* LaunchScreenViewController.swift */,
+				491D57631EE61EE40027F11C /* SetSchoolViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -281,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				49CEB6981E6DD3DA007F0B70 /* DatabasePull.swift */,
+				49C527431ED6327A002C938A /* GetWeather.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -288,7 +332,11 @@
 		49C947401E68E33A00CD65FD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				49FF61581ED3A44D0037D246 /* CustomCell.swift */,
+				49F66DDA1E576B8000F4168D /* Main.storyboard */,
 				49F66DDF1E576B8000F4168D /* LaunchScreen.storyboard */,
+				492F087F1ED5CBB600167D05 /* UISegmentedControl.swift */,
+				491D57651EE61F2A0027F11C /* TownCellTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -296,8 +344,16 @@
 		49EF4D721E651593006763A9 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				4966CAD21ED8BCC90034C251 /* cloudy.png */,
+				4966CAD31ED8BCC90034C251 /* rain.png */,
+				4966CAD41ED8BCC90034C251 /* fog.png */,
+				4966CAD51ED8BCC90034C251 /* tornado.png */,
+				4966CAD61ED8BCC90034C251 /* snow.png */,
+				4966CAD71ED8BCC90034C251 /* thunderstorm.png */,
+				49DDBFD71EE0D172009BC505 /* cloud toolbar.png */,
+				4966CAD81ED8BCC90034C251 /* partly-cloudy-day.png */,
+				4966CAD91ED8BCC90034C251 /* clear-day.png */,
 				49AB94BA1E669C6B0094EDAB /* AppIcons */,
-				49AB94B21E6680850094EDAB /* Cloud Filled-25.png */,
 				49EF4D731E651593006763A9 /* clock.png */,
 				49EF4D741E651593006763A9 /* clock@2x.png */,
 				49AB94B81E668D5E0094EDAB /* Logo.png */,
@@ -309,6 +365,7 @@
 				49EF4D781E651593006763A9 /* exit.png */,
 				49CB8EC21E671A66008A266C /* Info Filled-38.png */,
 				49EF4D7B1E651593006763A9 /* Info Filled-25.png */,
+				49C527481ED77D97002C938A /* windy.png */,
 				49CB8EC61E671B10008A266C /* Approval Filled-38.png */,
 				49EF4D7C1E651593006763A9 /* info.png */,
 				49F5347C1E67F4F2009DDFF1 /* Marker Filled-40.png */,
@@ -328,8 +385,6 @@
 				49EF4D901E651593006763A9 /* Settings-50.png */,
 				49EF4D911E651593006763A9 /* users.png */,
 				49EF4D921E651593006763A9 /* users@2x.png */,
-				49EF4D931E651593006763A9 /* Windy Weather Filled-50.png */,
-				49EF4D941E651593006763A9 /* Windy Weather-50.png */,
 			);
 			path = Graphics;
 			sourceTree = "<group>";
@@ -355,6 +410,7 @@
 		49F66DD31E576B8000F4168D /* KnowSnow */ = {
 			isa = PBXGroup;
 			children = (
+				49C527451ED633CA002C938A /* Objects */,
 				49C947401E68E33A00CD65FD /* Views */,
 				49EF4D721E651593006763A9 /* Graphics */,
 				49F66DD41E576B8000F4168D /* AppDelegate.swift */,
@@ -411,6 +467,7 @@
 				TargetAttributes = {
 					49F66DD01E576B8000F4168D = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = C8CFYE884D;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -439,10 +496,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				49AB95041E669C6B0094EDAB /* Icon-44@2x.png in Resources */,
-				49EF4DB31E651593006763A9 /* Windy Weather Filled-50.png in Resources */,
 				49AB94F91E669C6B0094EDAB /* Icon-Small-50x50@2x.png in Resources */,
 				49EF4DAF1E651593006763A9 /* Settings Filled-50.png in Resources */,
+				4966CAE11ED8BCC90034C251 /* clear-day.png in Resources */,
 				49AB94FF1E669C6B0094EDAB /* Icon-24@2x.png in Resources */,
+				4966CADF1ED8BCC90034C251 /* thunderstorm.png in Resources */,
 				49AB94FE1E669C6B0094EDAB /* Contents.json in Resources */,
 				49AB95031E669C6B0094EDAB /* Icon-40@2x.png in Resources */,
 				49AB94E81E669C6B0094EDAB /* Icon-App-29x29@2x.png in Resources */,
@@ -462,11 +520,13 @@
 				49AB94F51E669C6B0094EDAB /* Icon-App-76x76@2x.png in Resources */,
 				49AB94F71E669C6B0094EDAB /* Icon-App-83.5x83.5@2x.png in Resources */,
 				49EF4D9E1E651593006763A9 /* info.png in Resources */,
+				4966CADB1ED8BCC90034C251 /* rain.png in Resources */,
 				49EF4DB21E651593006763A9 /* users@2x.png in Resources */,
 				49F5347D1E67F4F2009DDFF1 /* Marker Filled-40.png in Resources */,
 				49F66DE11E576B8000F4168D /* LaunchScreen.storyboard in Resources */,
 				49AB94E51E669C6B0094EDAB /* Icon-App-20x20@2x.png in Resources */,
 				49EF4DB01E651593006763A9 /* Settings-50.png in Resources */,
+				4966CAE01ED8BCC90034C251 /* partly-cloudy-day.png in Resources */,
 				49EF4D9A1E651593006763A9 /* exit.png in Resources */,
 				49AB94EB1E669C6B0094EDAB /* Icon-App-40x40@2x.png in Resources */,
 				49EF4D991E651593006763A9 /* compare.png in Resources */,
@@ -477,7 +537,6 @@
 				49EF4DA71E651593006763A9 /* Map Filled-50.png in Resources */,
 				49EF4DAD1E651593006763A9 /* schoolFilled@2x.png in Resources */,
 				49EF4D951E651593006763A9 /* clock.png in Resources */,
-				49EF4DB41E651593006763A9 /* Windy Weather-50.png in Resources */,
 				49EF4DAA1E651593006763A9 /* safari.png in Resources */,
 				49EF4DAB1E651593006763A9 /* school.png in Resources */,
 				49AB94FC1E669C6B0094EDAB /* iTunesArtwork@3x.png in Resources */,
@@ -486,8 +545,12 @@
 				49AB94E61E669C6B0094EDAB /* Icon-App-20x20@3x.png in Resources */,
 				49AB94F21E669C6B0094EDAB /* Icon-App-72x72@1x.png in Resources */,
 				49AB94B91E668D5E0094EDAB /* Logo.png in Resources */,
+				4966CADE1ED8BCC90034C251 /* snow.png in Resources */,
+				49DDBFD81EE0D172009BC505 /* cloud toolbar.png in Resources */,
 				49AB94B71E6687C70094EDAB /* Appointment Reminders Filled-25.png in Resources */,
 				49AB94F31E669C6B0094EDAB /* Icon-App-72x72@2x.png in Resources */,
+				4966CADD1ED8BCC90034C251 /* tornado.png in Resources */,
+				4966CADA1ED8BCC90034C251 /* cloudy.png in Resources */,
 				49EF4D981E651593006763A9 /* clockFilled@2x.png in Resources */,
 				49AB95061E669C6B0094EDAB /* Icon-98@2x.png in Resources */,
 				49AB94F81E669C6B0094EDAB /* Icon-Small-50x50@1x.png in Resources */,
@@ -500,16 +563,17 @@
 				49EF4D971E651593006763A9 /* clockFilled.png in Resources */,
 				49AB95011E669C6B0094EDAB /* Icon-29@2x.png in Resources */,
 				49AB94EF1E669C6B0094EDAB /* Icon-App-60x60@1x.png in Resources */,
-				49AB94B31E6680850094EDAB /* Cloud Filled-25.png in Resources */,
 				49EF4D961E651593006763A9 /* clock@2x.png in Resources */,
 				496829AF1E68CE3000D7A9AC /* fairfield county outline.png in Resources */,
 				496829B31E68E0BE00D7A9AC /* GoogleService-Info.plist in Resources */,
 				49EF4DA81E651593006763A9 /* Map-48.png in Resources */,
+				4966CADC1ED8BCC90034C251 /* fog.png in Resources */,
 				49F66DDE1E576B8000F4168D /* Assets.xcassets in Resources */,
 				49AB94EC1E669C6B0094EDAB /* Icon-App-40x40@3x.png in Resources */,
 				49AB95051E669C6B0094EDAB /* Icon-86@2x.png in Resources */,
 				49F66DDC1E576B8000F4168D /* Main.storyboard in Resources */,
 				49AB94E91E669C6B0094EDAB /* Icon-App-29x29@3x.png in Resources */,
+				49C527491ED77D97002C938A /* windy.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,7 +635,16 @@
 				49F66DD91E576B8000F4168D /* DefaultViewController.swift in Sources */,
 				49F66DD51E576B8000F4168D /* AppDelegate.swift in Sources */,
 				49AB94FD1E669C6B0094EDAB /* README.md in Sources */,
+				49C527471ED633D9002C938A /* TownObject.swift in Sources */,
 				49F66DD71E576B8000F4168D /* MapViewController.swift in Sources */,
+				491D57641EE61EE40027F11C /* SetSchoolViewController.swift in Sources */,
+				494AE5CB1EDE5892000E1BEC /* WeatherObject.swift in Sources */,
+				4940397C1ED3AA0E000F028F /* SideMenuViewController.swift in Sources */,
+				49C527441ED6327A002C938A /* GetWeather.swift in Sources */,
+				491D57661EE61F2A0027F11C /* TownCellTableViewCell.swift in Sources */,
+				49FF61591ED3A44D0037D246 /* CustomCell.swift in Sources */,
+				492F08801ED5CBB600167D05 /* UISegmentedControl.swift in Sources */,
+				492F08821ED5EFFD00167D05 /* LaunchScreenViewController.swift in Sources */,
 				49CEB6991E6DD3DA007F0B70 /* DatabasePull.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -696,6 +769,7 @@
 			baseConfigurationReference = 4C82FC58E25917960D8884C7 /* Pods-KnowSnow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C8CFYE884D;
 				INFOPLIST_FILE = KnowSnow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sharkey.KnowSnow;
@@ -709,6 +783,7 @@
 			baseConfigurationReference = FA4D4E7734F376BC58FEDA2E /* Pods-KnowSnow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C8CFYE884D;
 				INFOPLIST_FILE = KnowSnow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sharkey.KnowSnow;

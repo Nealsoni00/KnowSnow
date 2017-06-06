@@ -1,0 +1,51 @@
+//
+//  SlideMenuViewController.swift
+//  KnowSnow
+//
+//  Created by Jack Sharkey on 5/22/17.
+//  Copyright © 2017 Jack Sharkey. All rights reserved.
+//
+
+import UIKit
+
+class SlideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+
+    @IBOutlet weak var tableView: UITableView!
+    var instance = FirstViewController();
+    var towns = [String]()
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        towns = instance.towns
+        self.tableView.reloadData()
+        print("hi")
+        print(towns.count);
+
+        // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return towns.count
+        return 3;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
+        cell.name.text = "hey"
+        
+            
+        return cell
+        
+    }
+    
+
+
+
+}
