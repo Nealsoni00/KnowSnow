@@ -12,6 +12,9 @@ import MessageUI
 class InfoViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var darkSkyLogo: UIImageView!
+    
+//    @IBOutlet var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let darkGrey = UIColor(red:0.27, green:0.33, blue:0.36, alpha:1.0)
@@ -55,23 +58,26 @@ class InfoViewController: UITableViewController, MFMailComposeViewControllerDele
             switch indexPath.row {
             case 0:
                 sendMail("sharkeyjack11@gmail.com")
+                tableView.deselectRow(at: indexPath, animated: true)
+
             case 1:
                 sendMail("nealson00@gmail.com")
+                tableView.deselectRow(at: indexPath, animated: true)
+
             case 2:
                 if let url = URL(string: "https://darksky.net/poweredby/") {
                     UIApplication.shared.open(url, options: [:])
                 }
-                break
+                tableView.deselectRow(at: indexPath, animated: true)
             case 3:
                 if let url = URL(string: "http://www.ctweather.com") {
                     UIApplication.shared.open(url, options: [:])
                 }
-                print("hello")
+                tableView.deselectRow(at: indexPath, animated: true)
             default:
                 break
             }
         }
-        
         
     }
     
@@ -108,5 +114,6 @@ class InfoViewController: UITableViewController, MFMailComposeViewControllerDele
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = UIColor.white
     }
+    
 }
 
