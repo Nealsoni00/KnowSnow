@@ -13,13 +13,15 @@ struct WeatherObject {
     var icon = String()
     var low = String()
     var high = String()
+    var precip = String()
    
     
-    init(timeStamp: String, icon: String, low: String, high: String) {
+    init(timeStamp: String, icon: String, low: String, high: String, precip: String) {
         self.timeStamp = timeStamp;
         self.icon = icon
         self.low = low;
         self.high = high;
+        self.precip = precip;
         
     }
     

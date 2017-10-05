@@ -5,20 +5,24 @@
 [![Platform](https://img.shields.io/cocoapods/p/SideMenu.svg?style=flat)](http://cocoapods.org/pods/SideMenu)
 
 ### If you like SideMenu, give it a ★ at the top right of its [GitHub](https://github.com/jonkykong/SideMenu) page.
-#### Using SideMenu in your app? [Send](mailto:contact@jonkent.me?subject=SideMenu in action!) me a link to your app in the app store!
+#### Using SideMenu in your app? [Send](mailto:yo@massappeal.co?subject=SideMenu%20in%20action!) me a link to your app in the app store!
 
-> I'm Jon Kent and I freelance iOS design, development, and mobile strategies. I love coffee and play the drums. [**Hire me**](mailto:contact@jonkent.me?subject=Let's build something amazing.) to help you make cool stuff. I also have a [website](http://jonkent.me). *Note: If you're having a problem with SideMenu, please open an [issue](https://github.com/jonkykong/SideMenu/issues/new) and do not email me.*
+> Hi, I'm Jon Kent and I am an iOS designer, developer, and mobile strategist. I love coffee and play the drums.
+> * [**Hire me**](mailto:yo@massappeal.co?subject=Let's%20build%20something%20amazing) to help you make cool stuff. *Note: If you're having a problem with SideMenu, please open an [issue](https://github.com/jonkykong/SideMenu/issues/new) and do not email me.*
+> * Check out my [website](http://massappeal.co) to see some of my other projects.
+> * Building and maintaining this free library takes time. Help keep me awake and buy me a coffee ☕️ via [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=contact%40jonkent%2eme&lc=US&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted).
 
 ## Overview
 
 SideMenu is a simple and versatile side menu control written in Swift.
-* **It can be implemented in storyboard without a single line of [code](#code-less-storyboard-implementation).**
-* Four standard animation styles to choose from (there's even a parallax effect if you want to get weird).
-* Highly customizable without needing to write tons of custom code.
-* Supports continuous swiping between side menus on boths sides in a single gesture.
-* Global menu configuration. Set-up once and be done for all screens.
-* Menus can be presented and dismissed the same as any other view controller since this control uses [custom transitions](https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/CustomizingtheTransitionAnimations.html).
-* Animations use your view controllers, not snapshots.
+- [x] **It can be implemented in storyboard without a single line of [code](#code-less-storyboard-implementation).**
+- [x] Four standard animation styles to choose from (there's even a parallax effect if you want to get weird).
+- [x] Highly customizable without needing to write tons of custom code.
+- [x] Supports continuous swiping between side menus on boths sides in a single gesture.
+- [x] Global menu configuration. Set-up once and be done for all screens.
+- [x] Menus can be presented and dismissed the same as any other view controller since this control uses [custom transitions](https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/CustomizingtheTransitionAnimations.html).
+- [x] Animations use your view controllers, not snapshots.
+- [x] Properly handles screen rotation and in-call status bar height changes.
 
 Check out the example project to see it in action!
 ### Preview Samples
@@ -27,7 +31,7 @@ Check out the example project to see it in action!
 | ![](etc/SlideOut.gif) | ![](etc/SlideIn.gif) | ![](etc/Dissolve.gif) | ![](etc/InOut.gif) |
 
 ## Requirements
-* iOS 8 or higher
+- [x] iOS 8 or higher
 
 ## Installation
 ### CocoaPods
@@ -207,6 +211,14 @@ open static var menuAnimationUsingSpringWithDamping: CGFloat = 1
 
 /// The animation initial spring velocity when a menu is displayed. Ignored when displayed with a gesture.
 open static var menuAnimationInitialSpringVelocity: CGFloat = 1
+
+/** 
+Automatically dismisses the menu when another view is pushed from it.
+
+Note: to prevent the menu from dismissing when presenting, set modalPresentationStyle = .overFullScreen
+of the view controller being presented in storyboard or during its initalization.
+*/
+open static var menuDismissOnPush = true
 
 /**
  The blur effect style of the menu if the menu's root view controller is a UITableViewController or UICollectionViewController.

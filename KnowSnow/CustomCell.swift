@@ -13,7 +13,6 @@ class CustomCell: UITableViewCell {
     
     @IBOutlet weak var marker: UIImageView!
  
-    @IBOutlet weak var status: UILabel!
     @IBOutlet weak var name: UILabel!
     
     override func awakeFromNib() {

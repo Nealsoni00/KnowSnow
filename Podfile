@@ -8,4 +8,7 @@ target 'KnowSnow' do
 	pod 'KDCircularProgress'
 	pod 'SideMenu'
 	pod ‘SwiftyJSON’
+  	pod ‘SwiftSpinner’
+	pod 'PopupDialog', '~> 0.5'
+
 end

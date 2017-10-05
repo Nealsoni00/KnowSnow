@@ -1,0 +1,117 @@
+{
+  "bethel" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  },
+  "bridgeport" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  },
+  "brookfield" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  },
+  "danbury" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  },
+  "darien" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  },
+  "easton" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  },
+  "fairfield" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  },
+  "greenwich" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  },
+  "monroe" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  },
+  "newCanaan" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  },
+  "newFairfield" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  },
+  "newtown" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  },
+  "norwalk" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  },
+  "redding" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  },
+  "ridgefield" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  },
+  "shelton" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  },
+  "sherman" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  },
+  "stamford" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  },
+  "stratford" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  },
+  "trumbull" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  },
+  "weston" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  },
+  "westport" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  },
+  "wilton" : {
+    "closing" : "0%",
+    "delay" : "0%",
+    "early" : "0%"
+  }
+}

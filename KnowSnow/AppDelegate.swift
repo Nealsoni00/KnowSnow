@@ -16,18 +16,23 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var tabBarController: UITabBarController?
+    
 
     let defaults = UserDefaults.standard
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        FIRApp.configure()
-        var ref: FIRDatabaseReference!
+        FirebaseApp.configure()
+        var ref: DatabaseReference!
         
-        ref = FIRDatabase.database().reference()
-        RetrieveMapInfo().initFunc();
+        ref = Database.database().reference()
+//        RetrieveMapInfo().initFunc(date: Date().tomorrow, completion: );
         
-        defaults.set("westport", forKey: "default")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loader = storyboard.instantiateViewController(withIdentifier: "SplashScreenViewController") as! LaunchScreenViewController
+        self.window?.rootViewController = loader
+
 
       return true
     }
@@ -55,5 +60,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+extension Date {
+    var yesterday: Date {
+        return Calendar.current.date(byAdding: .day, value: -1, to: self)!
+    }
+    var tomorrow: Date {
+        return Calendar.current.date(byAdding: .day, value: 1, to: self)!
+    }
+    var noon: Date {
+        return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
+    }
+    var month: Int {
+        return Calendar.current.component(.month,  from: self)
+    }
+    var isLastDayOfMonth: Bool {
+        return tomorrow.month != month
+    }
 }
 

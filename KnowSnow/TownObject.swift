@@ -31,6 +31,7 @@ struct TownObject {
         case "newFairfield":
             self.lat = 41.466099;
             self.long = -73.485646;
+            self.fullName = "New Fairfield Public Schools";
         case "brookfield":
             self.lat = 41.482595;
             self.long = -73.409565;
@@ -70,6 +71,7 @@ struct TownObject {
         case "newCanaan":
             self.lat = 41.146763;
             self.long = -73.494844;
+            self.fullName = "New Canaan Public Schools";
         case "stamford":
             self.lat = 41.05343;
             self.long = -73.538734;

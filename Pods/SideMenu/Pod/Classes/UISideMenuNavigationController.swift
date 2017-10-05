@@ -9,6 +9,9 @@ import UIKit
 
 open class UISideMenuNavigationController: UINavigationController {
     
+    /// Width of the menu when presented on screen, showing the existing view controller in the remaining space. Default is zero. When zero, `SideMenuManager.menuWidth` is used.
+    @IBInspectable open var menuWidth: CGFloat = 0
+    
     internal var originalMenuBackgroundColor: UIColor?
     
     open override func awakeFromNib() {
@@ -66,13 +69,54 @@ open class UISideMenuNavigationController: UINavigationController {
         }
     }
     
+    override open func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // when presenting a view controller from the menu, the menu view gets moved into another transition view above our transition container
+        // which can break the visual layout we had before. So, we move the menu view back to its original transition view to preserve it.
+        if !isBeingDismissed {
+            if let mainView = presentingViewController?.view {
+                switch SideMenuManager.menuPresentMode {
+                case .viewSlideOut, .viewSlideInOut:
+                    mainView.superview?.insertSubview(view, belowSubview: mainView)
+                case .menuSlideIn, .menuDissolveIn:
+                    if let tapView = SideMenuTransition.tapView {
+                        mainView.superview?.insertSubview(view, aboveSubview: tapView)
+                    } else {
+                        mainView.superview?.insertSubview(view, aboveSubview: mainView)
+                    }
+                }
+            }
+            
+            if SideMenuManager.menuDismissOnPush {
+                // We're presenting a view controller from the menu, so we need to hide the menu so it isn't showing when the presented view is dismissed.
+                UIView.animate(withDuration: SideMenuManager.menuAnimationDismissDuration,
+                               delay: 0,
+                               usingSpringWithDamping: SideMenuManager.menuAnimationUsingSpringWithDamping,
+                               initialSpringVelocity: SideMenuManager.menuAnimationInitialSpringVelocity,
+                               options: SideMenuManager.menuAnimationOptions,
+                               animations: {
+                                SideMenuTransition.hideMenuStart()
+                }) { (finished) -> Void in
+                    self.view.isHidden = true
+                }
+            }
+        }
+    }
+    
     override open func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        // We're presenting a view controller from the menu, so we need to hide the menu so it isn't showing when the presented view is dismissed.
-        if !isBeingDismissed {
-            view.isHidden = true
-            SideMenuTransition.hideMenuStart()
+        // Clear selecton on UITableViewControllers when reappearing using custom transitions
+        guard let tableViewController = topViewController as? UITableViewController,
+            let tableView = tableViewController.tableView,
+            let indexPaths = tableView.indexPathsForSelectedRows,
+            tableViewController.clearsSelectionOnViewWillAppear else {
+            return
+        }
+        
+        for indexPath in indexPaths {
+            tableView.deselectRow(at: indexPath, animated: false)
         }
     }
     
@@ -92,20 +136,6 @@ open class UISideMenuNavigationController: UINavigationController {
         }
     }
     
-    override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let presentingViewController = presentingViewController {
-            presentingViewController.prepare(for: segue, sender: sender)
-        }
-    }
-    
-    override open func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if let presentingViewController = presentingViewController {
-            return presentingViewController.shouldPerformSegue(withIdentifier: identifier, sender: sender)
-        }
-        
-        return super.shouldPerformSegue(withIdentifier: identifier, sender: sender)
-    }
-    
     override open func pushViewController(_ viewController: UIViewController, animated: Bool) {
         guard viewControllers.count > 0 && SideMenuManager.menuPushStyle != .subMenu else {
             // NOTE: pushViewController is called by init(rootViewController: UIViewController)
@@ -114,9 +144,11 @@ open class UISideMenuNavigationController: UINavigationController {
             return
         }
 
+        let splitViewController = presentingViewController as? UISplitViewController
         let tabBarController = presentingViewController as? UITabBarController
-        guard let navigationController = (tabBarController?.selectedViewController ?? presentingViewController) as? UINavigationController else {
-            print("SideMenu Warning: attempt to push a View Controller from \(String(describing: presentingViewController.self)) where its navigationController == nil. It must be embedded in a Navigation Controller for this to work.")
+        let potentialNavigationController = (splitViewController?.viewControllers.first ?? tabBarController?.selectedViewController) ?? presentingViewController
+        guard let navigationController = potentialNavigationController as? UINavigationController else {
+            print("SideMenu Warning: attempt to push a View Controller from \(String(describing: potentialNavigationController.self)) where its navigationController == nil. It must be embedded in a Navigation Controller for this to work.")
             return
         }
         
@@ -125,7 +157,6 @@ open class UISideMenuNavigationController: UINavigationController {
         CATransaction.begin()
         CATransaction.setCompletionBlock( { () -> Void in
             self.dismiss(animated: true, completion: nil)
-            self.visibleViewController?.viewWillAppear(false) // Hack: force selection to get cleared on UITableViewControllers when reappearing using custom transitions
         })
         
         let areAnimationsEnabled = UIView.areAnimationsEnabled

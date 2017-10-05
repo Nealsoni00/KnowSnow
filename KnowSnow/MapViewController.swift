@@ -41,19 +41,37 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var darien: UILabel!
     @IBOutlet weak var stratford: UILabel!
     
+    @IBOutlet weak var dateLabel: UILabel!
     //init
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let darkGrey = UIColor(red:0.27, green:0.33, blue:0.36, alpha:1.0)
+        
+        
+        
+        self.navigationController?.view.backgroundColor = UIColor.white
+        self.navigationController?.navigationBar.barTintColor = darkGrey
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Avenir Light", size: 22)!, NSForegroundColorAttributeName: UIColor.white]
+        UIApplication.shared.statusBarStyle = .lightContent
+        let infoButton = UIButton(type: .infoLight)
+        infoButton.addTarget(self, action: #selector(SecondViewController.infoPressed), for: .touchUpInside)
+        let infoBarButtonItem = UIBarButtonItem(customView: infoButton)
+        navigationItem.leftBarButtonItem = infoBarButtonItem
+        self.navigationItem.title = "Map"
 
-        GetWeather().getWeather()
+        
+        //TODO: MOVE THIS TO GET DONE BEFORE SCREEN SHOWS
 
         // Do any additional setup after loading the view, typically from a nib.
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
-        
+
         
         swipeRight.direction = UISwipeGestureRecognizerDirection.right
         self.view.addGestureRecognizer(swipeRight)
@@ -75,11 +93,20 @@ class FirstViewController: UIViewController {
         SideMenuManager.menuPresentMode = .menuSlideIn
         SideMenuManager.menuWidth = max(round(min((FirstViewController.appScreenRect.width), (FirstViewController.appScreenRect.height)) * 0.88), 240)
         var j = 0
-        for i in allTownObjects {
+        
+        //init percentages set
+        for _ in allTownObjects {
             changeMap(percentage: allTownObjects[j].closing, town: allTownObjects[j].name)
-
             j = j + 1
         }
+        
+        let f = DateFormatter()
+        f.dateFormat = "M/dd/yyyy"
+     
+        //Date -> selectedDate?
+        let formattedDate = f.string(from: Date().tomorrow)
+        dateLabel.text = "For: " + formattedDate
+        
     }
     
     
@@ -94,7 +121,6 @@ class FirstViewController: UIViewController {
             switch swipeGesture.direction {
             case UISwipeGestureRecognizerDirection.right:
                 present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
-
             case UISwipeGestureRecognizerDirection.down: break
             case UISwipeGestureRecognizerDirection.left:
                 dismiss(animated: true, completion: nil)
@@ -127,7 +153,7 @@ class FirstViewController: UIViewController {
         }
         else if(tabbedButtons.selectedSegmentIndex == 2)
         {
-            for i in allTownObjects {
+            for _ in allTownObjects {
                 changeMap(percentage: allTownObjects[j].early, town: allTownObjects[j].name)
                 j = j + 1
             }
@@ -144,118 +170,211 @@ class FirstViewController: UIViewController {
     func changeMap(percentage: String, town: String) {
         switch town {
         case "sherman":
-            sherman.text = percentage
+            if (percentage != "-") {
+                sherman.text = percentage
+            } else {
+                sherman.text = "n/a"
+            }
             if (percentage == "100%") {
                 sherman.font = sherman.font.withSize(12)
             }
           
         case "newFairfield":
-            newFairfield.text = percentage
+            if (percentage != "-") {
+                newFairfield.text = percentage
+            } else {
+                newFairfield.text = "n/a"
+            }
             if (percentage == "100%") {
                 newFairfield.font = newFairfield.font.withSize(15)
             }
         case "brookfield":
-            brookfield.text = percentage
+            if (percentage != "-") {
+                brookfield.text = percentage
+            } else {
+                brookfield.text = "n/a"
+            }
             if (percentage == "100%") {
                 brookfield.font = brookfield.font.withSize(13)
             }
         case "danbury":
-            danbury.text = percentage
+            if (percentage != "-") {
+                danbury.text = percentage
+            } else {
+                danbury.text = "n/a"
+            }
             if (percentage == "100%") {
                 danbury.font = danbury.font.withSize(15)
             }
         case "bethel":
-            bethel.text = percentage
+            if (percentage != "-") {
+                bethel.text = percentage
+            } else {
+                bethel.text = "n/a"
+            }
             if (percentage == "100%") {
                 bethel.font = bethel.font.withSize(12)
             }
         case "newtown":
-            newtown.text = percentage;
+            if (percentage != "-") {
+                newtown.text = percentage
+            } else {
+                newtown.text = "n/a"
+            }
             if (percentage == "100%") {
                 newtown.font = newtown.font.withSize(15)
             }
         case "ridgefield":
-            ridgefield.text = percentage;
+            if (percentage != "-") {
+                ridgefield.text = percentage
+            } else {
+                ridgefield.text = "n/a"
+            }
             if (percentage == "100%") {
                 ridgefield.font = ridgefield.font.withSize(15)
             }
         case "redding":
-            redding.text = percentage
+            if (percentage != "-") {
+                redding.text = percentage
+            } else {
+                redding.text = "n/a"
+            }
             if (percentage == "100%") {
                 redding.font = redding.font.withSize(15)
             }
         case "monroe":
-            monroe.text = percentage
+            if (percentage != "-") {
+                monroe.text = percentage
+            } else {
+                monroe.text = "n/a"
+            }
             if (percentage == "100%") {
                 monroe.font = monroe.font.withSize(15)
             }
         case "shelton":
-            shelton.text = percentage
+            if (percentage != "-") {
+                shelton.text = percentage
+            } else {
+                shelton.text = "n/a"
+            }
             if (percentage == "100%") {
                 shelton.font = shelton.font.withSize(15)
             }
         case "trumbull":
-            trumbull.text = percentage
+            if (percentage != "-") {
+                trumbull.text = percentage
+            } else {
+                trumbull.text = "n/a"
+            }
             if (percentage == "100%") {
                 trumbull.font = trumbull.font.withSize(15)
             }
         case "easton":
-            easton.text = percentage
+            print(percentage)
+            if (percentage != "-") {
+                easton.text = percentage
+            } else {
+                easton.text = "n/a"
+            }
             if (percentage == "100%") {
                 easton.font = easton.font.withSize(15)
             }
         case "weston":
-            weston.text = percentage;
+            if (percentage != "-") {
+                weston.text = percentage
+            } else {
+                weston.text = "n/a"
+            }
             if (percentage == "100%") {
                 weston.font = weston.font.withSize(15)
             }
         case "wilton":
-            wilton.text = percentage;
+            if (percentage != "-") {
+                wilton.text = percentage
+            } else {
+                wilton.text = "n/a"
+            }
             if (percentage == "100%") {
                 wilton.font = wilton.font.withSize(15)
             }
         case "newCanaan":
-            newCanaan.text = percentage
+            if (percentage != "-") {
+                newCanaan.text = percentage
+            } else {
+                newCanaan.text = "n/a"
+            }
             if (percentage == "100%") {
                 newCanaan.font = newCanaan.font.withSize(15)
             }
         case "stamford":
-            stamford.text = percentage
+            if (percentage != "-") {
+                stamford.text = percentage
+            } else {
+                stamford.text = "n/a"
+            }
             if (percentage == "100%") {
                 stamford.font = stamford.font.withSize(15)
             }
         case "greenwich":
-            greenwich.text = percentage
+            if (percentage != "-") {
+                greenwich.text = percentage
+            } else {
+                greenwich.text = "n/a"
+            }
             if (percentage == "100%") {
                 greenwich.font = greenwich.font.withSize(15)
             }
         case "darien":
-            darien.text = percentage
+            if (percentage != "-") {
+                darien.text = percentage
+            } else {
+                darien.text = "n/a"
+            }
             if (percentage == "100%") {
                 darien.font = darien.font.withSize(12)
             }
         case "norwalk":
-            norwalk.text = percentage
+            if (percentage != "-") {
+                norwalk.text = percentage
+            } else {
+                norwalk.text = "n/a"
+            }
             if (percentage == "100%") {
                 norwalk.font = norwalk.font.withSize(15)
             }
         case "westport":
-            westport.text = percentage;
+            if (percentage != "-") {
+                westport.text = percentage
+            } else {
+                westport.text = "n/a"
+            }
             if (percentage == "100%") {
                 westport.font = westport.font.withSize(15)
             }
         case "fairfield":
-            fairfield.text = percentage;
+            if (percentage != "-") {
+                fairfield.text = percentage
+            } else {
+                fairfield.text = "n/a"
+            }
             if (percentage == "100%") {
                 fairfield.font = fairfield.font.withSize(15)
             }
         case "bridgeport":
-            bridgeport.text = percentage
+            if (percentage != "-") {
+                bridgeport.text = percentage
+            } else {
+                bridgeport.text = "n/a"
+            }
             if (percentage == "100%") {
                 bridgeport.font = bridgeport.font.withSize(13)
             }
         case "stratford":
-            stratford.text = percentage
+            if (percentage != "-") {
+                stratford.text = percentage
+            } else {
+                stratford.text = "n/a"
+            }
             if (percentage == "100%") {
                 stratford.font = stratford.font.withSize(11)
             }
@@ -267,5 +386,15 @@ class FirstViewController: UIViewController {
         
     }
     
+    
+    func infoPressed() {
+        let infoPage = self.storyboard?.instantiateViewController(withIdentifier: "infoVC") as! UINavigationController
+        self.tabBarController?.present(infoPage, animated: true, completion: nil)
+    }
+    
+  
+   
+    
 }
+
 
