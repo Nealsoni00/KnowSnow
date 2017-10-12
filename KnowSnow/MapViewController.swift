@@ -139,14 +139,14 @@ class FirstViewController: UIViewController {
         var j = 0;
         if(tabbedButtons.selectedSegmentIndex == 0)
         {
-            for i in allTownObjects {
+            for _ in allTownObjects {
                 changeMap(percentage: allTownObjects[j].closing, town: allTownObjects[j].name)
                 j = j + 1
             }
         }
         else if(tabbedButtons.selectedSegmentIndex == 1)
         {
-            for i in allTownObjects {
+            for _ in allTownObjects {
                 changeMap(percentage: allTownObjects[j].delay, town: allTownObjects[j].name)
                 j = j + 1
             }

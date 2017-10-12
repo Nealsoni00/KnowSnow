@@ -104,8 +104,6 @@ class InfoViewController: UITableViewController, MFMailComposeViewControllerDele
             print("Mail sent")
         case .failed:
             print("Mail sent failure: \(String(describing: error?.localizedDescription))")
-        default:
-            break
         }
         self.dismiss(animated: true, completion: nil)
     }

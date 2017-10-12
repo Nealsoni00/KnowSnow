@@ -102,12 +102,11 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
         //
         //        }
         
-        var myCell = tableView.cellForRow(at: indexPath) as! CustomCell
+        let myCell = tableView.cellForRow(at: indexPath) as! CustomCell
         myCell.name.textColor = UIColor(red:0.31, green:0.64, blue:0.71, alpha:1.0)
         school = myCell.name.text!
         myCell.name.textColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0)
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         self.dismiss(animated: true)
         self.delegate?.userChoseSchool(name: school!)
         

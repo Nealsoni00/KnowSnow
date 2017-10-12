@@ -10,5 +10,6 @@ target 'KnowSnow' do
 	pod ‘SwiftyJSON’
   	pod ‘SwiftSpinner’
 	pod 'PopupDialog', '~> 0.5'
-
+	pod 'Firebase/Core'
+	pod 'Firebase/Messaging'
 end

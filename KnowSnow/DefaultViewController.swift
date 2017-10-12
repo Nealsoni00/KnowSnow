@@ -512,9 +512,7 @@ class SecondViewController: UIViewController, DataReturnedDelegate, SchoolChosen
             index = allTownObjects.index(where: { $0.name == name })
         }
         townButton.setTitle(allTownObjects[index!].fullName, for: .normal)
-        print("i am here")
         school = allTownObjects[index!].name
-        print(school)
 //          tabBarController.selectedIndex = 1
 //        newDataReceieved();
         //change weather
@@ -537,7 +535,7 @@ class SecondViewController: UIViewController, DataReturnedDelegate, SchoolChosen
         
         let index = allTownObjects.index(where: { $0.fullName == townButton.currentTitle })
         
-        var schoolName = allTownObjects[index!].name
+        let schoolName = allTownObjects[index!].name
         defaults.set(schoolName, forKey: "default")
         print("saved")
         

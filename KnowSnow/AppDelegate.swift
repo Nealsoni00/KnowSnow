@@ -29,9 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ref = Database.database().reference()
 //        RetrieveMapInfo().initFunc(date: Date().tomorrow, completion: );
         
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let loader = storyboard.instantiateViewController(withIdentifier: "SplashScreenViewController") as! LaunchScreenViewController
         self.window?.rootViewController = loader
+        
+        
 
 
       return true
@@ -57,6 +60,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+     
+        
     }
 
 

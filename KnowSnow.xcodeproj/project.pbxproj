@@ -128,6 +128,7 @@
 		496829AE1E68CE3000D7A9AC /* fairfield county outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fairfield county outline.png"; sourceTree = "<group>"; };
 		496829B01E68DA4400D7A9AC /* Search Filled-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Search Filled-25.png"; sourceTree = "<group>"; };
 		496829B21E68E0BE00D7A9AC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4980FFAF1F8F32010088865F /* KnowSnow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KnowSnow.entitlements; sourceTree = "<group>"; };
 		49844CFC1F85D8EE003B3FFD /* darkSky2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkSky2.png; sourceTree = "<group>"; };
 		498F0B521EE79DC3004D0875 /* DatePickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerDialog.swift; sourceTree = "<group>"; };
 		49AB94B41E66826E0094EDAB /* Calendar Filled-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Calendar Filled-25.png"; sourceTree = "<group>"; };
@@ -201,7 +202,7 @@
 		49EF4D921E651593006763A9 /* users@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "users@2x.png"; sourceTree = "<group>"; };
 		49F5347C1E67F4F2009DDFF1 /* Marker Filled-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Marker Filled-40.png"; sourceTree = "<group>"; };
 		49F66DD11E576B8000F4168D /* KnowSnow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowSnow.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		49F66DD41E576B8000F4168D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		49F66DD41E576B8000F4168D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		49F66DD61E576B8000F4168D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		49F66DD81E576B8000F4168D /* DefaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultViewController.swift; sourceTree = "<group>"; };
 		49F66DDB1E576B8000F4168D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -428,6 +429,7 @@
 		49F66DD31E576B8000F4168D /* KnowSnow */ = {
 			isa = PBXGroup;
 			children = (
+				4980FFAF1F8F32010088865F /* KnowSnow.entitlements */,
 				49C527451ED633CA002C938A /* Objects */,
 				49C947401E68E33A00CD65FD /* Views */,
 				49EF4D721E651593006763A9 /* Graphics */,
@@ -480,13 +482,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Jack Sharkey";
 				TargetAttributes = {
 					49F66DD01E576B8000F4168D = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = C8CFYE884D;
+						DevelopmentTeam = 9H2266G4DH;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -611,6 +618,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/KDCircularProgress/KDCircularProgress.framework",
 				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSpinner/SwiftSpinner.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -623,6 +631,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KDCircularProgress.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSpinner.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -726,7 +735,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -734,7 +745,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -776,7 +791,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -784,7 +801,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -815,10 +836,11 @@
 			baseConfigurationReference = 4C82FC58E25917960D8884C7 /* Pods-KnowSnow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = C8CFYE884D;
+				CODE_SIGN_ENTITLEMENTS = KnowSnow/KnowSnow.entitlements;
+				DEVELOPMENT_TEAM = 9H2266G4DH;
 				INFOPLIST_FILE = KnowSnow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sharkey.KnowSnow;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobincube.ios.scPUQDU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -829,10 +851,11 @@
 			baseConfigurationReference = FA4D4E7734F376BC58FEDA2E /* Pods-KnowSnow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = C8CFYE884D;
+				CODE_SIGN_ENTITLEMENTS = KnowSnow/KnowSnow.entitlements;
+				DEVELOPMENT_TEAM = 9H2266G4DH;
 				INFOPLIST_FILE = KnowSnow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sharkey.KnowSnow;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobincube.ios.scPUQDU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

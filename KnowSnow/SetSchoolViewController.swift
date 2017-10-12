@@ -73,7 +73,7 @@ class SetSchoolViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var myCell = tableView.cellForRow(at: indexPath) as! TownCellTableViewCell
+        let myCell = tableView.cellForRow(at: indexPath) as! TownCellTableViewCell
         //TODO: SET Default VC controller's Town label to selecred row text
         let fullName = myCell.town.text 
         if delegate != nil {

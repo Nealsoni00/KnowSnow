@@ -54,7 +54,6 @@ class LaunchScreenViewController: UIViewController {
             //push to settings vcremind
             print("Initial install")
             dbInstance.initialInstall(date: Date().tomorrow)
-            let settingsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as! SetSchoolViewController
             //running code but NOT showing the vc
 //            present(settingsVC, animated: true, completion: nil)
             

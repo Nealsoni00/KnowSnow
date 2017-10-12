@@ -53,12 +53,11 @@ class SetSchoolFromInfoViewController: UIViewController, UITableViewDelegate, UI
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var myCell = tableView.cellForRow(at: indexPath) as! TownCellTableViewCell
+        let myCell = tableView.cellForRow(at: indexPath) as! TownCellTableViewCell
         //TODO: SET Default VC controller's Town label to selecred row text
         let fullName = myCell.town.text
         
        
-        let defaultSchool = defaults.string(forKey: "default")
             let index = allTownObjects.index(where: { $0.fullName == fullName })
             defaults.set(allTownObjects[index!].name, forKey: "default")
             school = allTownObjects[index!].name
