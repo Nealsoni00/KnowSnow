@@ -22,12 +22,13 @@ class SecondViewController: UIViewController, DataReturnedDelegate, SchoolChosen
     var selectedDate = Date()
     
     
+    @IBOutlet weak var dismissalProgress: KDCircularProgress!
+    @IBOutlet weak var closureProgress: KDCircularProgress!
+    @IBOutlet weak var delayProgress: KDCircularProgress!
     
     @IBOutlet weak var townButton: UIButton!
     @IBOutlet weak var firstProgressText: UILabel!
-    
     @IBOutlet weak var secondProgressText: UILabel!
-    
     @IBOutlet weak var thirdProgressText: UILabel!
     
     //weather images
@@ -449,58 +450,58 @@ class SecondViewController: UIViewController, DataReturnedDelegate, SchoolChosen
         SwiftSpinner.hide()
 
         //INIT CIRCLE
-        let progress = KDCircularProgress(frame: CGRect(x: 170, y: 0, width: 140, height: 140))
-        let progress2 = KDCircularProgress(frame: CGRect(x: 170, y: 0, width: 140, height: 140))
-        let progress3 = KDCircularProgress(frame: CGRect(x: 340, y: 0, width: 140, height: 140))
+        //let progress = KDCircularProgress(frame: CGRect(x: 170, y: 0, width: 140, height: 140))
+        //let progress2 = KDCircularProgress(frame: CGRect(x: 170, y: 0, width: 140, height: 140))
+        //let progress3 = KDCircularProgress(frame: CGRect(x: 340, y: 0, width: 140, height: 140))
         
-        progress.startAngle = -90
-        progress.progressThickness = 0.2
-        progress.trackThickness = 0.3
-        progress.clockwise = true
-        progress.gradientRotateSpeed = 2
-        progress.roundedCorners = false
-        progress.glowMode = .noGlow
-        progress.glowAmount = 0.9
-        progress.trackColor = UIColor(red:0.84, green:0.84, blue:0.84, alpha:1.0)
-        progress.set(colors: UIColor(red:0.39, green:0.71, blue:0.96, alpha:1.0))
-        progress.center = CGPoint(x: firstProgressText.center.x, y: firstProgressText.center.y + 150)
+        delayProgress.startAngle = -90
+        delayProgress.progressThickness = 0.2
+        delayProgress.trackThickness = 0.3
+        delayProgress.clockwise = true
+        delayProgress.gradientRotateSpeed = 2
+        delayProgress.roundedCorners = false
+        delayProgress.glowMode = .noGlow
+        delayProgress.glowAmount = 0.9
+        delayProgress.trackColor = UIColor(red:0.84, green:0.84, blue:0.84, alpha:1.0)
+        delayProgress.set(colors: UIColor(red:0.39, green:0.71, blue:0.96, alpha:1.0))
+        //delayProgress.center = CGPoint(x: firstProgressText.center.x, y: firstProgressText.center.y + 150)
         
-        progress2.startAngle = -90
-        progress2.progressThickness = 0.2
-        progress2.trackThickness = 0.3
-        progress2.clockwise = true
-        progress2.gradientRotateSpeed = 2
-        progress2.roundedCorners = false
-        progress2.glowMode = .noGlow
-        progress2.trackColor = UIColor(red:0.84, green:0.84, blue:0.84, alpha:1.0)
-        progress2.set(colors: UIColor(red:0.39, green:0.71, blue:0.96, alpha:1.0))
-        progress2.center = CGPoint(x: secondProgressText.center.x, y: secondProgressText.center.y + 150)
+        closureProgress.startAngle = -90
+        closureProgress.progressThickness = 0.2
+        closureProgress.trackThickness = 0.3
+        closureProgress.clockwise = true
+        closureProgress.gradientRotateSpeed = 2
+        closureProgress.roundedCorners = false
+        closureProgress.glowMode = .noGlow
+        closureProgress.trackColor = UIColor(red:0.84, green:0.84, blue:0.84, alpha:1.0)
+        closureProgress.set(colors: UIColor(red:0.39, green:0.71, blue:0.96, alpha:1.0))
+        //progress2.center = CGPoint(x: secondProgressText.center.x, y: secondProgressText.center.y + 150)
         
-        progress3.startAngle = -90
-        progress3.progressThickness = 0.2
-        progress3.trackThickness = 0.3
-        progress3.clockwise = true
-        progress3.gradientRotateSpeed = 2
-        progress3.roundedCorners = false
-        progress3.glowMode = .noGlow
-        progress3.trackColor = UIColor(red:0.84, green:0.84, blue:0.84, alpha:1.0)
-        progress3.set(colors: UIColor(red:0.39, green:0.71, blue:0.96, alpha:1.0))
-        progress3.center = CGPoint(x: thirdProgressText.center.x, y: thirdProgressText.center.y + 150)
+        dismissalProgress.startAngle = -90
+        dismissalProgress.progressThickness = 0.2
+        dismissalProgress.trackThickness = 0.3
+        dismissalProgress.clockwise = true
+        dismissalProgress.gradientRotateSpeed = 2
+        dismissalProgress.roundedCorners = false
+        dismissalProgress.glowMode = .noGlow
+        dismissalProgress.trackColor = UIColor(red:0.84, green:0.84, blue:0.84, alpha:1.0)
+        dismissalProgress.set(colors: UIColor(red:0.39, green:0.71, blue:0.96, alpha:1.0))
+        //dismissalProgress.center = CGPoint(x: thirdProgressText.center.x, y: thirdProgressText.center.y + 150)
         
         
-        view.addSubview(progress)
-        view.addSubview(progress2)
-        view.addSubview(progress3)
+        //view.addSubview(progress)
+        //view.addSubview(progress2)
+        //view.addSubview(progress3)
         
         // Do any additional setup after loading the view, typically from a nib.
         
-        progress.animate(fromAngle: 0, toAngle: delayInt, duration: 1) { completed in
+        delayProgress.animate(fromAngle: 0, toAngle: delayInt, duration: 1) { completed in
         }
         
-        progress2.animate(fromAngle: 0, toAngle: closingInt, duration: 1) { completed in
+        closureProgress.animate(fromAngle: 0, toAngle: closingInt, duration: 1) { completed in
         }
         
-        progress3.animate(fromAngle: 0, toAngle: earlyInt, duration: 1) { completed in
+        dismissalProgress.animate(fromAngle: 0, toAngle: earlyInt, duration: 1) { completed in
         }
         
 
