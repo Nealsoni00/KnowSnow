@@ -9,14 +9,16 @@
 import UIKit
 import SideMenu
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, UIScrollViewDelegate {
     
     //array of towns
 
     var towns = ["weston", "norwalk", "redding", "westport", "shelton", "danbury", "sherman", "newCanaan", "ridgefield", "newFairfield", "bridgeport", "trumbull", "newtown", "darien", "bethel", "fairfield", "stamford", "brookfield", "easton", "monroe", "greenwich", "wilton"]
     
     
-
+    @IBOutlet weak var mapScrollView: UIScrollView!
+    @IBOutlet weak var mapView: UIView!
+    
     @IBOutlet weak var ridgefield: UILabel!
     @IBOutlet weak var bethel: UILabel!
     @IBOutlet weak var danbury: UILabel!
@@ -42,14 +44,20 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var stratford: UILabel!
     
     @IBOutlet weak var dateLabel: UILabel!
+    
+    
     //init
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapScrollView.delegate = self
         
+
         let darkGrey = UIColor(red:0.27, green:0.33, blue:0.36, alpha:1.0)
         
         
+        //let scale = CGFloat(self.mapScrollView.frame.size.width/self.mapView.frame.size.width)
+        //self.mapScrollView.setZoomScale(scale, animated: true)
         
         self.navigationController?.view.backgroundColor = UIColor.white
         self.navigationController?.navigationBar.barTintColor = darkGrey
@@ -66,6 +74,25 @@ class FirstViewController: UIViewController {
         
         //TODO: MOVE THIS TO GET DONE BEFORE SCREEN SHOWS
 
+        
+//        let scrollViewFrame = mapScrollView.frame
+//        let scaleWidth = scrollViewFrame.size.width / mapScrollView.contentSize.width
+//        let scaleHeight = scrollViewFrame.size.height / mapScrollView.contentSize.height
+//        let minScale = min(scaleWidth, scaleHeight);
+//        mapScrollView.minimumZoomScale = minScale;
+//
+//        // 5
+//        mapScrollView.maximumZoomScale = 1.0
+//        mapScrollView.zoomScale = minScale;
+//
+//        // 6
+//        centerScrollViewContents()
+        
+        
+        
+        
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
@@ -106,10 +133,69 @@ class FirstViewController: UIViewController {
         //Date -> selectedDate?
         let formattedDate = f.string(from: Date().tomorrow)
         dateLabel.text = "For: " + formattedDate
+        setZoomScale()
+        
+    }
+    override func viewWillLayoutSubviews(){
+        setZoomScale()
         
     }
     
     
+    func centerScrollViewContents() {
+        let boundsSize = mapScrollView.bounds.size
+        var contentsFrame = mapView.frame
+        
+        if contentsFrame.size.width < boundsSize.width {
+            contentsFrame.origin.x = (boundsSize.width - contentsFrame.size.width) / 2.0
+        } else {
+            contentsFrame.origin.x = 0.0
+        }
+        
+        if contentsFrame.size.height < boundsSize.height {
+            contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0
+        } else {
+            contentsFrame.origin.y = 0.0
+        }
+        
+        mapView.frame = contentsFrame
+    }
+    func scrollViewDoubleTapped(recognizer: UITapGestureRecognizer) {
+        // 1
+        let pointInView = recognizer.location(in: mapView)
+        
+        // 2
+        var newZoomScale = mapScrollView.zoomScale * 1.5
+        newZoomScale = min(newZoomScale, mapScrollView.maximumZoomScale)
+        
+        // 3
+        let scrollViewSize = mapScrollView.bounds.size
+        let w = scrollViewSize.width / newZoomScale
+        let h = scrollViewSize.height / newZoomScale
+        let x = pointInView.x - (w / 2.0)
+        let y = pointInView.y - (h / 2.0)
+        
+        let rectToZoomTo = CGRect(x: x, y: y,width: w, height: h)
+        
+        // 4
+        mapScrollView.zoom(to: rectToZoomTo, animated: true)
+    }
+    func setZoomScale() {
+        let minZoom = min(self.view.bounds.size.width / mapView!.bounds.size.width, self.view.bounds.size.height / mapView!.bounds.size.height);
+        
+//        if (minZoom > 1.0) {
+//            minZoom = 1.0;
+//        }
+        print("set zoom scale to \(minZoom)")
+
+        mapScrollView.minimumZoomScale = minZoom;
+        mapScrollView.zoomScale = minZoom;
+        
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return mapView
+    }
     
     internal static var appScreenRect: CGRect {
         let appWindowRect = UIApplication.shared.keyWindow?.bounds ?? UIWindow().bounds
