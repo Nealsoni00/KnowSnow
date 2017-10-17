@@ -16,16 +16,16 @@ var school = defaults.string(forKey: "default")
 
 
 
-class SecondViewController: UIViewController, DataReturnedDelegate, SchoolChosenDelegate {
+class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturnedDelegate, SchoolChosenDelegate {
     
     
     var selectedDate = Date()
     
     @IBOutlet weak var progressScrollView: UIScrollView!
-    @IBOutlet weak var weatherScrollView: UIScrollView!
-    
-    @IBOutlet weak var weatherView: UIView!
     @IBOutlet weak var progressView: UIView!
+
+    @IBOutlet weak var weatherScrollView: UIScrollView!
+    @IBOutlet weak var weatherView: UIView!
     
     
     @IBOutlet weak var dismissalProgress: KDCircularProgress!
@@ -83,8 +83,28 @@ class SecondViewController: UIViewController, DataReturnedDelegate, SchoolChosen
     
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+
+        progressScrollView.delegate = self
+        progressScrollView.clipsToBounds = true
+
+        //scalijg stuff
         
-//
+        let scrollViewFrame = progressScrollView.frame
+        let scaleWidth = scrollViewFrame.size.width / progressScrollView.contentSize.width
+        let scaleHeight = scrollViewFrame.size.height / progressScrollView.contentSize.height
+        let minScale = min(scaleWidth, scaleHeight);
+        progressScrollView.minimumZoomScale = minScale;
+        
+        // 5
+        progressScrollView.maximumZoomScale = 1.0
+        progressScrollView.zoomScale = minScale;
+        
+        // 6
+        centerScrollViewContents()
+        
+        
+        
         let darkGrey = UIColor(red:0.27, green:0.33, blue:0.36, alpha:1.0)
         
 
@@ -102,7 +122,6 @@ class SecondViewController: UIViewController, DataReturnedDelegate, SchoolChosen
 
         
         
-        super.viewDidLoad()
         
 //        newDataReceieved();
         
@@ -114,9 +133,51 @@ class SecondViewController: UIViewController, DataReturnedDelegate, SchoolChosen
 
         self.f.dateFormat = "EEEE, MMMM dd"
         self.dateLabel.text = self.f.string(from:Date().tomorrow)
-        
+
         
     }
+    
+    override func viewWillLayoutSubviews(){
+        setZoomScale()
+        
+    }
+    func centerScrollViewContents() {
+        let boundsSize = progressScrollView.bounds.size
+        var contentsFrame = progressView.frame
+        
+        if contentsFrame.size.width < boundsSize.width {
+            contentsFrame.origin.x = (boundsSize.width - contentsFrame.size.width) / 2.0
+        } else {
+            contentsFrame.origin.x = 0.0
+        }
+        
+        if contentsFrame.size.height < boundsSize.height {
+            contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0
+        } else {
+            contentsFrame.origin.y = 0.0
+        }
+        
+        progressView.frame = contentsFrame
+    }
+    
+    func setZoomScale() {
+        let minZoom = min(self.view.bounds.size.width / progressView!.bounds.size.width, self.view.bounds.size.height / progressView!.bounds.size.height);
+        
+        //        if (minZoom > 1.0) {
+        //            minZoom = 1.0;
+        //        }
+        print("set zoom scale to \(minZoom)")
+        
+        //progressScrollView.minimumZoomScale = minZoom;
+        progressScrollView.zoomScale = minZoom;
+        
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return progressView
+    }
+    
+    
     func weatherStuff () {
         
         //Add weather stuff
