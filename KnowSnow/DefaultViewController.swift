@@ -21,6 +21,12 @@ class SecondViewController: UIViewController, DataReturnedDelegate, SchoolChosen
     
     var selectedDate = Date()
     
+    @IBOutlet weak var progressScrollView: UIScrollView!
+    @IBOutlet weak var weatherScrollView: UIScrollView!
+    
+    @IBOutlet weak var weatherView: UIView!
+    @IBOutlet weak var progressView: UIView!
+    
     
     @IBOutlet weak var dismissalProgress: KDCircularProgress!
     @IBOutlet weak var closureProgress: KDCircularProgress!
@@ -453,6 +459,10 @@ class SecondViewController: UIViewController, DataReturnedDelegate, SchoolChosen
         //let progress = KDCircularProgress(frame: CGRect(x: 170, y: 0, width: 140, height: 140))
         //let progress2 = KDCircularProgress(frame: CGRect(x: 170, y: 0, width: 140, height: 140))
         //let progress3 = KDCircularProgress(frame: CGRect(x: 340, y: 0, width: 140, height: 140))
+        let scale = CGFloat(self.progressScrollView.frame.size.width/self.progressView.frame.size.width)
+        self.progressScrollView.setZoomScale(scale, animated: true)
+        //self.progressScrollView.minimumZoomScale = self.progressScrollView.frame.size.width/self.progressView.frame.size.width
+        
         
         delayProgress.startAngle = -90
         delayProgress.progressThickness = 0.2

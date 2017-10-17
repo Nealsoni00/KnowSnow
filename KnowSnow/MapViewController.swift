@@ -52,7 +52,8 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         mapScrollView.delegate = self
         
-
+        mapScrollView.clipsToBounds = true
+        
         let darkGrey = UIColor(red:0.27, green:0.33, blue:0.36, alpha:1.0)
         
         
@@ -75,18 +76,18 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         //TODO: MOVE THIS TO GET DONE BEFORE SCREEN SHOWS
 
         
-//        let scrollViewFrame = mapScrollView.frame
-//        let scaleWidth = scrollViewFrame.size.width / mapScrollView.contentSize.width
-//        let scaleHeight = scrollViewFrame.size.height / mapScrollView.contentSize.height
-//        let minScale = min(scaleWidth, scaleHeight);
-//        mapScrollView.minimumZoomScale = minScale;
-//
-//        // 5
-//        mapScrollView.maximumZoomScale = 1.0
-//        mapScrollView.zoomScale = minScale;
-//
-//        // 6
-//        centerScrollViewContents()
+        let scrollViewFrame = mapScrollView.frame
+        let scaleWidth = scrollViewFrame.size.width / mapScrollView.contentSize.width
+        let scaleHeight = scrollViewFrame.size.height / mapScrollView.contentSize.height
+        let minScale = min(scaleWidth, scaleHeight);
+        mapScrollView.minimumZoomScale = minScale;
+
+        // 5
+        mapScrollView.maximumZoomScale = 1.0
+        mapScrollView.zoomScale = minScale;
+
+        // 6
+        centerScrollViewContents()
         
         
         
