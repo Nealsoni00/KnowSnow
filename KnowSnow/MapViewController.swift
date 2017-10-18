@@ -134,7 +134,6 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         //Date -> selectedDate?
         let formattedDate = f.string(from: Date().tomorrow)
         dateLabel.text = "For: " + formattedDate
-        setZoomScale()
         
     }
     override func viewWillLayoutSubviews(){
