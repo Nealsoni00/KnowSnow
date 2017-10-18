@@ -24,8 +24,11 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
     @IBOutlet weak var progressScrollView: UIScrollView!
     @IBOutlet weak var progressView: UIView!
 
-    @IBOutlet weak var weatherScrollView: UIScrollView!
-    @IBOutlet weak var weatherView: UIView!
+//    @IBOutlet weak var weatherScrollView: UIScrollView!
+//    @IBOutlet weak var weatherView: UIView!
+    
+    @IBOutlet weak var collectionView: WeatherCollectionView!
+
     
     
     @IBOutlet weak var dismissalProgress: KDCircularProgress!
@@ -36,35 +39,7 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
     @IBOutlet weak var firstProgressText: UILabel!
     @IBOutlet weak var secondProgressText: UILabel!
     @IBOutlet weak var thirdProgressText: UILabel!
-    
-    //weather images
-    @IBOutlet weak var image1: UIImageView!
-    @IBOutlet weak var image2: UIImageView!
-    @IBOutlet weak var image3: UIImageView!
-    @IBOutlet weak var image4: UIImageView!
-    
-    //weather boxes
-    @IBOutlet weak var view4: UIView!
-    @IBOutlet weak var view3: UIView!
-    @IBOutlet weak var view2: UIView!
-    @IBOutlet weak var view1: UIView!
-    
-    //weather temps
-    @IBOutlet weak var low1: UILabel!
-    @IBOutlet weak var high4: UILabel!
-    @IBOutlet weak var high1: UILabel!
-    @IBOutlet weak var high3: UILabel!
-    @IBOutlet weak var low3: UILabel!
-    @IBOutlet weak var high2: UILabel!
-    @IBOutlet weak var low2: UILabel!
-    @IBOutlet weak var low4: UILabel!
-    
-    //weather days
-    
-    @IBOutlet weak var day1: UILabel!
-    @IBOutlet weak var day2: UILabel!
-    @IBOutlet weak var day3: UILabel!
-    @IBOutlet weak var day4: UILabel!
+  
     @IBOutlet weak var schoolNameLabel: UIButton!
     
     @IBOutlet weak var inchesOfSnow: UILabel!
@@ -78,8 +53,7 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
     var closingInt = Double();
     var earlyInt = Double();
     
-
-    let f = DateFormatter()
+    let f = DateFormatter();
     
     
     override func viewDidLoad() {
@@ -87,23 +61,17 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
 
         progressScrollView.delegate = self
         progressScrollView.clipsToBounds = true
-
-        //scalijg stuff
         
-        let scrollViewFrame = progressScrollView.frame
-        let scaleWidth = scrollViewFrame.size.width / progressScrollView.contentSize.width
-        let scaleHeight = scrollViewFrame.size.height / progressScrollView.contentSize.height
-        let minScale = min(scaleWidth, scaleHeight);
-        progressScrollView.minimumZoomScale = minScale;
+//        weatherScrollView.delegate = self
+//        weatherScrollView.clipsToBounds = true
         
-        // 5
-        progressScrollView.maximumZoomScale = 1.0
-        progressScrollView.zoomScale = minScale;
-        
-        // 6
-        centerScrollViewContents()
-        
-        
+        collectionView.allowsSelection = false
+        collectionView.dataSource = collectionView
+        collectionView.delegate = collectionView
+        collectionView.allWeatherObjects = allWeatherObjects
+        collectionView.isScrollEnabled = true
+        collectionView.allowsSelection = true
+        collectionView.allowsMultipleSelection = false
         
         let darkGrey = UIColor(red:0.27, green:0.33, blue:0.36, alpha:1.0)
         
@@ -128,7 +96,6 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         //UNCOMMENT
         dataModel.delegate = self
 
-        weatherStuff()
         
 
         self.f.dateFormat = "EEEE, MMMM dd"
@@ -136,11 +103,17 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
 
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        newDataReceieved()
+        collectionView.allWeatherObjects = allWeatherObjects
+
+    }
     
     override func viewWillLayoutSubviews(){
-        setZoomScale()
-        
+        setZoomScale(view: progressView, scrollView: progressScrollView)
+        //setZoomScale(view: weatherView, scrollView: weatherScrollView)
     }
+    
     func centerScrollViewContents() {
         let boundsSize = progressScrollView.bounds.size
         var contentsFrame = progressView.frame
@@ -160,16 +133,17 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         progressView.frame = contentsFrame
     }
     
-    func setZoomScale() {
-        let minZoom = min(self.view.bounds.size.width / progressView!.bounds.size.width, self.view.bounds.size.height / progressView!.bounds.size.height);
+    func setZoomScale(view: UIView, scrollView: UIScrollView) {
+        let minZoom = min(self.view.bounds.size.width / view.bounds.size.width, self.view.bounds.size.height / view.bounds.size.height)
         
         //        if (minZoom > 1.0) {
         //            minZoom = 1.0;
         //        }
         print("set zoom scale to \(minZoom)")
         
-        //progressScrollView.minimumZoomScale = minZoom;
-        progressScrollView.zoomScale = minZoom;
+        scrollView.minimumZoomScale = minZoom
+        scrollView.maximumZoomScale = minZoom
+        scrollView.zoomScale = minZoom
         
     }
     
@@ -177,210 +151,7 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         return progressView
     }
     
-    
-    func weatherStuff () {
-        
-        //Add weather stuff
-        
-        let myColor = UIColor(red:0.72, green:0.72, blue:0.72, alpha:1.0)
-        
-        
-        view1.layer.borderColor = myColor.cgColor
-        view2.layer.borderColor = myColor.cgColor
-        view3.layer.borderColor = myColor.cgColor
-        view4.layer.borderColor = myColor.cgColor
-        
-        
-        for w in 0...3 {
-            //change lows and highs
-            
-            switch w {
-            case 0:
-                
-                let low = String(format: "%.0f", round(Double(allWeatherObjects[w].low)!))
-                let high = String(format: "%.0f", round(Double(allWeatherObjects[w].high)!))
-                let precip = allWeatherObjects[w].precip
-                
-                
-                if (precip == "null") {
-                    inchesOfSnow.text = ""
-                }
-                
-                
-                low1.text = low + "°";
-                high1.text = high + "°";
-                
-                //show day of week
-                let date = (Calendar.current.component(.weekday, from: Date(timeIntervalSince1970: (Double(allWeatherObjects[w].timeStamp)!) ))) - 1
-                
-                let day = f.weekdaySymbols[date]
-                day1.text = day;
-                
-            case 1:
-                
-                let low = String(format: "%.0f", round(Double(allWeatherObjects[w].low)!))
-                let high = String(format: "%.0f", round(Double(allWeatherObjects[w].high)!))
-                
-                low2.text = low + "°";
-                high2.text = high + "°";
-                
-                let date = (Calendar.current.component(.weekday, from: Date(timeIntervalSince1970: (Double(allWeatherObjects[w].timeStamp)!) ))) - 1
-                
-                let day = f.weekdaySymbols[date]
-                day2.text = day;
-                
-                
-            case 2:
-                
-                let low = String(format: "%.0f", round(Double(allWeatherObjects[w].low)!))
-                let high = String(format: "%.0f", round(Double(allWeatherObjects[w].high)!))
-                
-                low3.text = low + "°";
-                high3.text = high + "°";
-                
-                
-                let date = (Calendar.current.component(.weekday, from: Date(timeIntervalSince1970: (Double(allWeatherObjects[w].timeStamp)!) ))) - 1
-                
-                let day = f.weekdaySymbols[date]
-                day3.text = day;
-            case 3:
-                
-                let low = String(format: "%.0f", round(Double(allWeatherObjects[w].low)!))
-                let high = String(format: "%.0f", round(Double(allWeatherObjects[w].high)!))
-                
-                low4.text = low + "°";
-                high4.text = high + "°";
-                
-                let date = (Calendar.current.component(.weekday, from: Date(timeIntervalSince1970: (Double(allWeatherObjects[w].timeStamp)!) ))) - 1
-                
-                let day = f.weekdaySymbols[date]
-                day4.text = day;
-                
-            default:
-                break;
-            }
-            
-            
-            
-            //change icons
-            
-            switch allWeatherObjects[w].icon {
-            case "partly-cloudy-day":
-                let image = UIImage(named:  "partly-cloudy-day.png")
-                if (w == 0) {
-                    image1.image = image;
-                } else if (w == 1) {
-                    image2.image = image;
-                } else if (w == 2) {
-                    image3.image = image;
-                } else {
-                    image4.image = image;
-                }
-            case "partly-cloudy-night":
-                let image = UIImage(named:  "partly-cloudy-day.png")
-                if (w == 0) {
-                    image1.image = image;
-                } else if (w == 1) {
-                    image2.image = image;
-                } else if (w == 2) {
-                    image3.image = image;
-                } else {
-                    image4.image = image;
-                }
-            case "rain":
-                let image = UIImage(named:  "rain.png")
-                if (w == 0) {
-                    image1.image = image;
-                } else if (w == 1) {
-                    image2.image = image;
-                } else if (w == 2) {
-                    image3.image = image;
-                } else {
-                    image4.image = image;
-                }
-            case "cloudy":
-                let image = UIImage(named:  "cloudy.png")
-                if (w == 0) {
-                    image1.image = image;
-                } else if (w == 1) {
-                    image2.image = image;
-                } else if (w == 2) {
-                    image3.image = image;
-                } else {
-                    image4.image = image;
-                }
-            case "fog":
-                let image = UIImage(named:  "fog.png")
-                if (w == 0) {
-                    image1.image = image;
-                } else if (w == 1) {
-                    image2.image = image;
-                } else if (w == 2) {
-                    image3.image = image;
-                } else {
-                    image4.image = image;
-                }
-            case "tornado":
-                let image = UIImage(named:  "tornado.png")
-                if (w == 0) {
-                    image1.image = image;
-                } else if (w == 1) {
-                    image2.image = image;
-                } else if (w == 2) {
-                    image3.image = image;
-                } else {
-                    image4.image = image;
-                }
-            case "snow":
-                let image = UIImage(named:  "snow.png")
-                if (w == 0) {
-                    image1.image = image;
-                } else if (w == 1) {
-                    image2.image = image;
-                } else if (w == 2) {
-                    image3.image = image;
-                } else {
-                    image4.image = image;
-                }
-            case "thunderstorm":
-                let image = UIImage(named:  "thunderstorm.png")
-                if (w == 0) {
-                    image1.image = image;
-                } else if (w == 1) {
-                    image2.image = image;
-                } else if (w == 2) {
-                    image3.image = image;
-                } else {
-                    image4.image = image;
-                }
-            case "clear-day":
-                let image = UIImage(named:  "clear-day.png")
-                if (w == 0) {
-                    image1.image = image;
-                } else if (w == 1) {
-                    image2.image = image;
-                } else if (w == 2) {
-                    image3.image = image;
-                } else {
-                    image4.image = image;
-                }
-            case "windy":
-                let image = UIImage(named:  "windy.png")
-                if (w == 0) {
-                    image1.image = image;
-                } else if (w == 1) {
-                    image2.image = image;
-                } else if (w == 2) {
-                    image3.image = image;
-                } else {
-                    image4.image = image;
-                }
-            default: break
-            }
-            
-            
-        }
-    }
+
     
     
     
@@ -420,12 +191,8 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
             school = "newFairfield"
         }
         
-
-        
         let correctObject = allTownObjects.first(where: { $0.name == school })
-        
-        
-        
+
         let delay = correctObject!.delay
         let closing = correctObject!.closing
         let early = correctObject!.early
@@ -436,16 +203,9 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         firstProgressText.text = delay;
         secondProgressText.text = closing;
         thirdProgressText.text = early;
-    
-        
-        //delay wheel stuff
-        
-        
-        
+
         if (delay != "-") {
             
-        
-
         let indexFirst = delay.index(delay.startIndex, offsetBy: 1)
         let indexSecond = delay.index(delay.startIndex, offsetBy: 2)
 
@@ -516,66 +276,25 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
 
         SwiftSpinner.hide()
 
-        //INIT CIRCLE
-        //let progress = KDCircularProgress(frame: CGRect(x: 170, y: 0, width: 140, height: 140))
-        //let progress2 = KDCircularProgress(frame: CGRect(x: 170, y: 0, width: 140, height: 140))
-        //let progress3 = KDCircularProgress(frame: CGRect(x: 340, y: 0, width: 140, height: 140))
         let scale = CGFloat(self.progressScrollView.frame.size.width/self.progressView.frame.size.width)
         self.progressScrollView.setZoomScale(scale, animated: true)
-        //self.progressScrollView.minimumZoomScale = self.progressScrollView.frame.size.width/self.progressView.frame.size.width
-        
-        
-        delayProgress.startAngle = -90
-        delayProgress.progressThickness = 0.2
-        delayProgress.trackThickness = 0.3
-        delayProgress.clockwise = true
-        delayProgress.gradientRotateSpeed = 2
-        delayProgress.roundedCorners = false
-        delayProgress.glowMode = .noGlow
-        delayProgress.glowAmount = 0.9
-        delayProgress.trackColor = UIColor(red:0.84, green:0.84, blue:0.84, alpha:1.0)
-        delayProgress.set(colors: UIColor(red:0.39, green:0.71, blue:0.96, alpha:1.0))
-        //delayProgress.center = CGPoint(x: firstProgressText.center.x, y: firstProgressText.center.y + 150)
-        
-        closureProgress.startAngle = -90
-        closureProgress.progressThickness = 0.2
-        closureProgress.trackThickness = 0.3
-        closureProgress.clockwise = true
-        closureProgress.gradientRotateSpeed = 2
-        closureProgress.roundedCorners = false
-        closureProgress.glowMode = .noGlow
-        closureProgress.trackColor = UIColor(red:0.84, green:0.84, blue:0.84, alpha:1.0)
-        closureProgress.set(colors: UIColor(red:0.39, green:0.71, blue:0.96, alpha:1.0))
-        //progress2.center = CGPoint(x: secondProgressText.center.x, y: secondProgressText.center.y + 150)
-        
-        dismissalProgress.startAngle = -90
-        dismissalProgress.progressThickness = 0.2
-        dismissalProgress.trackThickness = 0.3
-        dismissalProgress.clockwise = true
-        dismissalProgress.gradientRotateSpeed = 2
-        dismissalProgress.roundedCorners = false
-        dismissalProgress.glowMode = .noGlow
-        dismissalProgress.trackColor = UIColor(red:0.84, green:0.84, blue:0.84, alpha:1.0)
-        dismissalProgress.set(colors: UIColor(red:0.39, green:0.71, blue:0.96, alpha:1.0))
-        //dismissalProgress.center = CGPoint(x: thirdProgressText.center.x, y: thirdProgressText.center.y + 150)
-        
-        
-        //view.addSubview(progress)
-        //view.addSubview(progress2)
-        //view.addSubview(progress3)
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        delayProgress.animate(fromAngle: 0, toAngle: delayInt, duration: 1) { completed in
+        let progresses: [KDCircularProgress] = [delayProgress, closureProgress, dismissalProgress]
+        for progress in progresses {
+            progress.startAngle = -90
+            progress.progressThickness = 0.2
+            progress.trackThickness = 0.3
+            progress.clockwise = true
+            progress.gradientRotateSpeed = 2
+            progress.roundedCorners = false
+            progress.glowMode = .noGlow
+            progress.glowAmount = 0.9
+            progress.trackColor = UIColor(red:0.84, green:0.84, blue:0.84, alpha:1.0)
+            progress.set(colors: UIColor(red:0.39, green:0.71, blue:0.96, alpha:1.0))
         }
         
-        closureProgress.animate(fromAngle: 0, toAngle: closingInt, duration: 1) { completed in
-        }
-        
-        dismissalProgress.animate(fromAngle: 0, toAngle: earlyInt, duration: 1) { completed in
-        }
-        
-
+        delayProgress.animate(fromAngle: 0, toAngle: delayInt, duration: 1) { completed in }
+        closureProgress.animate(fromAngle: 0, toAngle: closingInt, duration: 1) { completed in }
+        dismissalProgress.animate(fromAngle: 0, toAngle: earlyInt, duration: 1) { completed in }
     }
     
     func userChoseSchool(name: String) {
@@ -587,13 +306,8 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         school = allTownObjects[index!].name
 //          tabBarController.selectedIndex = 1
 //        newDataReceieved();
-        //change weather
-        
-        
-        
+
     }
-    
-   
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showSendingVC" {
@@ -666,13 +380,7 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
     func percentagesRecievedRetrieveWeather () {
         
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-       
-        newDataReceieved()
-        
-    }
-    
+
     func infoPressed() {
         let infoPage = self.storyboard?.instantiateViewController(withIdentifier: "infoVC") as! UINavigationController
         self.tabBarController?.present(infoPage, animated: true, completion: nil)
