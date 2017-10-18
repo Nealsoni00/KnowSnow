@@ -14,10 +14,11 @@ import PopupDialog
 
 var school = defaults.string(forKey: "default")
 
+var dateString = "date"
 
 
 class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturnedDelegate, SchoolChosenDelegate {
-    
+
     
     var selectedDate = Date()
     
@@ -46,7 +47,6 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
     
     private let dataModel = RetrieveMapInfo()
 
-    var dateString = "date"
 
     @IBOutlet weak var dateLabel: UILabel!
     
@@ -76,6 +76,7 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         
         let darkGrey = UIColor(red:0.27, green:0.33, blue:0.36, alpha:1.0)
         
+            self.title = school;
 
 
         self.navigationController?.view.backgroundColor = UIColor.white
@@ -106,11 +107,8 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        newDataReceieved()
-    }
+  
     
-    func weatherStuff () {
     override func viewDidAppear(_ animated: Bool) {
         newDataReceieved()
         collectionView.allWeatherObjects = allWeatherObjects
@@ -170,7 +168,9 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func settingsPushed(_ sender: Any) {
+  
+    
+    @IBAction func calenderPushed(_ sender: Any) {
         let minDate = Date()
         DatePickerDialog().show(title: "Select Date", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", defaultDate: self.selectedDate, minimumDate: minDate, maximumDate: nil, datePickerMode: UIDatePickerMode.date) { (date) in
             if (date != nil) {
@@ -182,28 +182,35 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
                 
                 
                 self.f.dateFormat = "EEEE, MMMM dd"
-                self.dateString = self.f.string(from:date!)
+                dateString = self.f.string(from:date!)
                 
             }
         }
     }
     
     
-    
-    
     func newDataReceieved() {
         print("New Data Recieved Func Called")
 
         school = school?.lowercased()
-        
+        self.title = school;
+
         if (school == "new canaan" || school == "newcanaan") {
             school = "newCanaan"
-        }
-        if (school == "new fairfield" || school == "newfairfield") {
+            self.title = "new canaan";
+
+        } else if (school == "new fairfield" || school == "newfairfield") {
             school = "newFairfield"
+            self.title = "new fairfield";
+
+        } else {
+            self.title = school;
+
         }
+        self.navigationItem.title = "Know Snow"
+
         self.dateLabel.text = dateString
-        
+
         let correctObject = allTownObjects.first(where: { $0.name == school })
 
         let delay = correctObject!.delay
@@ -336,10 +343,9 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         
         let schoolName = allTownObjects[index!].name
         defaults.set(schoolName, forKey: "default")
-        print("saved")
         
         let title = "Default School Successfully Saved."
-        
+
         // Create the dialog
         let popup = PopupDialog(title: title, message: "")
         popup.transitionStyle = .fadeIn

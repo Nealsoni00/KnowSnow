@@ -21,6 +21,9 @@ class SetSchoolViewController: UIViewController, UITableViewDelegate, UITableVie
     var fullNames = [String]()
     var delegate:SchoolChosenDelegate? = nil;
     
+    @IBAction func cancelPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         
         tableView.delegate = self
@@ -83,7 +86,7 @@ class SetSchoolViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
          let defaultSchool = defaults.string(forKey: "default")
-        if defaultSchool == nil {
+            if defaultSchool == nil {
             let index = allTownObjects.index(where: { $0.fullName == fullName })
             defaults.set(allTownObjects[index!].name, forKey: "default")
             GetWeather().getWeatherInitial()

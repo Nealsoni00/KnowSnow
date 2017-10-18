@@ -257,7 +257,13 @@
                             <constraint firstItem="ix7-TV-RvD" firstAttribute="top" secondItem="KCE-bo-YTA" secondAttribute="bottom" id="wsN-Rv-F2C"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Know Snow" id="Daw-3r-6OJ"/>
+                    <navigationItem key="navigationItem" title="Know Snow" id="Daw-3r-6OJ">
+                        <barButtonItem key="rightBarButtonItem" image="Calendar Filled-25.png" id="vWa-cA-T9q">
+                            <connections>
+                                <action selector="calenderPressed:" destination="c2i-PM-Tuq" id="puj-WZ-1pA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bethel" destination="lII-c4-iV7" id="kmc-Cw-i5x"/>
                         <outlet property="bridgeport" destination="lPg-at-8px" id="Cpx-3v-BKB"/>
@@ -658,13 +664,6 @@
                                     <constraint firstItem="2yk-SJ-gPP" firstAttribute="leading" secondItem="jET-4d-X4D" secondAttribute="leading" id="t58-XE-m8i"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDa-By-dIZ">
-                                <rect key="frame" x="364" y="120" width="25" height="25"/>
-                                <state key="normal" image="Calendar Filled-25.png"/>
-                                <connections>
-                                    <action selector="datePicker:" destination="fh0-7e-gtw" eventType="touchUpInside" id="5WC-sd-DEs"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7n-Cw-xZe">
                                 <rect key="frame" x="0.0" y="646" width="414" height="41"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="21"/>
@@ -764,15 +763,12 @@
                         <color key="backgroundColor" red="0.28235294119999998" green="0.35294117650000001" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.39215686274509803" green="0.70980392156862748" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="JDa-By-dIZ" firstAttribute="centerY" secondItem="9mo-r0-0QQ" secondAttribute="centerY" id="0SQ-9v-JYZ"/>
                             <constraint firstAttribute="trailing" secondItem="bbF-qk-Rdt" secondAttribute="trailing" id="0Wl-jV-5es"/>
                             <constraint firstItem="ltC-zE-8gA" firstAttribute="leading" secondItem="9sZ-0d-8QP" secondAttribute="leading" id="CAe-Tn-g5I"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="JDa-By-dIZ" secondAttribute="trailing" constant="5" id="CY6-KU-0lh"/>
                             <constraint firstItem="jET-4d-X4D" firstAttribute="top" secondItem="9mo-r0-0QQ" secondAttribute="bottom" constant="6" id="Cfr-s2-I2Z"/>
                             <constraint firstItem="bbF-qk-Rdt" firstAttribute="top" secondItem="9sZ-0d-8QP" secondAttribute="top" constant="76" id="GNm-yB-UFe"/>
                             <constraint firstAttribute="trailing" secondItem="9mo-r0-0QQ" secondAttribute="trailing" id="Hem-xc-aTD"/>
                             <constraint firstAttribute="trailing" secondItem="GeD-Bj-a7b" secondAttribute="trailing" id="I0p-pl-eSe"/>
-                            <constraint firstItem="JDa-By-dIZ" firstAttribute="top" secondItem="bbF-qk-Rdt" secondAttribute="bottom" constant="7" id="Own-Ee-FDh"/>
                             <constraint firstItem="9mo-r0-0QQ" firstAttribute="top" secondItem="bbF-qk-Rdt" secondAttribute="bottom" constant="8" id="RN6-Qx-Sf0"/>
                             <constraint firstItem="rcC-eC-vnt" firstAttribute="top" secondItem="ltC-zE-8gA" secondAttribute="bottom" id="S3y-bk-bYr"/>
                             <constraint firstAttribute="trailing" secondItem="i7n-Cw-xZe" secondAttribute="trailing" id="Tla-Yv-nti"/>
@@ -791,7 +787,13 @@
                             <constraint firstItem="9mo-r0-0QQ" firstAttribute="leading" secondItem="9sZ-0d-8QP" secondAttribute="leading" id="uMU-Uo-lb6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Know Snow" id="g0q-UY-rwV"/>
+                    <navigationItem key="navigationItem" title="Know Snow" id="g0q-UY-rwV">
+                        <barButtonItem key="rightBarButtonItem" image="Calendar Filled-25.png" id="ERH-W2-WuV">
+                            <connections>
+                                <action selector="calenderPushed:" destination="fh0-7e-gtw" id="z9N-eI-dfL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="closureProgress" destination="YsV-20-FfF" id="Ju6-3H-VB0"/>
                         <outlet property="collectionView" destination="rcC-eC-vnt" id="dgs-cG-tFm"/>
@@ -810,7 +812,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPx-3U-8Fe" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-508.69565217391306" y="33.423913043478265"/>
+            <point key="canvasLocation" x="-506" y="20"/>
         </scene>
         <!--Info-->
         <scene sceneID="rhS-h0-Amv">
@@ -1313,7 +1315,13 @@
                             <constraint firstItem="DMb-o9-ZTV" firstAttribute="top" secondItem="hjV-QG-ED8" secondAttribute="bottom" id="t8L-4G-R28"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="NJQ-s4-Wvh"/>
+                    <navigationItem key="navigationItem" title="Settings" id="NJQ-s4-Wvh">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" style="done" id="JdP-xc-vUd">
+                            <connections>
+                                <action selector="cancelPressed:" destination="NdZ-AJ-xaB" id="mzd-zp-9LS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="hjV-QG-ED8" id="vwt-iN-3OT"/>
                     </connections>
@@ -1427,6 +1435,7 @@
         <!--Navigation Controller-->
         <scene sceneID="gnU-KZ-hJn">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fzl-4M-fgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="settingsVC" automaticallyAdjustsScrollViewInsets="NO" id="PcD-Dh-4Rk" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="sfR-HD-C2m"/>
@@ -1439,7 +1448,6 @@
                         <segue destination="NdZ-AJ-xaB" kind="relationship" relationship="rootViewController" id="ven-64-LG5"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fzl-4M-fgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="416.80000000000001" y="-0.44977511244377816"/>
         </scene>

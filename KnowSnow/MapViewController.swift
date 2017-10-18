@@ -8,8 +8,12 @@
 
 import UIKit
 import SideMenu
+import PopupDialog
+import SwiftSpinner
 
-class FirstViewController: UIViewController, UIScrollViewDelegate {
+class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedDelegate {
+
+    
     
     //array of towns
 
@@ -18,6 +22,8 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var mapScrollView: UIScrollView!
     @IBOutlet weak var mapView: UIView!
+    private let dataModel = RetrieveMapInfo()
+
     
     @IBOutlet weak var ridgefield: UILabel!
     @IBOutlet weak var bethel: UILabel!
@@ -55,7 +61,8 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         mapScrollView.clipsToBounds = true
         
         let darkGrey = UIColor(red:0.27, green:0.33, blue:0.36, alpha:1.0)
-        
+        dataModel.delegate = self
+
         
         //let scale = CGFloat(self.mapScrollView.frame.size.width/self.mapView.frame.size.width)
         //self.mapScrollView.setZoomScale(scale, animated: true)
@@ -131,16 +138,36 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         let f = DateFormatter()
         f.dateFormat = "M/dd/yyyy"
      
-        //Date -> selectedDate?
-        let formattedDate = f.string(from: Date().tomorrow)
-        dateLabel.text = "For: " + formattedDate
+        dateLabel.text = "For: " + dateString
+
         
     }
+
     override func viewWillLayoutSubviews(){
         setZoomScale()
         
     }
+    var selectedDate = Date()
+    let f = DateFormatter();
     
+
+    @IBAction func calenderPressed(_ sender: Any) {
+        let minDate = Date()
+        DatePickerDialog().show(title: "Select Date", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", defaultDate: self.selectedDate, minimumDate: minDate, maximumDate: nil, datePickerMode: UIDatePickerMode.date) { (date) in
+            if (date != nil) {
+                self.selectedDate = date!
+                
+                let data = date!
+                self.dataModel.userDidEnterData(data:data)
+                SwiftSpinner.show("Loading Percentages...")
+                
+                
+                self.f.dateFormat = "EEEE, MMMM dd"
+                dateString = self.f.string(from:date!)
+                
+            }
+        }
+    }
     
     func centerScrollViewContents() {
         let boundsSize = mapScrollView.bounds.size
@@ -478,9 +505,18 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         self.tabBarController?.present(infoPage, animated: true, completion: nil)
     }
     
-  
-   
+    func newDataReceieved() {
+        var j = 0;
+        for _ in allTownObjects {
+            print(allTownObjects[j])
+            changeMap(percentage: allTownObjects[j].closing, town: allTownObjects[j].name)
+            j = j + 1;
+        }
+        dateLabel.text = "For: " + dateString
+        SwiftSpinner.hide()
+    }
     
+  
 }
 
 
