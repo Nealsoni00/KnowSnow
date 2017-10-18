@@ -77,6 +77,7 @@ class SetSchoolViewController: UIViewController, UITableViewDelegate, UITableVie
         //TODO: SET Default VC controller's Town label to selecred row text
         let fullName = myCell.town.text 
         if delegate != nil {
+            GetWeather().getWeather(school: fullName!)
             delegate?.userChoseSchool(name: fullName!)
             dismiss(animated: true, completion: nil)
         }
@@ -84,7 +85,7 @@ class SetSchoolViewController: UIViewController, UITableViewDelegate, UITableVie
          let defaultSchool = defaults.string(forKey: "default")
         if defaultSchool == nil {
             let index = allTownObjects.index(where: { $0.fullName == fullName })
-        defaults.set(allTownObjects[index!].name, forKey: "default")
+            defaults.set(allTownObjects[index!].name, forKey: "default")
             GetWeather().getWeatherInitial()
             SwiftSpinner.show("Loading Data...")
 

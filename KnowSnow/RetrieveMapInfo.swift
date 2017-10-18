@@ -38,7 +38,6 @@ class RetrieveMapInfo {
         
         //Date -> selectedDate?
         let formattedDate = f.string(from:data)
-        print(formattedDate)
         allTownObjects = [TownObject]()
         for town in towns {
             ref.child("dates").child(formattedDate).child(town).observeSingleEvent(of: .value, with: { (snapshot)  in
@@ -59,8 +58,7 @@ class RetrieveMapInfo {
                 } else {
                     allTownObjects.append(TownObject(name: town, delay: totalData?["delay"] as? String ?? "", closing: totalData?["closing"] as? String ?? "", early: totalData?["early"] as? String ?? ""))
                     if (allTownObjects.count == 23) {
-                        GetWeather().getWeather()
-                        print("heyyyy")
+//                        GetWeather().getWeather()
                                 self.delegate?.newDataReceieved()
                             //show loading screen, call db
                             
@@ -111,12 +109,13 @@ class RetrieveMapInfo {
             
         }
     }
+
     
-    
+
     func initFunc(date: Date) {
-        
+
         ref = Database.database().reference()
-        
+
         f.dateFormat = "yyyyMMdd"
         let formattedDate = f.string(from: date)
         for town in towns {
@@ -124,25 +123,25 @@ class RetrieveMapInfo {
                 // Get all percentages
                 let totalData = snapshot.value as? NSDictionary
                 //iterate through array and set each one
-                
-                
+
+
                 if (totalData == nil) {
                     // Get all percentages
                     //iterate through array and set each one
                     allTownObjects.append(TownObject(name: town, delay: "-", closing: "-", early: "-"))
                 } else {
                     allTownObjects.append(TownObject(name: town, delay: totalData?["delay"] as? String ?? "", closing: totalData?["closing"] as? String ?? "", early: totalData?["early"] as? String ?? ""))
-                    
+
 
                 }
-                
+
                 if (allTownObjects.count == 23) {
-                    print("hellooooo")
-                    GetWeather().getWeather()
+                    GetWeather().getWeatherInitial()
                 }
             })
-            
+
         }
     }
-    
+
 }
+

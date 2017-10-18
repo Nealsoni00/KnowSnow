@@ -17,19 +17,16 @@ class GetWeather {
     //    weak var delegate: CompletionProtocol?
     
     
-    func getWeather() {
-        let correctObject = allTownObjects.first(where: { $0.name == school })
-        print("hiiiiiiiii")
+    func getWeather(school : String) {
+        let correctObject = allTownObjects.first(where: { $0.fullName == school })
         let lat = String(correctObject!.lat)
         let long = String(correctObject!.long)
         
         let link = "https://api.darksky.net/forecast/59091b6f95a4650a6e932c300e9bfbab/" + lat + "," + long
         
-        print(link)
         
-        
+        allWeatherObjects.removeAll()
         Alamofire.request(link).responseJSON { response in
-            print("getting weather")
             var j = 1;
             
             while (j <= 4) {
@@ -44,8 +41,8 @@ class GetWeather {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarViewController") as! UITabBarController
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.window?.rootViewController = tabBarController
             
+            //UPDATE VC W/ NEW WEATHER
         }
         
     }
@@ -60,7 +57,6 @@ class GetWeather {
         
         let link = "https://api.darksky.net/forecast/59091b6f95a4650a6e932c300e9bfbab/" + lat + "," + long
         
-        print(link)
         
         
         Alamofire.request(link).responseJSON { response in

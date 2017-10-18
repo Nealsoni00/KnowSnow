@@ -71,7 +71,8 @@ class SecondViewController: UIViewController, DataReturnedDelegate, SchoolChosen
     
     private let dataModel = RetrieveMapInfo()
 
-    
+    var dateString = "date"
+
     @IBOutlet weak var dateLabel: UILabel!
     
     var delayInt = Double();
@@ -113,10 +114,15 @@ class SecondViewController: UIViewController, DataReturnedDelegate, SchoolChosen
         
 
         self.f.dateFormat = "EEEE, MMMM dd"
-        self.dateLabel.text = self.f.string(from:Date().tomorrow)
+        dateString = self.f.string(from:Date().tomorrow)
         
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        newDataReceieved()
+    }
+    
     func weatherStuff () {
         
         //Add weather stuff
@@ -128,6 +134,8 @@ class SecondViewController: UIViewController, DataReturnedDelegate, SchoolChosen
         view2.layer.borderColor = myColor.cgColor
         view3.layer.borderColor = myColor.cgColor
         view4.layer.borderColor = myColor.cgColor
+        
+        print(allWeatherObjects)
         
         
         for w in 0...3 {
@@ -328,8 +336,7 @@ class SecondViewController: UIViewController, DataReturnedDelegate, SchoolChosen
         // Dispose of any resources that can be recreated.
     }
     
-    
-    @IBAction func datePicker(_ sender: Any) {
+    @IBAction func settingsPushed(_ sender: Any) {
         let minDate = Date()
         DatePickerDialog().show(title: "Select Date", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", defaultDate: self.selectedDate, minimumDate: minDate, maximumDate: nil, datePickerMode: UIDatePickerMode.date) { (date) in
             if (date != nil) {
@@ -338,14 +345,17 @@ class SecondViewController: UIViewController, DataReturnedDelegate, SchoolChosen
                 let data = date!
                 self.dataModel.userDidEnterData(data:data)
                 SwiftSpinner.show("Loading Percentages...")
-
+                
                 
                 self.f.dateFormat = "EEEE, MMMM dd"
-                self.dateLabel.text = self.f.string(from:date!)
-
+                self.dateString = self.f.string(from:date!)
+                
             }
         }
     }
+    
+    
+    
     
     func newDataReceieved() {
         print("New Data Recieved Func Called")
@@ -358,8 +368,7 @@ class SecondViewController: UIViewController, DataReturnedDelegate, SchoolChosen
         if (school == "new fairfield" || school == "newfairfield") {
             school = "newFairfield"
         }
-        
-
+        self.dateLabel.text = dateString
         
         let correctObject = allTownObjects.first(where: { $0.name == school })
         
@@ -447,9 +456,9 @@ class SecondViewController: UIViewController, DataReturnedDelegate, SchoolChosen
             earlyInt = 360.00 * (intEarly! / 100);
         }
         } else {
-            let intEarly = 0;
-            let intClosing = 0;
-            let intDelay = 0;
+             earlyInt = 0;
+             closingInt = 0;
+             delayInt = 0;
             
         }
 
@@ -606,11 +615,7 @@ class SecondViewController: UIViewController, DataReturnedDelegate, SchoolChosen
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-       
-        newDataReceieved()
-        
-    }
+   
     
     func infoPressed() {
         let infoPage = self.storyboard?.instantiateViewController(withIdentifier: "infoVC") as! UINavigationController
