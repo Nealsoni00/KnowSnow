@@ -8,12 +8,23 @@
 
 import UIKit
 
-class SchoolClosingsViewController: UIViewController {
+class SchoolClosingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var closings: [String] = ["Westport Public Schools", "Weston Public Schools"]
+    var early: [String] = ["Sharkey Public Schools"]
+    var dismisal: [String] = ["SUCK IT CT Weather"]
+    
+    var info: [[String]]?
     
 
     override func viewDidLoad() {
-        super.viewDidLoad()
         
+        super.viewDidLoad()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         let darkGrey = UIColor(red:0.27, green:0.33, blue:0.36, alpha:1.0)
         
         self.navigationController?.view.backgroundColor = UIColor.white
@@ -31,6 +42,9 @@ class SchoolClosingsViewController: UIViewController {
 
 
         // Do any additional setup after loading the view.
+        
+        self.info = [self.closings, self.early, self.dismisal]
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,6 +56,37 @@ class SchoolClosingsViewController: UIViewController {
         let infoPage = self.storyboard?.instantiateViewController(withIdentifier: "infoVC") as! UINavigationController
         self.tabBarController?.present(infoPage, animated: true, completion: nil)
     }
+    
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        
+        return self.info?[section].count ?? 0
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if (section == 0){
+            return "Closings"
+        }else if(section == 1){
+            return "Delay"
+        }
+        return "Early Dismisal"
+        
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TownCellTableViewCell
+        
+        cell.town.text = self.info?[indexPath.section][indexPath.row] ?? ""
+        
+        return cell
+    }
+    
+    
+    
 
     /*
     // MARK: - Navigation

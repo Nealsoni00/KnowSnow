@@ -17,7 +17,6 @@ class WeatherCollectionView:  UICollectionView, UICollectionViewDelegate, UIColl
         return allWeatherObjects!.count
     }
  
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weatherCell", for: indexPath) as! WeatherCell
         cell.high.text = allWeatherObjects![indexPath.row].high

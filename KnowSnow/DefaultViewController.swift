@@ -40,7 +40,8 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
     @IBOutlet weak var firstProgressText: UILabel!
     @IBOutlet weak var secondProgressText: UILabel!
     @IBOutlet weak var thirdProgressText: UILabel!
-  
+    @IBOutlet var progressText: [UILabel]!
+    
     @IBOutlet weak var schoolNameLabel: UIButton!
     
     @IBOutlet weak var inchesOfSnow: UILabel!
@@ -223,70 +224,30 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         firstProgressText.text = delay;
         secondProgressText.text = closing;
         thirdProgressText.text = early;
+        let indexies: [String] = [delay, closing, early]
+        var ints: [Double] = [delayInt, closingInt, earlyInt]
 
         if (delay != "-") {
-            
-        let indexFirst = delay.index(delay.startIndex, offsetBy: 1)
-        let indexSecond = delay.index(delay.startIndex, offsetBy: 2)
+            for i in 0 ... 2{
+                let indexFirst = indexies[i].index(indexies[i].startIndex, offsetBy: 1)
+                let indexSecond = indexies[i].index(indexies[i].startIndex, offsetBy: 2)
+                let indexThird = indexies[i].index(indexies[i].startIndex, offsetBy: 3)
+                var intIndex: Double = 0.0
+                
+                if (indexies[i].substring(from: indexFirst) == "%") { //single digit percentage
+                    intIndex = Double(indexies[i].substring(to: indexFirst))!
+                } else if (indexies[i].substring(from: indexSecond) == "%") { //two digit
+                    intIndex = Double(indexies[i].substring(to: indexSecond))!
+                } else { //100%
+                    progressText[i].font = progressText[i].font.withSize(30)
+                    intIndex = Double(indexies[i].substring(to: indexThird))!
+                }
+                ints[i] = 360.00 * (intIndex / 100)
+            }
 
-        if (delay.substring(from: indexFirst) == "%") {
-            //single digit percentage
-            let intDelay = Double(delay.substring(to: indexFirst))
-            delayInt = 360.00 * (intDelay! / 100);
-        } else if (delay.substring(from: indexSecond) == "%") {
-            //two digit
-            let intDelay = Double(delay.substring(to: indexSecond))
-            delayInt = 360.00 * (intDelay! / 100);
-        } else {
-            //100%
-            firstProgressText.font = firstProgressText.font.withSize(30)
-            let indexThird = delay.index(delay.startIndex, offsetBy: 3)
-            let intDelay = Double(delay.substring(to: indexThird))
-            delayInt = 360.00 * (intDelay! / 100);
-        }
-
-        //closing wheel stuff
-
-        let indexFirst2 = closing.index(closing.startIndex, offsetBy: 1)
-        let indexSecond2 = closing.index(closing.startIndex, offsetBy: 2)
-
-        if (closing.substring(from: indexFirst2) == "%") {
-            //single digit percentage
-            let intClosing = Double(closing.substring(to: indexFirst2))
-            closingInt = 360.00 * (intClosing! / 100);
-        } else if (closing.substring(from: indexSecond2) == "%") {
-            //two digit
-            let intClosing = Double(closing.substring(to: indexSecond2))
-            closingInt = 360.00 * (intClosing! / 100);
-        } else {
-            //100%
-            secondProgressText.font = secondProgressText.font.withSize(30)
-            let indexThird2 = closing.index(closing.startIndex, offsetBy: 3)
-            let intClosing = Double(closing.substring(to: indexThird2))
-            closingInt = 360.00 * (intClosing! / 100);
-        }
-
-        //early wheel stuff
-
-        let indexFirst3 = early.index(early.startIndex, offsetBy: 1)
-        let indexSecond3 = early.index(early.startIndex, offsetBy: 2)
-
-        if (early.substring(from: indexFirst3) == "%") {
-            //single digit percentage
-            let intEarly = Double(early.substring(to: indexFirst3))
-            earlyInt = 360.00 * (intEarly! / 100);
-        } else if (early.substring(from: indexSecond3) == "%") {
-            //two digit
-            let intEarly = Double(early.substring(to: indexSecond3))
-            earlyInt = 360.00 * (intEarly! / 100);
-        } else {
-            //100%
-            thirdProgressText.font = thirdProgressText.font.withSize(30)
-
-            let indexThird3 = early.index(early.startIndex, offsetBy: 3)
-            let intEarly = Double(early.substring(to: indexThird3))
-            earlyInt = 360.00 * (intEarly! / 100);
-        }
+            delayInt = ints[0]
+            closingInt = ints[1]
+            earlyInt = ints[2]
         } else {
              earlyInt = 0;
              closingInt = 0;
@@ -400,9 +361,6 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         
     }
     
-   
-    
-
     func infoPressed() {
         let infoPage = self.storyboard?.instantiateViewController(withIdentifier: "infoVC") as! UINavigationController
         self.tabBarController?.present(infoPage, animated: true, completion: nil)
