@@ -419,6 +419,7 @@
 		49F66DC81E576B8000F4168D = {
 			isa = PBXGroup;
 			children = (
+				49EB7E3F1F987A140045FAFC /* AirshipConfig.plist */,
 				49F66DD31E576B8000F4168D /* KnowSnow */,
 				49F66DD21E576B8000F4168D /* Products */,
 				540AE504C7CA9F6261ADDD6B /* Pods */,
@@ -447,7 +448,6 @@
 				496829B21E68E0BE00D7A9AC /* GoogleService-Info.plist */,
 				49C9473E1E68E2DC00CD65FD /* Networking */,
 				49C9473D1E68E29500CD65FD /* View Controllers */,
-				49EB7E3F1F987A140045FAFC /* AirshipConfig.plist */,
 			);
 			path = KnowSnow;
 			sourceTree = "<group>";
