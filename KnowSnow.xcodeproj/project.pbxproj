@@ -79,6 +79,7 @@
 		49CB8EC91E671C08008A266C /* New Post Filled-38.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CB8EC81E671C08008A266C /* New Post Filled-38.png */; };
 		49CEB6991E6DD3DA007F0B70 /* RetrieveMapInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CEB6981E6DD3DA007F0B70 /* RetrieveMapInfo.swift */; };
 		49DDBFD81EE0D172009BC505 /* cloud toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DDBFD71EE0D172009BC505 /* cloud toolbar.png */; };
+		49EB7E401F987A140045FAFC /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49EB7E3F1F987A140045FAFC /* AirshipConfig.plist */; };
 		49EF4D951E651593006763A9 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EF4D731E651593006763A9 /* clock.png */; };
 		49EF4D961E651593006763A9 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EF4D741E651593006763A9 /* clock@2x.png */; };
 		49EF4D971E651593006763A9 /* clockFilled.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EF4D751E651593006763A9 /* clockFilled.png */; };
@@ -184,6 +185,7 @@
 		49CEB6981E6DD3DA007F0B70 /* RetrieveMapInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetrieveMapInfo.swift; sourceTree = "<group>"; };
 		49DDBFD71EE0D172009BC505 /* cloud toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cloud toolbar.png"; sourceTree = "<group>"; };
 		49E31D5F1F85BD1200B6A7F5 /* icons8-Cloud Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Cloud Filled-50.png"; sourceTree = "<group>"; };
+		49EB7E3F1F987A140045FAFC /* AirshipConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		49EF4D731E651593006763A9 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		49EF4D741E651593006763A9 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
 		49EF4D751E651593006763A9 /* clockFilled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clockFilled.png; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 				496829B21E68E0BE00D7A9AC /* GoogleService-Info.plist */,
 				49C9473E1E68E2DC00CD65FD /* Networking */,
 				49C9473D1E68E29500CD65FD /* View Controllers */,
+				49EB7E3F1F987A140045FAFC /* AirshipConfig.plist */,
 			);
 			path = KnowSnow;
 			sourceTree = "<group>";
@@ -496,6 +499,9 @@
 						DevelopmentTeam = 9H2266G4DH;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -535,6 +541,7 @@
 				49AB94FE1E669C6B0094EDAB /* Contents.json in Resources */,
 				49AB95031E669C6B0094EDAB /* Icon-40@2x.png in Resources */,
 				49AB94E81E669C6B0094EDAB /* Icon-App-29x29@2x.png in Resources */,
+				49EB7E401F987A140045FAFC /* AirshipConfig.plist in Resources */,
 				49AB94F11E669C6B0094EDAB /* Icon-App-60x60@3x.png in Resources */,
 				49CB8EC91E671C08008A266C /* New Post Filled-38.png in Resources */,
 				49EF4DB11E651593006763A9 /* users.png in Resources */,
@@ -628,6 +635,7 @@
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSpinner/SwiftSpinner.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/UrbanAirship-iOS-SDK/AirshipKit.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -641,6 +649,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSpinner.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AirshipKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);

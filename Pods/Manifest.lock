@@ -21,7 +21,8 @@ PODS:
     - FirebaseAnalytics (~> 4.0)
     - FirebaseCore (~> 4.0)
     - leveldb-library (~> 1.18)
-  - FirebaseInstanceID (2.0.3)
+  - FirebaseInstanceID (2.0.0):
+    - FirebaseCore (~> 4.0)
   - FirebaseMessaging (2.0.3):
     - FirebaseAnalytics (~> 4.0)
     - FirebaseCore (~> 4.0)
@@ -45,17 +46,20 @@ PODS:
   - SideMenu (3.0.1)
   - SwiftSpinner (1.4.1)
   - SwiftyJSON (3.1.4)
+  - UrbanAirship-iOS-SDK (8.6.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.3)
   - Firebase/Core
   - Firebase/Database
   - Firebase/Messaging
+  - FirebaseInstanceID (= 2.0.0)
   - KDCircularProgress
   - PopupDialog (~> 0.5)
   - SideMenu
   - SwiftSpinner
   - SwiftyJSON
+  - UrbanAirship-iOS-SDK
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
@@ -63,7 +67,7 @@ SPEC CHECKSUMS:
   FirebaseAnalytics: 76f754d37ca5b04f36856729b6af3ca0152d1069
   FirebaseCore: 9a6cc1e3eaf75905390f9220596ad4fd8f92faee
   FirebaseDatabase: 03940adcac54ce30db06f1fc2136f8581734ce2c
-  FirebaseInstanceID: a4fc702b5a026f7322964376047f1a3f1f7cc6ff
+  FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
   FirebaseMessaging: eaf1bfff0193170c04ea3ba3bfe983f68f893118
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   KDCircularProgress: 12f677b2deb02409ab48c6cae1898d146b8ad549
@@ -74,7 +78,8 @@ SPEC CHECKSUMS:
   SideMenu: f1fe8a4d23c8ae06d5cb18b21be29851d78fd2f2
   SwiftSpinner: bf7c13332ad008952a09358cadf24a186510ae31
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  UrbanAirship-iOS-SDK: 1a2837473096ca63d86f11cadb4710d993237186
 
-PODFILE CHECKSUM: 6bcd346bc59af0bdd8b1f75137136e455b8ea82d
+PODFILE CHECKSUM: ca13b99eb56f5e35b759378dc2d440db3b618263
 
 COCOAPODS: 1.3.0

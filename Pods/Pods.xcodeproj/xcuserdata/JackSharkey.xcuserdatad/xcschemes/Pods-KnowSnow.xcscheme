@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0900"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5960B18814A07B0DB7911DE30EC8CC53"
+               BlueprintIdentifier = "469F62B39A560B6E1F420C34DBD09A79"
                BuildableName = "Pods_KnowSnow.framework"
                BlueprintName = "Pods-KnowSnow"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5960B18814A07B0DB7911DE30EC8CC53"
+            BlueprintIdentifier = "469F62B39A560B6E1F420C34DBD09A79"
             BuildableName = "Pods_KnowSnow.framework"
             BlueprintName = "Pods-KnowSnow"
             ReferencedContainer = "container:Pods.xcodeproj">

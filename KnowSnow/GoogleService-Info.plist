@@ -7,34 +7,34 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>953646143773-mkommf6mcl1n82vtl30g67itri9v31vm.apps.googleusercontent.com</string>
+	<string>1048056435013-ud0t71g2dvs54m1tl3lm1gsn9t1gfdt3.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.953646143773-mkommf6mcl1n82vtl30g67itri9v31vm</string>
+	<string>com.googleusercontent.apps.1048056435013-ud0t71g2dvs54m1tl3lm1gsn9t1gfdt3</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAuBDR_4-9zboxKwZ30g3zh0Rv2WPqABqI</string>
+	<string>AIzaSyB0KgcvtGwH14bo6WeU84K3NgMuC42j6aU</string>
 	<key>GCM_SENDER_ID</key>
-	<string>953646143773</string>
+	<string>1048056435013</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.sharkey.KnowSnow</string>
+	<string>com.mobincube.ios.scPUQDU</string>
 	<key>PROJECT_ID</key>
-	<string>know-snow</string>
+	<string>know-snow-fed32</string>
 	<key>STORAGE_BUCKET</key>
-	<string>know-snow.appspot.com</string>
+	<string>know-snow-fed32.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
 	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
 	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:953646143773:ios:e0d9ad391d359c1f</string>
+	<string>1:1048056435013:ios:fa9c91a7e9e09840</string>
 	<key>DATABASE_URL</key>
-	<string>https://know-snow.firebaseio.com</string>
+	<string>https://know-snow-fed32.firebaseio.com</string>
 </dict>
 </plist>
