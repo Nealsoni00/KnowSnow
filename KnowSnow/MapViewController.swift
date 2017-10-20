@@ -17,8 +17,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
     
     //array of towns
 
-    var towns = ["weston", "norwalk", "redding", "westport", "shelton", "danbury", "sherman", "newCanaan", "ridgefield", "newFairfield", "bridgeport", "trumbull", "newtown", "darien", "bethel", "fairfield", "stamford", "brookfield", "easton", "monroe", "greenwich", "wilton"]
-    
+    var townLabels: [UILabel]?
     
     @IBOutlet weak var mapScrollView: UIScrollView!
     @IBOutlet weak var mapView: UIView!
@@ -81,13 +80,16 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
 
         
         //TODO: MOVE THIS TO GET DONE BEFORE SCREEN SHOWS
-
+        
+        townLabels = [weston, norwalk, redding, westport, shelton, danbury, sherman, newCanaan, ridgefield, newFairfield, bridgeport, trumbull, newtown, darien, bethel, fairfield, stamford, brookfield, easton, monroe, greenwich, wilton, stratford]
+        
+        
         
         let scrollViewFrame = mapScrollView.frame
         let scaleWidth = scrollViewFrame.size.width / mapScrollView.contentSize.width
         let scaleHeight = scrollViewFrame.size.height / mapScrollView.contentSize.height
         let minScale = min(scaleWidth, scaleHeight);
-        mapScrollView.minimumZoomScale = minScale;
+        mapScrollView.minimumZoomScale = minScale * 0.7;
 
         // 5
         mapScrollView.maximumZoomScale = 1.0
@@ -96,11 +98,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
         // 6
         centerScrollViewContents()
         
-        
-        
-        
-        
-        
+  
         // Do any additional setup after loading the view, typically from a nib.
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
@@ -217,6 +215,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
 
         mapScrollView.minimumZoomScale = minZoom;
         mapScrollView.zoomScale = minZoom;
+        mapScrollView.maximumZoomScale = minZoom*1.25
         
     }
     
@@ -281,222 +280,19 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
     
     
     func changeMap(percentage: String, town: String) {
-        switch town {
-        case "sherman":
-            if (percentage != "-") {
-                sherman.text = percentage
-            } else {
-                sherman.text = "n/a"
+        for i in 0...towns.count - 1 {
+            let label = towns[i]
+            if label == town{
+                if (percentage != "-") {
+                    townLabels![i].text = percentage
+                } else {
+                    townLabels![i].text = "n/a"
+                }
+                if (percentage == "100%") {
+                    townLabels![i].font = townLabels![i].font.withSize(12)
+                }
             }
-            if (percentage == "100%") {
-                sherman.font = sherman.font.withSize(12)
-            }
-          
-        case "newFairfield":
-            if (percentage != "-") {
-                newFairfield.text = percentage
-            } else {
-                newFairfield.text = "n/a"
-            }
-            if (percentage == "100%") {
-                newFairfield.font = newFairfield.font.withSize(15)
-            }
-        case "brookfield":
-            if (percentage != "-") {
-                brookfield.text = percentage
-            } else {
-                brookfield.text = "n/a"
-            }
-            if (percentage == "100%") {
-                brookfield.font = brookfield.font.withSize(13)
-            }
-        case "danbury":
-            if (percentage != "-") {
-                danbury.text = percentage
-            } else {
-                danbury.text = "n/a"
-            }
-            if (percentage == "100%") {
-                danbury.font = danbury.font.withSize(15)
-            }
-        case "bethel":
-            if (percentage != "-") {
-                bethel.text = percentage
-            } else {
-                bethel.text = "n/a"
-            }
-            if (percentage == "100%") {
-                bethel.font = bethel.font.withSize(12)
-            }
-        case "newtown":
-            if (percentage != "-") {
-                newtown.text = percentage
-            } else {
-                newtown.text = "n/a"
-            }
-            if (percentage == "100%") {
-                newtown.font = newtown.font.withSize(15)
-            }
-        case "ridgefield":
-            if (percentage != "-") {
-                ridgefield.text = percentage
-            } else {
-                ridgefield.text = "n/a"
-            }
-            if (percentage == "100%") {
-                ridgefield.font = ridgefield.font.withSize(15)
-            }
-        case "redding":
-            if (percentage != "-") {
-                redding.text = percentage
-            } else {
-                redding.text = "n/a"
-            }
-            if (percentage == "100%") {
-                redding.font = redding.font.withSize(15)
-            }
-        case "monroe":
-            if (percentage != "-") {
-                monroe.text = percentage
-            } else {
-                monroe.text = "n/a"
-            }
-            if (percentage == "100%") {
-                monroe.font = monroe.font.withSize(15)
-            }
-        case "shelton":
-            if (percentage != "-") {
-                shelton.text = percentage
-            } else {
-                shelton.text = "n/a"
-            }
-            if (percentage == "100%") {
-                shelton.font = shelton.font.withSize(15)
-            }
-        case "trumbull":
-            if (percentage != "-") {
-                trumbull.text = percentage
-            } else {
-                trumbull.text = "n/a"
-            }
-            if (percentage == "100%") {
-                trumbull.font = trumbull.font.withSize(15)
-            }
-        case "easton":
-            print(percentage)
-            if (percentage != "-") {
-                easton.text = percentage
-            } else {
-                easton.text = "n/a"
-            }
-            if (percentage == "100%") {
-                easton.font = easton.font.withSize(15)
-            }
-        case "weston":
-            if (percentage != "-") {
-                weston.text = percentage
-            } else {
-                weston.text = "n/a"
-            }
-            if (percentage == "100%") {
-                weston.font = weston.font.withSize(15)
-            }
-        case "wilton":
-            if (percentage != "-") {
-                wilton.text = percentage
-            } else {
-                wilton.text = "n/a"
-            }
-            if (percentage == "100%") {
-                wilton.font = wilton.font.withSize(15)
-            }
-        case "newCanaan":
-            if (percentage != "-") {
-                newCanaan.text = percentage
-            } else {
-                newCanaan.text = "n/a"
-            }
-            if (percentage == "100%") {
-                newCanaan.font = newCanaan.font.withSize(15)
-            }
-        case "stamford":
-            if (percentage != "-") {
-                stamford.text = percentage
-            } else {
-                stamford.text = "n/a"
-            }
-            if (percentage == "100%") {
-                stamford.font = stamford.font.withSize(15)
-            }
-        case "greenwich":
-            if (percentage != "-") {
-                greenwich.text = percentage
-            } else {
-                greenwich.text = "n/a"
-            }
-            if (percentage == "100%") {
-                greenwich.font = greenwich.font.withSize(15)
-            }
-        case "darien":
-            if (percentage != "-") {
-                darien.text = percentage
-            } else {
-                darien.text = "n/a"
-            }
-            if (percentage == "100%") {
-                darien.font = darien.font.withSize(12)
-            }
-        case "norwalk":
-            if (percentage != "-") {
-                norwalk.text = percentage
-            } else {
-                norwalk.text = "n/a"
-            }
-            if (percentage == "100%") {
-                norwalk.font = norwalk.font.withSize(15)
-            }
-        case "westport":
-            if (percentage != "-") {
-                westport.text = percentage
-            } else {
-                westport.text = "n/a"
-            }
-            if (percentage == "100%") {
-                westport.font = westport.font.withSize(15)
-            }
-        case "fairfield":
-            if (percentage != "-") {
-                fairfield.text = percentage
-            } else {
-                fairfield.text = "n/a"
-            }
-            if (percentage == "100%") {
-                fairfield.font = fairfield.font.withSize(15)
-            }
-        case "bridgeport":
-            if (percentage != "-") {
-                bridgeport.text = percentage
-            } else {
-                bridgeport.text = "n/a"
-            }
-            if (percentage == "100%") {
-                bridgeport.font = bridgeport.font.withSize(13)
-            }
-        case "stratford":
-            if (percentage != "-") {
-                stratford.text = percentage
-            } else {
-                stratford.text = "n/a"
-            }
-            if (percentage == "100%") {
-                stratford.font = stratford.font.withSize(11)
-            }
-        default:
-            print("error")
         }
-        
-        
-        
     }
     
     
@@ -512,7 +308,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
             changeMap(percentage: allTownObjects[j].closing, town: allTownObjects[j].name)
             j = j + 1;
         }
-        dateLabel.text = "For: " + dateString
+        dateLabel.text = dateString
         SwiftSpinner.hide()
     }
     

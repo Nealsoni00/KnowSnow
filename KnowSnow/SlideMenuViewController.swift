@@ -16,7 +16,7 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var tableView: UITableView!
     
-    var towns = ["weston", "norwalk", "redding", "westport", "shelton", "danbury", "sherman", "newCanaan", "ridgefield", "newFairfield", "bridgeport", "trumbull", "newtown", "darien", "bethel", "fairfield", "stamford", "brookfield", "easton", "monroe", "greenwich", "wilton"]
+    //var towns = ["weston", "norwalk", "redding", "westport", "shelton", "danbury", "sherman", "newCanaan", "ridgefield", "newFairfield", "bridgeport", "trumbull", "newtown", "darien", "bethel", "fairfield", "stamford", "brookfield", "easton", "monroe", "greenwich", "wilton"]
     let instance = SecondViewController()
     
     var delegate:SchoolChosenDelegate? = nil;
@@ -60,7 +60,7 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return(self.towns.count)
+        return(towns.count)
         
     }
     
@@ -72,7 +72,7 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SideCell") as! CustomCell
         
-        let current = self.towns[indexPath.row].capitalized
+        let current = towns[indexPath.row].capitalized
         
         if (current == "Newfairfield") {
             cell.name.text = "New Fairfield"

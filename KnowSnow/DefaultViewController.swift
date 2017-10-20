@@ -143,9 +143,6 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
     func setZoomScale(view: UIView, scrollView: UIScrollView) {
         let minZoom = min(self.view.bounds.size.width / view.bounds.size.width, self.view.bounds.size.height / view.bounds.size.height)
         
-        //        if (minZoom > 1.0) {
-        //            minZoom = 1.0;
-        //        }
         print("set zoom scale to \(minZoom)")
         
         print(allWeatherObjects)
@@ -159,10 +156,6 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return progressView
     }
-    
-
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -228,10 +221,9 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         var ints: [Double] = [delayInt, closingInt, earlyInt]
 
         if (delay != "-") {
-            for i in 0 ... 2{
+            for i in 0 ... indexies.count - 1{
                 let indexFirst = indexies[i].index(indexies[i].startIndex, offsetBy: 1)
                 let indexSecond = indexies[i].index(indexies[i].startIndex, offsetBy: 2)
-                let indexThird = indexies[i].index(indexies[i].startIndex, offsetBy: 3)
                 var intIndex: Double = 0.0
                 
                 if (indexies[i].substring(from: indexFirst) == "%") { //single digit percentage
@@ -239,6 +231,7 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
                 } else if (indexies[i].substring(from: indexSecond) == "%") { //two digit
                     intIndex = Double(indexies[i].substring(to: indexSecond))!
                 } else { //100%
+                    let indexThird = indexies[i].index(indexies[i].startIndex, offsetBy: 3)
                     progressText[i].font = progressText[i].font.withSize(30)
                     intIndex = Double(indexies[i].substring(to: indexThird))!
                 }

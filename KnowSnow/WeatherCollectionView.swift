@@ -34,13 +34,13 @@ class WeatherCollectionView:  UICollectionView, UICollectionViewDelegate, UIColl
         
         switch allWeatherObjects![indexPath.row].icon {
         case "partly-cloudy-day":
-            cell.image.image = UIImage(named:  "partly-cloudy-day.png")
+            cell.image.image =  UIImage(named:  "partly-cloudy-day.png")
         case "partly-cloudy-night":
-           cell.image.image = UIImage(named:  "partly-cloudy-day.png")
+            cell.image.image =  UIImage(named:  "partly-cloudy-day.png")
         case "rain":
             cell.image.image =  UIImage(named:  "rain.png")
         case "cloudy":
-            cell.image.image = UIImage(named:  "cloudy.png")
+            cell.image.image =  UIImage(named:  "cloudy.png")
         case "fog":
             cell.image.image =  UIImage(named:  "fog.png")
         case "tornado":

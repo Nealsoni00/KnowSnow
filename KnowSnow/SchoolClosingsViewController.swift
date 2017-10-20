@@ -15,8 +15,8 @@ class SchoolClosingsViewController: UIViewController, UITableViewDataSource, UIT
     
     var closings: [String] = ["Westport Public Schools", "Weston Public Schools"]
     var early: [String] = ["Sharkey Public Schools"]
-    var dismisal: [String] = ["SUCK IT CT Weather"]
-    
+    var dismisal: [String] = ["Westport Public Schools", "Weston Public Schools"]
+    var labels: [String] = ["Closings", "Delay", "Early Dismisal"]
     var info: [[String]]?
     
 
@@ -68,22 +68,52 @@ class SchoolClosingsViewController: UIViewController, UITableViewDataSource, UIT
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if (section == 0){
-            return "Closings"
-        }else if(section == 1){
-            return "Delay"
-        }
-        return "Early Dismisal"
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        if (section == 0){
+//            return "Closings"
+//        }else if(section == 1){
+//            return "Delay"
+//        }
+//        return "Early Dismisal"
+//
+//    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
+        headerView.backgroundColor = UIColor(red:0.36, green:0.45, blue:0.49, alpha:1.0)
         
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
+        label.text = labels[section]
+        label.textColor = UIColor.white
+        label.textAlignment = .center
+        headerView.addSubview(label)
+        
+        
+        return headerView
     }
+//    func tableView(_ tableView: UITableView, willDisplayHeaderView view:UIView, forSection: Int) {
+//        if let headerTitle = view as? UITableViewHeaderFooterView {
+//            headerTitle.textLabel?.textColor = UIColor.white
+//        }
+//    }
+//
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TownCellTableViewCell
-        
+
         cell.town.text = self.info?[indexPath.section][indexPath.row] ?? ""
-        
+
         return cell
     }
+//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        var returnedView = UIView(frame:  CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30)) //set these values as necessary
+//        returnedView.backgroundColor = UIColor(red:0.28, green:0.33, blue:0.36, alpha:1.0)
+//
+//        var label = UILabel(frame: CGRectMake(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
+//        label.text = self.info?[indexPath.section][indexPath.row] ?? ""
+//        returnedView.addSubview(label)
+//
+//        return returnedView
+//    }
     
     
     

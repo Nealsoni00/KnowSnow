@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zP4-sg-Kh3">
-                                <rect key="frame" x="0.0" y="92" width="414" height="571"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="558"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Us-h9-6jZ">
                                         <rect key="frame" x="0.0" y="2" width="414" height="540"/>
@@ -41,6 +41,14 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fairfield county outline.png" translatesAutoresizingMaskIntoConstraints="NO" id="uod-pf-wD6">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="540"/>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="date" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KCE-bo-YTA">
+                                                <rect key="frame" x="171" y="0.0" width="235" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.72245385362694303" green="0.72245385362694303" blue="0.72245385362694303" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
+                                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjq-vv-nG3" userLabel="ridgefield">
                                                 <rect key="frame" x="120" y="267" width="39" height="29"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -217,8 +225,8 @@
                                 <constraints>
                                     <constraint firstItem="2Us-h9-6jZ" firstAttribute="leading" secondItem="zP4-sg-Kh3" secondAttribute="leading" id="N0w-C6-LFX"/>
                                     <constraint firstAttribute="trailing" secondItem="2Us-h9-6jZ" secondAttribute="trailing" id="ejD-tu-zHZ"/>
-                                    <constraint firstItem="2Us-h9-6jZ" firstAttribute="top" secondItem="zP4-sg-Kh3" secondAttribute="top" constant="16" id="wAb-uj-U2q"/>
-                                    <constraint firstAttribute="bottom" secondItem="2Us-h9-6jZ" secondAttribute="bottom" constant="15" id="wZw-id-Fcq"/>
+                                    <constraint firstItem="2Us-h9-6jZ" firstAttribute="top" secondItem="zP4-sg-Kh3" secondAttribute="top" constant="18" id="wAb-uj-U2q"/>
+                                    <constraint firstAttribute="bottom" secondItem="2Us-h9-6jZ" secondAttribute="bottom" id="wZw-id-Fcq"/>
                                 </constraints>
                             </scrollView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8L1-3j-bkz">
@@ -232,29 +240,16 @@
                                     <action selector="tabbedButtons:" destination="c2i-PM-Tuq" eventType="valueChanged" id="78p-Ws-1dU"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCE-bo-YTA">
-                                <rect key="frame" x="0.0" y="663" width="414" height="24"/>
-                                <color key="backgroundColor" red="0.72245385362694303" green="0.72245385362694303" blue="0.72245385362694303" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="KHP-pD-0DN"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.28235294119999998" green="0.35294117650000001" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="KCE-bo-YTA" firstAttribute="leading" secondItem="9Cx-F6-JeB" secondAttribute="leading" id="6VW-XU-O7a"/>
                             <constraint firstItem="zP4-sg-Kh3" firstAttribute="leading" secondItem="9Cx-F6-JeB" secondAttribute="leading" id="84d-tS-4ic"/>
                             <constraint firstAttribute="trailing" secondItem="zP4-sg-Kh3" secondAttribute="trailing" id="DSX-PG-W1j"/>
-                            <constraint firstItem="KCE-bo-YTA" firstAttribute="top" secondItem="zP4-sg-Kh3" secondAttribute="bottom" id="On8-SH-DUk"/>
                             <constraint firstItem="8L1-3j-bkz" firstAttribute="leading" secondItem="9Cx-F6-JeB" secondAttribute="leading" id="Tz8-yU-vt1"/>
-                            <constraint firstAttribute="trailing" secondItem="KCE-bo-YTA" secondAttribute="trailing" id="XmS-Og-Gb4"/>
                             <constraint firstItem="zP4-sg-Kh3" firstAttribute="top" secondItem="8L1-3j-bkz" secondAttribute="bottom" id="ZFk-Mg-tXv"/>
                             <constraint firstItem="8L1-3j-bkz" firstAttribute="top" secondItem="9Cx-F6-JeB" secondAttribute="top" constant="64" id="hg6-43-B2L"/>
+                            <constraint firstItem="ix7-TV-RvD" firstAttribute="top" secondItem="zP4-sg-Kh3" secondAttribute="bottom" constant="37" id="jT8-dq-fDx"/>
                             <constraint firstAttribute="trailing" secondItem="8L1-3j-bkz" secondAttribute="trailing" id="n9l-Hs-5Cf"/>
-                            <constraint firstItem="ix7-TV-RvD" firstAttribute="top" secondItem="KCE-bo-YTA" secondAttribute="bottom" id="wsN-Rv-F2C"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Know Snow" id="Daw-3r-6OJ">
@@ -302,12 +297,12 @@
         <scene sceneID="XHv-Y4-A6B">
             <objects>
                 <viewController title="ClosingsViewController" id="qP5-7f-Moi" customClass="SchoolClosingsViewController" customModule="KnowSnow" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sAT-xs-qMC">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sAT-xs-qMC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.27966901659965515" green="0.3330865204334259" blue="0.36088106036186218" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="separatorColor" red="0.92158538103103638" green="0.92156803607940674" blue="0.92157983779907227" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="sectionIndexColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.27966901659965515" green="0.3330865204334259" blue="0.36088106036186218" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="sectionIndexTrackingBackgroundColor" red="0.27966901659965515" green="0.3330865204334259" blue="0.36088106036186218" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by CT Weather" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cPi-mC-mUj">
@@ -323,17 +318,18 @@
                                 <rect key="frame" x="0.0" y="70.666666666666657" width="414" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MhE-bn-0VE" id="nnE-mo-mC6">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="42.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Westport Public Schools" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2H-7V-RPI">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="42.666666666666664"/>
+                                            <color key="backgroundColor" red="0.24610328670000001" green="0.30431869630000002" blue="0.33458173270000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="20"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.37419739365577698" green="0.4466499388217926" blue="0.48635777831077576" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" red="0.24610328670000001" green="0.30431869630000002" blue="0.33458173270000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="G2H-7V-RPI" secondAttribute="bottom" id="1W6-OV-vRS"/>
                                         <constraint firstAttribute="trailing" secondItem="G2H-7V-RPI" secondAttribute="trailing" id="D91-Pe-JTV"/>
@@ -409,7 +405,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jET-4d-X4D">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" bounces="NO" scrollEnabled="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jET-4d-X4D">
                                 <rect key="frame" x="0.0" y="151" width="414" height="163.66666666666669"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2yk-SJ-gPP">
@@ -1484,7 +1480,7 @@
                                                 <constraint firstItem="XnT-c7-86k" firstAttribute="centerY" secondItem="Ii9-0m-uGZ" secondAttribute="centerY" id="WlJ-1T-OGJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.24610328670000001" green="0.30431869630000002" blue="0.33458173270000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.26363667845726013" green="0.30181637406349182" blue="0.32166829705238342" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="marker" destination="XnT-c7-86k" id="qo5-wV-VYa"/>
                                             <outlet property="name" destination="ODG-Ho-h4l" id="9kE-lt-MO2"/>
