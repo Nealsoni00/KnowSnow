@@ -496,7 +496,7 @@
 				TargetAttributes = {
 					49F66DD01E576B8000F4168D = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 7933NKJF62;
+						DevelopmentTeam = 9H2266G4DH;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -854,7 +854,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KnowSnow/KnowSnow.entitlements;
-				DEVELOPMENT_TEAM = 7933NKJF62;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9H2266G4DH;
 				INFOPLIST_FILE = KnowSnow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobincube.ios.scPUQDU;
@@ -869,7 +870,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KnowSnow/KnowSnow.entitlements;
-				DEVELOPMENT_TEAM = 7933NKJF62;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9H2266G4DH;
 				INFOPLIST_FILE = KnowSnow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobincube.ios.scPUQDU;
