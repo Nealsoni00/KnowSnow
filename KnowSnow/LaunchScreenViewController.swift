@@ -81,10 +81,12 @@ class LaunchScreenViewController: UIViewController {
         let flake = makeEmitterCell()
         
         cloud.emitterCells = [flake]
-        
         view.layer.addSublayer(cloud)
     }
-    
+    func makeDisapear(_ sender: AnyObject) {
+        //sender.hide
+
+    }
     func makeEmitterCell() -> CAEmitterCell {
         let cell = CAEmitterCell()
         cell.contentsScale = 8
@@ -97,7 +99,9 @@ class LaunchScreenViewController: UIViewController {
         cell.spinRange = 1.2
         cell.scaleRange = -0.05
         cell.contents = UIImage(named: "snow")?.cgImage
-        
+        //let tapEvent = UITapGestureRecognizer(target: self, action: #selector(self.makeDisapear))
+        cell.spin = 1
+        //addGestureRecognizer(tapEvent) // adding the gesture to your object
         return cell
     }
     

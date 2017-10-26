@@ -10,9 +10,10 @@ import UIKit
 import SideMenu
 import PopupDialog
 import SwiftSpinner
+import GoogleMobileAds
 
-class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedDelegate {
-
+class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedDelegate, GADBannerViewDelegate {
+    
     
     
     //array of towns
@@ -50,7 +51,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
     
     @IBOutlet weak var dateLabel: UILabel!
     
-    
+    var bannerView: GADBannerView!
     //init
 
     override func viewDidLoad() {
@@ -78,7 +79,20 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
         navigationItem.leftBarButtonItem = infoBarButtonItem
         self.navigationItem.title = "Map"
 
+        bannerView =  GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
         
+        addBannerViewToView(bannerView)
+        //ca-app-pub-6421137549100021~9702408169
+        //bannerView.adUnitID = "ca-app-pub-6421137549100021/7399678458" // real one
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // Test one
+        //request.testDevices = @[ kGADSimulatorID ]
+        let request = GADRequest()
+        request.testDevices =  [ kGADSimulatorID ]  // Sample device ID
+
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.delegate = self
+
         //TODO: MOVE THIS TO GET DONE BEFORE SCREEN SHOWS
         
         townLabels = [weston, norwalk, redding, westport, shelton, danbury, sherman, newCanaan, ridgefield, newFairfield, bridgeport, trumbull, newtown, darien, bethel, fairfield, stamford, brookfield, easton, monroe, greenwich, wilton, stratford]
@@ -147,8 +161,33 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
     }
     var selectedDate = Date()
     let f = DateFormatter();
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
+    }
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        bannerView.alpha = 0
+        UIView.animate(withDuration: 1, animations: {
+            bannerView.alpha = 1
+        })
+    }
     
-
     @IBAction func calenderPressed(_ sender: Any) {
         let minDate = Date()
         DatePickerDialog().show(title: "Select Date", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", defaultDate: self.selectedDate, minimumDate: minDate, maximumDate: nil, datePickerMode: UIDatePickerMode.date) { (date) in

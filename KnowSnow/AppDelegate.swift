@@ -13,6 +13,7 @@ import Firebase
 import FirebaseInstanceID
 import FirebaseMessaging
 import AirshipKit
+import GoogleMobileAds
 
 @UIApplicationMain
 
@@ -32,7 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Override point for customization after application launch.
        
         //        RetrieveMapInfo().initFunc(date: Date().tomorrow, completion: );
-        
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-6421137549100021~9702408169")
+
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
             UNUserNotificationCenter.current().delegate = self
