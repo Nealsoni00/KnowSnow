@@ -18,7 +18,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
     
     //array of towns
 
-    var townLabels: [UILabel]?
+    var townLabels = [String: UILabel]()
     
     @IBOutlet weak var mapScrollView: UIScrollView!
     @IBOutlet weak var mapView: UIView!
@@ -51,7 +51,9 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
     
     @IBOutlet weak var dateLabel: UILabel!
     
-    var bannerView: GADBannerView!
+    var bannerView: GADBannerView! //Ads
+    var selectedDate = Date()
+    let f = DateFormatter();
     //init
 
     override func viewDidLoad() {
@@ -62,10 +64,6 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
         
         let darkGrey = UIColor(red:0.27, green:0.33, blue:0.36, alpha:1.0)
         dataModel.delegate = self
-
-        
-        //let scale = CGFloat(self.mapScrollView.frame.size.width/self.mapView.frame.size.width)
-        //self.mapScrollView.setZoomScale(scale, animated: true)
         
         self.navigationController?.view.backgroundColor = UIColor.white
         self.navigationController?.navigationBar.barTintColor = darkGrey
@@ -93,8 +91,9 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
         bannerView.delegate = self
 
         //TODO: MOVE THIS TO GET DONE BEFORE SCREEN SHOWS
-        
-        townLabels = [weston, norwalk, redding, westport, shelton, danbury, sherman, newCanaan, ridgefield, newFairfield, bridgeport, trumbull, newtown, darien, bethel, fairfield, stamford, brookfield, easton, monroe, greenwich, wilton, stratford]
+        townLabels = ["weston": weston, "norwalk": norwalk, "redding": redding, "westport": westport, "shelton": shelton, "danbury": danbury, "sherman": sherman, "newCanaan": newCanaan, "ridgefield": ridgefield, "newFairfield": newFairfield, "bridgeport": bridgeport, "trumbull": trumbull, "newtown": newtown, "darien": darien, "bethel": bethel, "fairfield": fairfield, "stamford": stamford, "brookfield": brookfield, "easton": easton, "monroe": monroe, "greenwich": greenwich, "wilton": wilton, "stratford": stratford]
+
+        //townLabels = [weston, norwalk, redding, westport, shelton, danbury, sherman, newCanaan, ridgefield, newFairfield, bridgeport, trumbull, newtown, darien, bethel, fairfield, stamford, brookfield, easton, monroe, greenwich, wilton, stratford]
         
         
         
@@ -128,16 +127,14 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
         // Define the menus
         let menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as! UISideMenuNavigationController
         menuLeftNavigationController.leftSide = true
-        // UISideMenuNavigationController is a subclass of UINavigationController, so do any additional configuration
-        // of it here like setting its viewControllers. If you're using storyboards, you'll want to do something like:
-        // let menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as! UISideMenuNavigationController
-        SideMenuManager.menuLeftNavigationController = menuLeftNavigationController
+       
+        SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController
         
-        SideMenuManager.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
-        SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+        SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
         
-        SideMenuManager.menuPresentMode = .menuSlideIn
-        SideMenuManager.menuWidth = max(round(min((FirstViewController.appScreenRect.width), (FirstViewController.appScreenRect.height)) * 0.88), 240)
+        SideMenuManager.default.menuPresentMode = .menuSlideIn
+        SideMenuManager.default.menuWidth = max(round(min((FirstViewController.appScreenRect.width), (FirstViewController.appScreenRect.height)) * 0.88), 240)
         var j = 0
         
         //init percentages set
@@ -155,8 +152,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
         setZoomScale()
         
     }
-    var selectedDate = Date()
-    let f = DateFormatter();
+
     func addBannerViewToView(_ bannerView: GADBannerView) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bannerView)
@@ -267,7 +263,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             switch swipeGesture.direction {
             case UISwipeGestureRecognizerDirection.right:
-                present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
+                present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
             case UISwipeGestureRecognizerDirection.down: break
             case UISwipeGestureRecognizerDirection.left:
                 dismiss(animated: true, completion: nil)
@@ -283,26 +279,19 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
     
     
     @IBAction func tabbedButtons(_ sender: Any) {
-        var j = 0;
-        if(tabbedButtons.selectedSegmentIndex == 0)
-        {
-            for _ in allTownObjects {
+        if(tabbedButtons.selectedSegmentIndex == 0){
+            for j in 0...allTownObjects.count - 1 {
                 changeMap(percentage: allTownObjects[j].closing, town: allTownObjects[j].name)
-                j = j + 1
             }
         }
-        else if(tabbedButtons.selectedSegmentIndex == 1)
-        {
-            for _ in allTownObjects {
+        else if(tabbedButtons.selectedSegmentIndex == 1){
+            for j in 0...allTownObjects.count - 1 {
                 changeMap(percentage: allTownObjects[j].delay, town: allTownObjects[j].name)
-                j = j + 1
             }
         }
-        else if(tabbedButtons.selectedSegmentIndex == 2)
-        {
-            for _ in allTownObjects {
+        else if(tabbedButtons.selectedSegmentIndex == 2){
+            for j in 0...allTownObjects.count - 1 {
                 changeMap(percentage: allTownObjects[j].early, town: allTownObjects[j].name)
-                j = j + 1
             }
         }
     }
@@ -317,14 +306,16 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
     func changeMap(percentage: String, town: String) {
         for i in 0...towns.count - 1 {
             let label = towns[i]
+            print("Label: \(label) Town:\(towns[i])")
             if label == town{
+                print(townLabels[label]!);
                 if (percentage != "-") {
-                    townLabels![i].text = percentage
+                    townLabels[label]?.text = percentage
                 } else {
-                    townLabels![i].text = "n/a"
+                    townLabels[label]?.text = "n/a"
                 }
                 if (percentage == "100%") {
-                    townLabels![i].font = townLabels![i].font.withSize(12)
+                    townLabels[label]?.font = townLabels[label]?.font.withSize(12)
                 }
             }
         }
@@ -337,11 +328,11 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
     }
     
     func newDataReceieved() {
-        var j = 0;
+        var j = 0
         for _ in allTownObjects {
             print(allTownObjects[j])
             changeMap(percentage: allTownObjects[j].closing, town: allTownObjects[j].name)
-            j = j + 1;
+            j = j + 1
         }
         dateLabel.text = dateString
         SwiftSpinner.hide()

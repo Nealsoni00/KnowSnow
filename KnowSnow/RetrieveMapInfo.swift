@@ -13,6 +13,7 @@ import Firebase
 
 var towns = ["weston", "norwalk", "redding", "westport", "shelton", "danbury", "sherman", "newCanaan", "ridgefield", "newFairfield", "bridgeport", "trumbull", "newtown", "darien", "bethel", "fairfield", "stamford", "brookfield", "easton", "monroe", "greenwich", "wilton", "stratford"]
 
+
 var allTownObjects = [TownObject]()
 
 protocol DataReturnedDelegate: class {
