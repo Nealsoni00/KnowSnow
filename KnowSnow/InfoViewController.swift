@@ -63,13 +63,15 @@ class InfoViewController: UITableViewController, MFMailComposeViewControllerDele
             case 1:
                 sendMail("nealson00@gmail.com")
                 tableView.deselectRow(at: indexPath, animated: true)
-
             case 2:
+                sendMail("scottpec96@gmail.com")
+                tableView.deselectRow(at: indexPath, animated: true)
+            case 3:
                 if let url = URL(string: "https://darksky.net/poweredby/") {
                     UIApplication.shared.open(url, options: [:])
                 }
                 tableView.deselectRow(at: indexPath, animated: true)
-            case 3:
+            case 4:
                 if let url = URL(string: "http://www.ctweather.com") {
                     UIApplication.shared.open(url, options: [:])
                 }
