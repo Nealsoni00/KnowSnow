@@ -8,6 +8,8 @@
 
 import UIKit
 import SwiftSpinner
+import Alamofire
+import SwiftyJSON
 
 protocol SchoolChosenDelegate {
     func userChoseSchool(name: String)
@@ -78,16 +80,41 @@ class SetSchoolViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let myCell = tableView.cellForRow(at: indexPath) as! TownCellTableViewCell
         //TODO: SET Default VC controller's Town label to selecred row text
-        let fullName = myCell.town.text 
+        let localFullName = myCell.town.text
         if delegate != nil {
-            GetWeather().getWeather(school: fullName!)
-            delegate?.userChoseSchool(name: fullName!)
+            let correctObject = allTownObjects.first(where: { $0.fullName == localFullName })
+            let lat = String(correctObject!.lat)
+            let long = String(correctObject!.long)
+            
+            let link = "https://api.darksky.net/forecast/59091b6f95a4650a6e932c300e9bfbab/" + lat + "," + long
+            
+            
+            allWeatherObjects.removeAll()
+            Alamofire.request(link).responseJSON { response in
+                var j = 1;
+                
+                while (j <= 4) {
+                    let decodedJSON = JSON(response.result.value!)
+                    
+                    allWeatherObjects.append(WeatherObject(timeStamp: String(describing: decodedJSON["daily"]["data"][j]["time"]), icon: String(describing: decodedJSON["daily"]["data"][j]["icon"]), low: String(describing: decodedJSON["daily"]["data"][j]["temperatureMin"]), high: String(describing: decodedJSON["daily"]["data"][j]["temperatureMax"]), precip:String(describing: decodedJSON["daily"]["data"][j]["precipAccumullation"])));
+                    print(String(describing: decodedJSON["daily"]["data"][j]["icon"]))
+                    j += 1;
+                    
+                }
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarViewController") as! UITabBarController
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                
+                //UPDATE VC W/ NEW WEATHER
+            }
+            delegate?.userChoseSchool(name: localFullName!)
             dismiss(animated: true, completion: nil)
         }
         
          let defaultSchool = defaults.string(forKey: "default")
             if defaultSchool == nil {
-            let index = allTownObjects.index(where: { $0.fullName == fullName })
+            let index = allTownObjects.index(where: { $0.fullName == localFullName })
             defaults.set(allTownObjects[index!].name, forKey: "default")
             GetWeather().getWeatherInitial()
             SwiftSpinner.show("Loading Data...")

@@ -111,7 +111,10 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
     
     override func viewDidAppear(_ animated: Bool) {
         newDataReceieved()
+//        print(allWeatherObjects)
         collectionView.allWeatherObjects = allWeatherObjects
+        self.collectionView!.reloadData()
+
 
     }
     
