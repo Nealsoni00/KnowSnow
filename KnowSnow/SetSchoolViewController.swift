@@ -91,9 +91,9 @@ class SetSchoolViewController: UIViewController, UITableViewDelegate, UITableVie
             
             allWeatherObjects.removeAll()
             Alamofire.request(link).responseJSON { response in
-                var j = 1;
+                var j = 0;
                 
-                while (j <= 4) {
+                while (j < 7) {
                     let decodedJSON = JSON(response.result.value!)
                     
                     allWeatherObjects.append(WeatherObject(timeStamp: String(describing: decodedJSON["daily"]["data"][j]["time"]), icon: String(describing: decodedJSON["daily"]["data"][j]["icon"]), low: String(describing: decodedJSON["daily"]["data"][j]["temperatureMin"]), high: String(describing: decodedJSON["daily"]["data"][j]["temperatureMax"]), precip:String(describing: decodedJSON["daily"]["data"][j]["precipAccumullation"])));

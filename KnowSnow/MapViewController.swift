@@ -87,8 +87,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
 //        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // Test one
         //request.testDevices = @[ kGADSimulatorID ]
         let request = GADRequest()
-        request.testDevices =  [ kGADSimulatorID ]  // Sample device ID
-
+        request.testDevices = [ kGADSimulatorID ];
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         bannerView.delegate = self
@@ -147,10 +146,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
             j = j + 1
         }
         
-        let f = DateFormatter()
-        f.dateFormat = "M/dd/yyyy"
-     
-        dateLabel.text = "For: " + dateString
+      
 
         
     }
@@ -349,6 +345,13 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
         }
         dateLabel.text = dateString
         SwiftSpinner.hide()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let f = DateFormatter()
+        f.dateFormat = "M/dd/yyyy"
+        
+        dateLabel.text = "For: " + dateString
     }
     
   
