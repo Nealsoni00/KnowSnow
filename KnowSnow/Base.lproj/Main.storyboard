@@ -32,11 +32,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zP4-sg-Kh3">
-                                <rect key="frame" x="0.0" y="108" width="414" height="542"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8L1-3j-bkz">
+                                <rect key="frame" x="0.0" y="64" width="414" height="29"/>
+                                <segments>
+                                    <segment title="Snow Day "/>
+                                    <segment title="Delayed Opening"/>
+                                    <segment title="Early Closing"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="tabbedButtons:" destination="c2i-PM-Tuq" eventType="valueChanged" id="78p-Ws-1dU"/>
+                                </connections>
+                            </segmentedControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zP4-sg-Kh3">
+                                <rect key="frame" x="0.0" y="93" width="414" height="563"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Us-h9-6jZ">
-                                        <rect key="frame" x="0.0" y="2" width="414" height="560"/>
+                                        <rect key="frame" x="0.0" y="7" width="414" height="558"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fairfield county outline.png" translatesAutoresizingMaskIntoConstraints="NO" id="uod-pf-wD6">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="540"/>
@@ -216,40 +228,28 @@
                                             <constraint firstItem="uod-pf-wD6" firstAttribute="top" secondItem="2Us-h9-6jZ" secondAttribute="top" id="4b2-yv-MCZ"/>
                                             <constraint firstItem="uod-pf-wD6" firstAttribute="leading" secondItem="2Us-h9-6jZ" secondAttribute="leading" id="79f-OU-XwX"/>
                                             <constraint firstAttribute="width" constant="414" id="IXA-NY-MSM"/>
-                                            <constraint firstAttribute="height" constant="560" id="Iy0-UJ-I3I"/>
+                                            <constraint firstAttribute="height" constant="558" id="Iy0-UJ-I3I"/>
                                             <constraint firstAttribute="trailing" secondItem="uod-pf-wD6" secondAttribute="trailing" id="bFK-8V-vOm"/>
-                                            <constraint firstAttribute="bottom" secondItem="uod-pf-wD6" secondAttribute="bottom" constant="20" id="un9-hT-mcT"/>
+                                            <constraint firstAttribute="bottom" secondItem="uod-pf-wD6" secondAttribute="bottom" constant="18" id="un9-hT-mcT"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="2Us-h9-6jZ" firstAttribute="leading" secondItem="zP4-sg-Kh3" secondAttribute="leading" id="N0w-C6-LFX"/>
                                     <constraint firstAttribute="trailing" secondItem="2Us-h9-6jZ" secondAttribute="trailing" id="ejD-tu-zHZ"/>
-                                    <constraint firstItem="2Us-h9-6jZ" firstAttribute="top" secondItem="zP4-sg-Kh3" secondAttribute="top" constant="2" id="wAb-uj-U2q"/>
-                                    <constraint firstAttribute="bottom" secondItem="2Us-h9-6jZ" secondAttribute="bottom" constant="-20" id="wZw-id-Fcq"/>
+                                    <constraint firstItem="2Us-h9-6jZ" firstAttribute="top" secondItem="zP4-sg-Kh3" secondAttribute="top" constant="7" id="wAb-uj-U2q"/>
+                                    <constraint firstAttribute="bottom" secondItem="2Us-h9-6jZ" secondAttribute="bottom" id="wZw-id-Fcq"/>
                                 </constraints>
                             </scrollView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8L1-3j-bkz">
-                                <rect key="frame" x="0.0" y="80" width="414" height="29"/>
-                                <segments>
-                                    <segment title="Snow Day "/>
-                                    <segment title="Delayed Opening"/>
-                                    <segment title="Early Closing"/>
-                                </segments>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="tabbedButtons:" destination="c2i-PM-Tuq" eventType="valueChanged" id="78p-Ws-1dU"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.28235294119999998" green="0.35294117650000001" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="zP4-sg-Kh3" firstAttribute="leading" secondItem="9Cx-F6-JeB" secondAttribute="leading" id="84d-tS-4ic"/>
                             <constraint firstAttribute="trailing" secondItem="zP4-sg-Kh3" secondAttribute="trailing" id="DSX-PG-W1j"/>
                             <constraint firstItem="8L1-3j-bkz" firstAttribute="leading" secondItem="9Cx-F6-JeB" secondAttribute="leading" id="Tz8-yU-vt1"/>
-                            <constraint firstItem="zP4-sg-Kh3" firstAttribute="top" secondItem="8L1-3j-bkz" secondAttribute="bottom" id="ZFk-Mg-tXv"/>
-                            <constraint firstItem="8L1-3j-bkz" firstAttribute="top" secondItem="9Cx-F6-JeB" secondAttribute="top" constant="80" id="hg6-43-B2L"/>
-                            <constraint firstItem="ix7-TV-RvD" firstAttribute="top" secondItem="zP4-sg-Kh3" secondAttribute="bottom" constant="37" id="jT8-dq-fDx"/>
+                            <constraint firstItem="zP4-sg-Kh3" firstAttribute="top" secondItem="8L1-3j-bkz" secondAttribute="bottom" constant="-1" id="ZFk-Mg-tXv"/>
+                            <constraint firstItem="8L1-3j-bkz" firstAttribute="top" secondItem="9Cx-F6-JeB" secondAttribute="top" constant="64" id="hg6-43-B2L"/>
+                            <constraint firstItem="ix7-TV-RvD" firstAttribute="top" secondItem="zP4-sg-Kh3" secondAttribute="bottom" constant="31" id="jT8-dq-fDx"/>
                             <constraint firstAttribute="trailing" secondItem="8L1-3j-bkz" secondAttribute="trailing" id="n9l-Hs-5Cf"/>
                         </constraints>
                     </view>
@@ -1541,7 +1541,7 @@
         <scene sceneID="8bZ-UH-bjd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1fb-R1-vb4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="westport" image="cloud toolbar.png" id="NyT-d4-HS8"/>
+                    <tabBarItem key="tabBarItem" title="westport" image="icons8-Cloud Filled-50.png" id="NyT-d4-HS8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sTc-W4-kEg">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -1586,7 +1586,6 @@
         <image name="Marker Filled-40.png" width="40" height="40"/>
         <image name="New Post Filled-38.png" width="38" height="38"/>
         <image name="Settings Filled-50.png" width="25" height="25"/>
-        <image name="cloud toolbar.png" width="25" height="25"/>
         <image name="cloudy.png" width="100" height="100"/>
         <image name="darkSky2.png" width="800" height="800"/>
         <image name="fairfield county outline.png" width="4011" height="5402"/>

@@ -16,6 +16,10 @@
 		492F08821ED5EFFD00167D05 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492F08811ED5EFFD00167D05 /* LaunchScreenViewController.swift */; };
 		493B69E11F85E6E000838AE4 /* SetSchoolFromInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493B69E01F85E6E000838AE4 /* SetSchoolFromInfoViewController.swift */; };
 		4940397C1ED3AA0E000F028F /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4940397B1ED3AA0E000F028F /* SlideMenuViewController.swift */; };
+		494A20A31FA2C079008B8080 /* Appointment Reminders Filled-25@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 494A20A01FA2C078008B8080 /* Appointment Reminders Filled-25@2x.png */; };
+		494A20A41FA2C079008B8080 /* Map Filled-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 494A20A11FA2C078008B8080 /* Map Filled-50@2x.png */; };
+		494A20A51FA2C079008B8080 /* icons8-Cloud Filled-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 494A20A21FA2C078008B8080 /* icons8-Cloud Filled-50@2x.png */; };
+		494A20A71FA2C109008B8080 /* icons8-Cloud Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 494A20A61FA2C108008B8080 /* icons8-Cloud Filled-50.png */; };
 		494AE5CB1EDE5892000E1BEC /* WeatherObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494AE5CA1EDE5892000E1BEC /* WeatherObject.swift */; };
 		4966CADA1ED8BCC90034C251 /* cloudy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4966CAD21ED8BCC90034C251 /* cloudy.png */; };
 		4966CADB1ED8BCC90034C251 /* rain.png in Resources */ = {isa = PBXBuildFile; fileRef = 4966CAD31ED8BCC90034C251 /* rain.png */; };
@@ -28,7 +32,6 @@
 		496829AF1E68CE3000D7A9AC /* fairfield county outline.png in Resources */ = {isa = PBXBuildFile; fileRef = 496829AE1E68CE3000D7A9AC /* fairfield county outline.png */; };
 		496829B11E68DA4400D7A9AC /* Search Filled-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 496829B01E68DA4400D7A9AC /* Search Filled-25.png */; };
 		496829B31E68E0BE00D7A9AC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 496829B21E68E0BE00D7A9AC /* GoogleService-Info.plist */; };
-		49844CF71F85C646003B3FFD /* icons8-Cloud Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E31D5F1F85BD1200B6A7F5 /* icons8-Cloud Filled-50.png */; };
 		49844CFD1F85DB9B003B3FFD /* darkSky2.png in Resources */ = {isa = PBXBuildFile; fileRef = 49844CFC1F85D8EE003B3FFD /* darkSky2.png */; };
 		498F0B531EE79DC3004D0875 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F0B521EE79DC3004D0875 /* DatePickerDialog.swift */; };
 		49AB94B51E66826E0094EDAB /* Calendar Filled-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AB94B41E66826E0094EDAB /* Calendar Filled-25.png */; };
@@ -78,7 +81,6 @@
 		49CB8EC71E671B10008A266C /* Approval Filled-38.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CB8EC61E671B10008A266C /* Approval Filled-38.png */; };
 		49CB8EC91E671C08008A266C /* New Post Filled-38.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CB8EC81E671C08008A266C /* New Post Filled-38.png */; };
 		49CEB6991E6DD3DA007F0B70 /* RetrieveMapInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CEB6981E6DD3DA007F0B70 /* RetrieveMapInfo.swift */; };
-		49DDBFD81EE0D172009BC505 /* cloud toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DDBFD71EE0D172009BC505 /* cloud toolbar.png */; };
 		49EB7E401F987A140045FAFC /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49EB7E3F1F987A140045FAFC /* AirshipConfig.plist */; };
 		49EF4D951E651593006763A9 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EF4D731E651593006763A9 /* clock.png */; };
 		49EF4D961E651593006763A9 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EF4D741E651593006763A9 /* clock@2x.png */; };
@@ -90,7 +92,6 @@
 		49EF4D9E1E651593006763A9 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EF4D7C1E651593006763A9 /* info.png */; };
 		49EF4DA61E651593006763A9 /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EF4D861E651593006763A9 /* lock.png */; };
 		49EF4DA71E651593006763A9 /* Map Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EF4D871E651593006763A9 /* Map Filled-50.png */; };
-		49EF4DA81E651593006763A9 /* Map-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EF4D881E651593006763A9 /* Map-48.png */; };
 		49EF4DA91E651593006763A9 /* notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EF4D891E651593006763A9 /* notification.png */; };
 		49EF4DAA1E651593006763A9 /* safari.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EF4D8A1E651593006763A9 /* safari.png */; };
 		49EF4DAB1E651593006763A9 /* school.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EF4D8B1E651593006763A9 /* school.png */; };
@@ -121,6 +122,10 @@
 		492F08811ED5EFFD00167D05 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		493B69E01F85E6E000838AE4 /* SetSchoolFromInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSchoolFromInfoViewController.swift; sourceTree = "<group>"; };
 		4940397B1ED3AA0E000F028F /* SlideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
+		494A20A01FA2C078008B8080 /* Appointment Reminders Filled-25@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Appointment Reminders Filled-25@2x.png"; sourceTree = "<group>"; };
+		494A20A11FA2C078008B8080 /* Map Filled-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Map Filled-50@2x.png"; sourceTree = "<group>"; };
+		494A20A21FA2C078008B8080 /* icons8-Cloud Filled-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Cloud Filled-50@2x.png"; sourceTree = "<group>"; };
+		494A20A61FA2C108008B8080 /* icons8-Cloud Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Cloud Filled-50.png"; sourceTree = "<group>"; };
 		494AE5CA1EDE5892000E1BEC /* WeatherObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherObject.swift; sourceTree = "<group>"; };
 		4966CAD21ED8BCC90034C251 /* cloudy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloudy.png; sourceTree = "<group>"; };
 		4966CAD31ED8BCC90034C251 /* rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rain.png; sourceTree = "<group>"; };
@@ -183,8 +188,6 @@
 		49CB8EC61E671B10008A266C /* Approval Filled-38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Approval Filled-38.png"; sourceTree = "<group>"; };
 		49CB8EC81E671C08008A266C /* New Post Filled-38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "New Post Filled-38.png"; sourceTree = "<group>"; };
 		49CEB6981E6DD3DA007F0B70 /* RetrieveMapInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetrieveMapInfo.swift; sourceTree = "<group>"; };
-		49DDBFD71EE0D172009BC505 /* cloud toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cloud toolbar.png"; sourceTree = "<group>"; };
-		49E31D5F1F85BD1200B6A7F5 /* icons8-Cloud Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Cloud Filled-50.png"; sourceTree = "<group>"; };
 		49EB7E3F1F987A140045FAFC /* AirshipConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		49EF4D731E651593006763A9 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		49EF4D741E651593006763A9 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
@@ -196,7 +199,6 @@
 		49EF4D7C1E651593006763A9 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		49EF4D861E651593006763A9 /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
 		49EF4D871E651593006763A9 /* Map Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Map Filled-50.png"; sourceTree = "<group>"; };
-		49EF4D881E651593006763A9 /* Map-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Map-48.png"; sourceTree = "<group>"; };
 		49EF4D891E651593006763A9 /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification.png; sourceTree = "<group>"; };
 		49EF4D8A1E651593006763A9 /* safari.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = safari.png; sourceTree = "<group>"; };
 		49EF4D8B1E651593006763A9 /* school.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = school.png; sourceTree = "<group>"; };
@@ -369,49 +371,50 @@
 		49EF4D721E651593006763A9 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				4966CAD21ED8BCC90034C251 /* cloudy.png */,
-				4966CAD31ED8BCC90034C251 /* rain.png */,
-				49844CFC1F85D8EE003B3FFD /* darkSky2.png */,
-				4966CAD41ED8BCC90034C251 /* fog.png */,
-				4966CAD51ED8BCC90034C251 /* tornado.png */,
-				4966CAD61ED8BCC90034C251 /* snow.png */,
-				4966CAD71ED8BCC90034C251 /* thunderstorm.png */,
-				49E31D5F1F85BD1200B6A7F5 /* icons8-Cloud Filled-50.png */,
-				49DDBFD71EE0D172009BC505 /* cloud toolbar.png */,
-				4966CAD81ED8BCC90034C251 /* partly-cloudy-day.png */,
-				4966CAD91ED8BCC90034C251 /* clear-day.png */,
 				49AB94BA1E669C6B0094EDAB /* AppIcons */,
+				49AB94B61E6687C70094EDAB /* Appointment Reminders Filled-25.png */,
+				49CB8EC61E671B10008A266C /* Approval Filled-38.png */,
+				49AB94B41E66826E0094EDAB /* Calendar Filled-25.png */,
+				494A20A01FA2C078008B8080 /* Appointment Reminders Filled-25@2x.png */,
+				494A20A21FA2C078008B8080 /* icons8-Cloud Filled-50@2x.png */,
+				494A20A11FA2C078008B8080 /* Map Filled-50@2x.png */,
+				4966CAD91ED8BCC90034C251 /* clear-day.png */,
 				49EF4D731E651593006763A9 /* clock.png */,
 				49EF4D741E651593006763A9 /* clock@2x.png */,
-				49AB94B81E668D5E0094EDAB /* Logo.png */,
 				49EF4D751E651593006763A9 /* clockFilled.png */,
+				494A20A61FA2C108008B8080 /* icons8-Cloud Filled-50.png */,
 				49EF4D761E651593006763A9 /* clockFilled@2x.png */,
+				4966CAD21ED8BCC90034C251 /* cloudy.png */,
 				49EF4D771E651593006763A9 /* compare.png */,
-				49AB94B41E66826E0094EDAB /* Calendar Filled-25.png */,
-				49AB94B61E6687C70094EDAB /* Appointment Reminders Filled-25.png */,
+				49844CFC1F85D8EE003B3FFD /* darkSky2.png */,
 				49EF4D781E651593006763A9 /* exit.png */,
-				49CB8EC21E671A66008A266C /* Info Filled-38.png */,
+				496829AE1E68CE3000D7A9AC /* fairfield county outline.png */,
+				4966CAD41ED8BCC90034C251 /* fog.png */,
 				49EF4D7B1E651593006763A9 /* Info Filled-25.png */,
-				49C527481ED77D97002C938A /* windy.png */,
-				49CB8EC61E671B10008A266C /* Approval Filled-38.png */,
+				49CB8EC21E671A66008A266C /* Info Filled-38.png */,
 				49EF4D7C1E651593006763A9 /* info.png */,
-				49F5347C1E67F4F2009DDFF1 /* Marker Filled-40.png */,
-				496829B01E68DA4400D7A9AC /* Search Filled-25.png */,
-				49EF4D861E651593006763A9 /* lock.png */,
 				49CB8EC41E671A87008A266C /* Lock Filled-38.png */,
+				49EF4D861E651593006763A9 /* lock.png */,
+				49AB94B81E668D5E0094EDAB /* Logo.png */,
 				49EF4D871E651593006763A9 /* Map Filled-50.png */,
-				49EF4D881E651593006763A9 /* Map-48.png */,
-				49EF4D891E651593006763A9 /* notification.png */,
+				49F5347C1E67F4F2009DDFF1 /* Marker Filled-40.png */,
 				49CB8EC81E671C08008A266C /* New Post Filled-38.png */,
+				49EF4D891E651593006763A9 /* notification.png */,
+				4966CAD81ED8BCC90034C251 /* partly-cloudy-day.png */,
+				4966CAD31ED8BCC90034C251 /* rain.png */,
 				49EF4D8A1E651593006763A9 /* safari.png */,
 				49EF4D8B1E651593006763A9 /* school.png */,
 				49EF4D8C1E651593006763A9 /* schoolFilled.png */,
 				49EF4D8D1E651593006763A9 /* schoolFilled@2x.png */,
-				496829AE1E68CE3000D7A9AC /* fairfield county outline.png */,
+				496829B01E68DA4400D7A9AC /* Search Filled-25.png */,
 				49EF4D8F1E651593006763A9 /* Settings Filled-50.png */,
 				49EF4D901E651593006763A9 /* Settings-50.png */,
+				4966CAD61ED8BCC90034C251 /* snow.png */,
+				4966CAD71ED8BCC90034C251 /* thunderstorm.png */,
+				4966CAD51ED8BCC90034C251 /* tornado.png */,
 				49EF4D911E651593006763A9 /* users.png */,
 				49EF4D921E651593006763A9 /* users@2x.png */,
+				49C527481ED77D97002C938A /* windy.png */,
 			);
 			path = Graphics;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				4966CAE11ED8BCC90034C251 /* clear-day.png in Resources */,
 				49AB94FF1E669C6B0094EDAB /* Icon-24@2x.png in Resources */,
 				4966CADF1ED8BCC90034C251 /* thunderstorm.png in Resources */,
+				494A20A51FA2C079008B8080 /* icons8-Cloud Filled-50@2x.png in Resources */,
 				49AB94FE1E669C6B0094EDAB /* Contents.json in Resources */,
 				49AB95031E669C6B0094EDAB /* Icon-40@2x.png in Resources */,
 				49AB94E81E669C6B0094EDAB /* Icon-App-29x29@2x.png in Resources */,
@@ -559,6 +563,7 @@
 				49AB94F71E669C6B0094EDAB /* Icon-App-83.5x83.5@2x.png in Resources */,
 				49EF4D9E1E651593006763A9 /* info.png in Resources */,
 				4966CADB1ED8BCC90034C251 /* rain.png in Resources */,
+				494A20A41FA2C079008B8080 /* Map Filled-50@2x.png in Resources */,
 				49EF4DB21E651593006763A9 /* users@2x.png in Resources */,
 				49F5347D1E67F4F2009DDFF1 /* Marker Filled-40.png in Resources */,
 				49F66DE11E576B8000F4168D /* LaunchScreen.storyboard in Resources */,
@@ -579,13 +584,13 @@
 				49EF4DAA1E651593006763A9 /* safari.png in Resources */,
 				49EF4DAB1E651593006763A9 /* school.png in Resources */,
 				49AB94FC1E669C6B0094EDAB /* iTunesArtwork@3x.png in Resources */,
+				494A20A31FA2C079008B8080 /* Appointment Reminders Filled-25@2x.png in Resources */,
 				49AB94E31E669C6B0094EDAB /* Contents.json in Resources */,
 				49EF4DA91E651593006763A9 /* notification.png in Resources */,
 				49AB94E61E669C6B0094EDAB /* Icon-App-20x20@3x.png in Resources */,
 				49AB94F21E669C6B0094EDAB /* Icon-App-72x72@1x.png in Resources */,
 				49AB94B91E668D5E0094EDAB /* Logo.png in Resources */,
 				4966CADE1ED8BCC90034C251 /* snow.png in Resources */,
-				49DDBFD81EE0D172009BC505 /* cloud toolbar.png in Resources */,
 				49AB94B71E6687C70094EDAB /* Appointment Reminders Filled-25.png in Resources */,
 				49AB94F31E669C6B0094EDAB /* Icon-App-72x72@2x.png in Resources */,
 				4966CADD1ED8BCC90034C251 /* tornado.png in Resources */,
@@ -601,12 +606,11 @@
 				49AB94F61E669C6B0094EDAB /* Icon-App-76x76@3x.png in Resources */,
 				49EF4D971E651593006763A9 /* clockFilled.png in Resources */,
 				49AB95011E669C6B0094EDAB /* Icon-29@2x.png in Resources */,
+				494A20A71FA2C109008B8080 /* icons8-Cloud Filled-50.png in Resources */,
 				49AB94EF1E669C6B0094EDAB /* Icon-App-60x60@1x.png in Resources */,
 				49EF4D961E651593006763A9 /* clock@2x.png in Resources */,
 				496829AF1E68CE3000D7A9AC /* fairfield county outline.png in Resources */,
 				496829B31E68E0BE00D7A9AC /* GoogleService-Info.plist in Resources */,
-				49844CF71F85C646003B3FFD /* icons8-Cloud Filled-50.png in Resources */,
-				49EF4DA81E651593006763A9 /* Map-48.png in Resources */,
 				4966CADC1ED8BCC90034C251 /* fog.png in Resources */,
 				49F66DDE1E576B8000F4168D /* Assets.xcassets in Resources */,
 				49AB94EC1E669C6B0094EDAB /* Icon-App-40x40@3x.png in Resources */,
