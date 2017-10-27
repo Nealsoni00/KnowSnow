@@ -83,8 +83,8 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
         
         addBannerViewToView(bannerView)
         //ca-app-pub-6421137549100021~9702408169
-//        bannerView.adUnitID = "ca-app-pub-6421137549100021/7399678458" // real one
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // Test one
+        bannerView.adUnitID = "ca-app-pub-6421137549100021/7399678458" // real one
+//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // Test one
         //request.testDevices = @[ kGADSimulatorID ]
         let request = GADRequest()
         request.testDevices =  [ kGADSimulatorID ]  // Sample device ID
