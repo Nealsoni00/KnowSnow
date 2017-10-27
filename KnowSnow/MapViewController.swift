@@ -304,19 +304,14 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
     
     
     func changeMap(percentage: String, town: String) {
-        for i in 0...towns.count - 1 {
-            let label = towns[i]
-            print("Label: \(label) Town:\(towns[i])")
-            if label == town{
-                print(townLabels[label]!);
-                if (percentage != "-") {
-                    townLabels[label]?.text = percentage
-                } else {
-                    townLabels[label]?.text = "n/a"
-                }
-                if (percentage == "100%") {
-                    townLabels[label]?.font = townLabels[label]?.font.withSize(12)
-                }
+        for _ in towns {
+            if (percentage != "-") {
+                townLabels[town]?.text = percentage
+            } else {
+                townLabels[town]?.text = "n/a"
+            }
+            if (percentage == "100%") {
+                townLabels[town]?.font = townLabels[town]?.font.withSize(12)
             }
         }
     }
