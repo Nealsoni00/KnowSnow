@@ -216,28 +216,31 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         
         townButton.setTitle(correctObject?.fullName, for: .normal)
         
+        
         firstProgressText.text = delay;
         secondProgressText.text = closing;
         thirdProgressText.text = early;
         let indexies: [String] = [delay, closing, early]
         var ints: [Double] = [delayInt, closingInt, earlyInt]
-
-        if (delay != "-") {
+        
+        if (delay != "-" && early != "-" && closing != "-") {
+           
             for i in 0 ... indexies.count - 1{
-                let indexFirst = indexies[i].index(indexies[i].startIndex, offsetBy: 1)
-                let indexSecond = indexies[i].index(indexies[i].startIndex, offsetBy: 2)
-                var intIndex: Double = 0.0
-                
-                if (indexies[i].substring(from: indexFirst) == "%") { //single digit percentage
-                    intIndex = Double(indexies[i].substring(to: indexFirst))!
-                } else if (indexies[i].substring(from: indexSecond) == "%") { //two digit
-                    intIndex = Double(indexies[i].substring(to: indexSecond))!
-                } else { //100%
-                    let indexThird = indexies[i].index(indexies[i].startIndex, offsetBy: 3)
-                    progressText[i].font = progressText[i].font.withSize(30)
-                    intIndex = Double(indexies[i].substring(to: indexThird))!
-                }
-                ints[i] = 360.00 * (intIndex / 100)
+                    
+                    let indexFirst = indexies[i].index(indexies[i].startIndex, offsetBy: 1)
+                    let indexSecond = indexies[i].index(indexies[i].startIndex, offsetBy: 2)
+                    var intIndex: Double = 0.0
+                    
+                    if (indexies[i].substring(from: indexFirst) == "%") { //single digit percentage
+                        intIndex = Double(indexies[i].substring(to: indexFirst))!
+                    } else if (indexies[i].substring(from: indexSecond) == "%") { //two digit
+                        intIndex = Double(indexies[i].substring(to: indexSecond))!
+                    } else { //100%
+                        let indexThird = indexies[i].index(indexies[i].startIndex, offsetBy: 3)
+                        progressText[i].font = progressText[i].font.withSize(30)
+                        intIndex = Double(indexies[i].substring(to: indexThird))!
+                    }
+                    ints[i] = 360.00 * (intIndex / 100)
             }
 
             delayInt = ints[0]

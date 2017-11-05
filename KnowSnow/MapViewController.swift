@@ -295,7 +295,22 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
             }
         }
     }
-    
+//    func swipeDate(_ sender: UISwipeGestureRecognizer) {
+//        switch (sender.direction) {
+//        case UISwipeGestureRecognizerDirection.left:
+//            self.tabbedButtons.selectedSegmentIndex =   (self.tabbedButtons.selectedSegmentIndex - 1) % 4
+//            for j in 0...allTownObjects.count - 1 {
+//                changeMap(percentage: allTownObjects[j].closing, town: allTownObjects[j].name)
+//            }
+//        case UISwipeGestureRecognizerDirection.right:
+//            self.tabbedButtons.selectedSegmentIndex =   (self.tabbedButtons.selectedSegmentIndex + 1) % 4
+//            for j in 0...allTownObjects.count - 1 {
+//                changeMap(percentage: allTownObjects[j].delay, town: allTownObjects[j].name)
+//            }
+//        default:
+//            break
+//        }
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -307,12 +322,34 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
         for _ in towns {
             if (percentage != "-") {
                 townLabels[town]?.text = percentage
+                let intPercentage = Int(percentage.replacingOccurrences(of: "%", with: ""))!
+                if (intPercentage < 35){
+                    townLabels[town]?.textColor = UIColor(red:0.31, green:0.64, blue:0.71, alpha:1.0)
+                }else if(intPercentage < 70){
+                    townLabels[town]?.textColor = UIColor.blue
+                }else if(intPercentage < 99){
+                    townLabels[town]?.textColor = UIColor.purple
+                }else if(intPercentage >= 100){
+                    townLabels[town]?.textColor = UIColor.red
+                    switch tabbedButtons.selectedSegmentIndex {
+                    case 0:
+                        townLabels[town]?.text = "Closed"
+                    case 1:
+                        townLabels[town]?.text = "Delayed"
+                    case 2:
+                        townLabels[town]?.text = "Early"
+                    default:
+                        break
+                    }
+                }
+            
             } else {
                 townLabels[town]?.text = "n/a"
+                townLabels[town]?.textColor = UIColor.red
             }
-            if (percentage == "100%") {
-                townLabels[town]?.font = townLabels[town]?.font.withSize(12)
-            }
+//            if (percentage == "100%") {
+//                townLabels[town]?.font = townLabels[town]?.font.withSize(12)
+//            }
         }
     }
     
@@ -321,6 +358,9 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
         let infoPage = self.storyboard?.instantiateViewController(withIdentifier: "infoVC") as! UINavigationController
         self.tabBarController?.present(infoPage, animated: true, completion: nil)
     }
+    
+    
+    
     
     func newDataReceieved() {
         var j = 0
