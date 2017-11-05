@@ -19,7 +19,9 @@ var dateString = "date"
 
 class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturnedDelegate, SchoolChosenDelegate {
 
-    
+    @IBOutlet var updateLabel: UILabel!
+    @IBOutlet weak var defaultLabel: UIButton!
+
     var selectedDate = Date()
     
     @IBOutlet weak var progressScrollView: UIScrollView!
@@ -78,7 +80,7 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         
             self.title = school;
 
-
+        
         self.navigationController?.view.backgroundColor = UIColor.white
         self.navigationController?.navigationBar.barTintColor = darkGrey
         self.navigationController?.navigationBar.isTranslucent = true
@@ -103,7 +105,7 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         self.f.dateFormat = "EEEE, MMMM dd"
         dateString = self.f.string(from:Date().tomorrow)
         self.dateLabel.text = self.f.string(from:Date().tomorrow)
-
+        
         
     }
     
@@ -115,7 +117,7 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         collectionView.allWeatherObjects = allWeatherObjects
         self.collectionView!.reloadData()
 
-
+        
     }
     
     override func viewWillLayoutSubviews(){
@@ -274,6 +276,24 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         delayProgress.animate(fromAngle: 0, toAngle: delayInt, duration: 1) { completed in }
         closureProgress.animate(fromAngle: 0, toAngle: closingInt, duration: 1) { completed in }
         dismissalProgress.animate(fromAngle: 0, toAngle: earlyInt, duration: 1) { completed in }
+        
+        if secondProgressText.text == "100%"{
+            updateLabel.text = "Confirmed Closure"
+        }else if firstProgressText.text == "100%" {
+            updateLabel.text = "Confirmed Delay"
+        }else if thirdProgressText.text == "100%" {
+            updateLabel.text = "Confirmed Early Dismissal"
+        }else{
+            updateLabel.text = ""
+        }
+        
+        if (school != defaults.string(forKey: "default")){
+            defaultLabel.isHidden = false
+        }else{
+            defaultLabel.isHidden = true
+
+        }
+        
     }
     
     func userChoseSchool(name: String) {
