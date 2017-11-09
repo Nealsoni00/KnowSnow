@@ -19,9 +19,9 @@ var dateString = "date"
 
 class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturnedDelegate, SchoolChosenDelegate {
 
-    @IBOutlet var updateLabel: UILabel!
     @IBOutlet weak var defaultLabel: UIButton!
 
+    @IBOutlet weak var updateLabel: UITextView!
     var selectedDate = Date()
     
     @IBOutlet weak var progressScrollView: UIScrollView!
@@ -149,7 +149,6 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         
         print("set zoom scale to \(minZoom)")
         
-        print(allWeatherObjects)
         
         scrollView.minimumZoomScale = minZoom
         scrollView.maximumZoomScale = minZoom
@@ -218,6 +217,9 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         
         townButton.setTitle(correctObject?.fullName, for: .normal)
         
+        updateLabel.text = message;
+        print(message)
+        
         
         firstProgressText.text = delay;
         secondProgressText.text = closing;
@@ -277,22 +279,22 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         closureProgress.animate(fromAngle: 0, toAngle: closingInt, duration: 1) { completed in }
         dismissalProgress.animate(fromAngle: 0, toAngle: earlyInt, duration: 1) { completed in }
         
-        if secondProgressText.text == "100%"{
-            updateLabel.text = "Confirmed Closure"
-        }else if firstProgressText.text == "100%" {
-            updateLabel.text = "Confirmed Delay"
-        }else if thirdProgressText.text == "100%" {
-            updateLabel.text = "Confirmed Early Dismissal"
-        }else{
-            updateLabel.text = ""
-        }
-        
-        if (school != defaults.string(forKey: "default")){
-            defaultLabel.isHidden = false
-        }else{
-            defaultLabel.isHidden = true
-
-        }
+//        if secondProgressText.text == "100%"{
+//            updateLabel.text = "Confirmed Closure"
+//        }else if firstProgressText.text == "100%" {
+//            updateLabel.text = "Confirmed Delay"
+//        }else if thirdProgressText.text == "100%" {
+//            updateLabel.text = "Confirmed Early Dismissal"
+//        }else{
+//            updateLabel.text = ""
+//        }
+//
+//        if (school != defaults.string(forKey: "default")){
+//            defaultLabel.isHidden = false
+//         }else{
+//            defaultLabel.isHidden = true
+//
+//        }
         
     }
     

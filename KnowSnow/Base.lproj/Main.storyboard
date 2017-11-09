@@ -254,7 +254,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Know Snow" id="Daw-3r-6OJ">
-                        <barButtonItem key="rightBarButtonItem" image="calendar.png" id="vWa-cA-T9q">
+                        <barButtonItem key="rightBarButtonItem" image="Calendar Filled-25.png" id="vWa-cA-T9q">
                             <connections>
                                 <action selector="calenderPressed:" destination="c2i-PM-Tuq" id="puj-WZ-1pA"/>
                             </connections>
@@ -725,31 +725,30 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmed Closed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZX-6d-Wr8">
-                                <rect key="frame" x="0.0" y="319.66666666666669" width="414" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="CT6-0P-KxP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Blurb." textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yC7-N0-cc9">
+                                <rect key="frame" x="0.0" y="322" width="414" height="173"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.28235294119999998" green="0.35294117650000001" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.39215686274509803" green="0.70980392156862748" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bbF-qk-Rdt" secondAttribute="trailing" id="0Wl-jV-5es"/>
+                            <constraint firstAttribute="trailing" secondItem="yC7-N0-cc9" secondAttribute="trailing" id="3ch-EJ-P7r"/>
+                            <constraint firstItem="yC7-N0-cc9" firstAttribute="leading" secondItem="9sZ-0d-8QP" secondAttribute="leading" id="6ah-Iz-Y9p"/>
                             <constraint firstItem="ltC-zE-8gA" firstAttribute="leading" secondItem="9sZ-0d-8QP" secondAttribute="leading" id="CAe-Tn-g5I"/>
                             <constraint firstItem="jET-4d-X4D" firstAttribute="top" secondItem="9mo-r0-0QQ" secondAttribute="bottom" constant="6" id="Cfr-s2-I2Z"/>
                             <constraint firstItem="bbF-qk-Rdt" firstAttribute="top" secondItem="9sZ-0d-8QP" secondAttribute="top" constant="76" id="GNm-yB-UFe"/>
                             <constraint firstAttribute="trailing" secondItem="9mo-r0-0QQ" secondAttribute="trailing" id="Hem-xc-aTD"/>
                             <constraint firstItem="9mo-r0-0QQ" firstAttribute="top" secondItem="bbF-qk-Rdt" secondAttribute="bottom" constant="8" id="RN6-Qx-Sf0"/>
                             <constraint firstItem="rcC-eC-vnt" firstAttribute="top" secondItem="ltC-zE-8gA" secondAttribute="bottom" id="S3y-bk-bYr"/>
-                            <constraint firstItem="EZX-6d-Wr8" firstAttribute="leading" secondItem="9sZ-0d-8QP" secondAttribute="leading" id="SKJ-Dz-QCR"/>
+                            <constraint firstItem="yC7-N0-cc9" firstAttribute="top" secondItem="jET-4d-X4D" secondAttribute="bottom" constant="7.3300000000000001" id="TEn-gn-sMl"/>
                             <constraint firstAttribute="trailing" secondItem="i7n-Cw-xZe" secondAttribute="trailing" id="Tla-Yv-nti"/>
                             <constraint firstItem="jET-4d-X4D" firstAttribute="height" secondItem="9sZ-0d-8QP" secondAttribute="height" multiplier="1:4.5" id="VkJ-qr-YhY"/>
+                            <constraint firstItem="ltC-zE-8gA" firstAttribute="top" secondItem="yC7-N0-cc9" secondAttribute="bottom" constant="8" id="Wjx-jK-wjS"/>
                             <constraint firstAttribute="trailing" secondItem="ltC-zE-8gA" secondAttribute="trailing" id="Yd9-jm-PBv"/>
-                            <constraint firstAttribute="trailing" secondItem="EZX-6d-Wr8" secondAttribute="trailing" id="bda-wH-EU0"/>
                             <constraint firstAttribute="trailing" secondItem="rcC-eC-vnt" secondAttribute="trailing" id="buI-Sp-NXo"/>
                             <constraint firstItem="i7n-Cw-xZe" firstAttribute="top" secondItem="rcC-eC-vnt" secondAttribute="bottom" id="cNz-tG-07q"/>
                             <constraint firstItem="NFd-UT-OA8" firstAttribute="top" secondItem="i7n-Cw-xZe" secondAttribute="bottom" id="e1h-a7-Ci5"/>
@@ -759,11 +758,10 @@
                             <constraint firstItem="bbF-qk-Rdt" firstAttribute="leading" secondItem="9sZ-0d-8QP" secondAttribute="leading" id="msO-pS-uVl"/>
                             <constraint firstAttribute="trailing" secondItem="jET-4d-X4D" secondAttribute="trailing" id="tQJ-Td-ZZ5"/>
                             <constraint firstItem="9mo-r0-0QQ" firstAttribute="leading" secondItem="9sZ-0d-8QP" secondAttribute="leading" id="uMU-Uo-lb6"/>
-                            <constraint firstItem="EZX-6d-Wr8" firstAttribute="top" secondItem="jET-4d-X4D" secondAttribute="bottom" constant="5" id="x4i-w7-1Ly"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Know Snow" id="g0q-UY-rwV">
-                        <barButtonItem key="rightBarButtonItem" image="calendar.png" id="ERH-W2-WuV">
+                        <barButtonItem key="rightBarButtonItem" image="Calendar Filled-25.png" id="ERH-W2-WuV">
                             <connections>
                                 <action selector="calenderPushed:" destination="fh0-7e-gtw" id="z9N-eI-dfL"/>
                             </connections>
@@ -783,7 +781,7 @@
                         <outlet property="secondProgressText" destination="Mua-eB-kQD" id="KLK-rc-HwO"/>
                         <outlet property="thirdProgressText" destination="tvX-VM-Qmr" id="JPC-y2-jrr"/>
                         <outlet property="townButton" destination="LPB-Lz-g6f" id="Cil-Cp-lC5"/>
-                        <outlet property="updateLabel" destination="EZX-6d-Wr8" id="R6t-ft-R2r"/>
+                        <outlet property="updateLabel" destination="yC7-N0-cc9" id="R7A-mT-T6z"/>
                         <outletCollection property="progressText" destination="xhY-hl-aRK" collectionClass="NSMutableArray" id="dj5-4S-KPB"/>
                         <outletCollection property="progressText" destination="Mua-eB-kQD" collectionClass="NSMutableArray" id="Rn0-bd-13D"/>
                         <outletCollection property="progressText" destination="tvX-VM-Qmr" collectionClass="NSMutableArray" id="FUQ-s8-eHS"/>
@@ -880,7 +878,7 @@
                                                         <constraint firstAttribute="height" constant="32" id="wbC-eL-Al4"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXN-B9-U2J">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXN-B9-U2J">
                                                     <rect key="frame" x="344" y="9" width="70" height="26"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="70" id="I0u-Mv-sjj"/>
@@ -1257,22 +1255,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cfE-8G-xoS">
-                                <rect key="frame" x="12" y="84" width="351" height="563"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cfE-8G-xoS">
+                                <rect key="frame" x="8" y="72" width="399" height="656"/>
                                 <color key="backgroundColor" red="0.38984213210000002" green="0.46171195609999999" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <string key="text">Here's some info about Know Snow. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <string key="text">Know Snow is a mobile app developed by Scott Pecoriello in 2014 that forecasts the chances of school closing due to snow and weather. The app covers all towns in Fairfield County, and gives the odds of school closing out to 3 days. Know Snow has been redeveloped this year by Jack Sharkey and Neal Soni to enhance the user experience and give additional features such as real-time updates on closures, weather forecasts, and more. Know Snow is a nationally recognized app and is owned by WeatherOptics, where both have been featured on CNBC, The CT Post, News 12 CT, and 95.9 The Fox. 
+</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.28235294119999998" green="0.35294117650000001" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="cfE-8G-xoS" firstAttribute="top" secondItem="b6C-8g-Zzi" secondAttribute="bottom" constant="8" id="Dz1-tf-8TB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cfE-8G-xoS" secondAttribute="trailing" constant="-13" id="WGY-Ld-gbY"/>
+                            <constraint firstItem="cfE-8G-xoS" firstAttribute="leading" secondItem="dv7-iE-ta9" secondAttribute="leadingMargin" constant="-12" id="Wpt-Pk-S1l"/>
+                            <constraint firstItem="zkE-Mv-M7S" firstAttribute="top" secondItem="cfE-8G-xoS" secondAttribute="bottom" constant="8" id="n4H-NA-3DX"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BM3-Dg-cd1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-90.400000000000006" y="1754.5727136431785"/>
+            <point key="canvasLocation" x="-91.304347826086968" y="1754.3478260869567"/>
         </scene>
         <!--SettingsViewController-->
         <scene sceneID="hfd-DG-HB7">
@@ -1639,13 +1643,13 @@
     <resources>
         <image name="Appointment Reminders Filled-25.png" width="25" height="25"/>
         <image name="Approval Filled-38.png" width="38" height="38"/>
+        <image name="Calendar Filled-25.png" width="25" height="25"/>
         <image name="Info Filled-25.png" width="25" height="25"/>
         <image name="Logo.png" width="960" height="949"/>
         <image name="Map Filled-50.png" width="25" height="25"/>
         <image name="Marker Filled-40.png" width="40" height="40"/>
         <image name="New Post Filled-38.png" width="38" height="38"/>
         <image name="Settings Filled-50.png" width="25" height="25"/>
-        <image name="calendar.png" width="25" height="25"/>
         <image name="cloudy.png" width="100" height="100"/>
         <image name="darkSky2.png" width="800" height="800"/>
         <image name="fairfield county outline.png" width="4011" height="5402"/>

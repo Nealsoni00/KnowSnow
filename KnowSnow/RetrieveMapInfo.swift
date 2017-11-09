@@ -21,6 +21,7 @@ protocol DataReturnedDelegate: class {
 
 }
 
+var message = ""
 
 
 class RetrieveMapInfo {
@@ -40,6 +41,10 @@ class RetrieveMapInfo {
         //Date -> selectedDate?
         let formattedDate = f.string(from:data)
         allTownObjects = [TownObject]()
+        
+       
+        
+        
         for town in towns {
             ref.child("dates").child(formattedDate).child(town).observeSingleEvent(of: .value, with: { (snapshot)  in
                 // Get all percentages
@@ -57,12 +62,16 @@ class RetrieveMapInfo {
                     }
 
                 } else {
+                    print("there is data")
                     allTownObjects.append(TownObject(name: town, delay: totalData?["delay"] as? String ?? "", closing: totalData?["closing"] as? String ?? "", early: totalData?["early"] as? String ?? ""))
                     if (allTownObjects.count == 23) {
-//                        GetWeather().getWeather()
-                                self.delegate?.newDataReceieved()
-                            //show loading screen, call db
-                            
+                        self.ref.child("dates").child(formattedDate).observeSingleEvent(of: .value, with: { (snapshot)  in
+                            // Get all percentages
+                            let totalData = snapshot.value as? NSDictionary
+                            message = totalData?["message"] as! String
+                            self.delegate?.newDataReceieved()
+                        })
+                        
                         
                     }
                   
@@ -72,6 +81,7 @@ class RetrieveMapInfo {
             })
             
         }
+      
         
         
     }
