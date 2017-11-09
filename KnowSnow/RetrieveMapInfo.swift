@@ -62,7 +62,6 @@ class RetrieveMapInfo {
                     }
 
                 } else {
-                    print("there is data")
                     allTownObjects.append(TownObject(name: town, delay: totalData?["delay"] as? String ?? "", closing: totalData?["closing"] as? String ?? "", early: totalData?["early"] as? String ?? ""))
                     if (allTownObjects.count == 23) {
                         self.ref.child("dates").child(formattedDate).observeSingleEvent(of: .value, with: { (snapshot)  in
@@ -111,6 +110,12 @@ class RetrieveMapInfo {
                 
                 if (allTownObjects.count == 23) {
                     let settingsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as! SetSchoolViewController
+                    
+                    self.ref.child("dates").child(formattedDate).observeSingleEvent(of: .value, with: { (snapshot)  in
+                        // Get all percentages
+                        let totalData = snapshot.value as? NSDictionary
+                        message = totalData?["message"] as! String
+                    })
                     //running code but NOT showing the vc
                     //            present(settingsVC, animated: true, completion: nil)
                     
@@ -147,7 +152,12 @@ class RetrieveMapInfo {
                 }
 
                 if (allTownObjects.count == 23) {
-                    GetWeather().getWeatherInitial()
+                    self.ref.child("dates").child(formattedDate).observeSingleEvent(of: .value, with: { (snapshot)  in
+                        // Get all percentages
+                        let totalData = snapshot.value as? NSDictionary
+                        message = totalData?["message"] as! String
+                        GetWeather().getWeatherInitial()
+                    })
                 }
             })
 
