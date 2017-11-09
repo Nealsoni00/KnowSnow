@@ -20,7 +20,10 @@ var dateString = "date"
 class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturnedDelegate, SchoolChosenDelegate {
 
     @IBOutlet weak var defaultLabel: UIButton!
-
+    @IBOutlet var topConstraint: NSLayoutConstraint!
+    
+    //detect what phone it is, if x, change constraint to something else
+    
     @IBOutlet weak var updateLabel: UITextView!
     var selectedDate = Date()
     
@@ -289,12 +292,12 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
 //            updateLabel.text = ""
 //        }
 //
-//        if (school != defaults.string(forKey: "default")){
-//            defaultLabel.isHidden = false
-//         }else{
-//            defaultLabel.isHidden = true
-//
-//        }
+        if (school != defaults.string(forKey: "default")){
+            defaultLabel.isHidden = false
+         }else{
+            defaultLabel.isHidden = true
+
+        }
         
     }
     

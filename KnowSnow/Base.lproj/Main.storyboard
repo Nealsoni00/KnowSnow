@@ -254,7 +254,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Know Snow" id="Daw-3r-6OJ">
-                        <barButtonItem key="rightBarButtonItem" image="Calendar Filled-25.png" id="vWa-cA-T9q">
+                        <barButtonItem key="rightBarButtonItem" image="correctCalendar.png" id="vWa-cA-T9q">
                             <connections>
                                 <action selector="calenderPressed:" destination="c2i-PM-Tuq" id="puj-WZ-1pA"/>
                             </connections>
@@ -761,7 +761,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Know Snow" id="g0q-UY-rwV">
-                        <barButtonItem key="rightBarButtonItem" image="Calendar Filled-25.png" id="ERH-W2-WuV">
+                        <barButtonItem key="rightBarButtonItem" image="correctCalendar.png" id="ERH-W2-WuV">
                             <connections>
                                 <action selector="calenderPushed:" destination="fh0-7e-gtw" id="z9N-eI-dfL"/>
                             </connections>
@@ -780,6 +780,7 @@
                         <outlet property="schoolNameLabel" destination="LPB-Lz-g6f" id="GFF-FD-m5A"/>
                         <outlet property="secondProgressText" destination="Mua-eB-kQD" id="KLK-rc-HwO"/>
                         <outlet property="thirdProgressText" destination="tvX-VM-Qmr" id="JPC-y2-jrr"/>
+                        <outlet property="topConstraint" destination="WsZ-FP-iHD" id="6AE-VZ-vb9"/>
                         <outlet property="townButton" destination="LPB-Lz-g6f" id="Cil-Cp-lC5"/>
                         <outlet property="updateLabel" destination="yC7-N0-cc9" id="R7A-mT-T6z"/>
                         <outletCollection property="progressText" destination="xhY-hl-aRK" collectionClass="NSMutableArray" id="dj5-4S-KPB"/>
@@ -1643,7 +1644,6 @@
     <resources>
         <image name="Appointment Reminders Filled-25.png" width="25" height="25"/>
         <image name="Approval Filled-38.png" width="38" height="38"/>
-        <image name="Calendar Filled-25.png" width="25" height="25"/>
         <image name="Info Filled-25.png" width="25" height="25"/>
         <image name="Logo.png" width="960" height="949"/>
         <image name="Map Filled-50.png" width="25" height="25"/>
@@ -1651,6 +1651,7 @@
         <image name="New Post Filled-38.png" width="38" height="38"/>
         <image name="Settings Filled-50.png" width="25" height="25"/>
         <image name="cloudy.png" width="100" height="100"/>
+        <image name="correctCalendar.png" width="25" height="25"/>
         <image name="darkSky2.png" width="800" height="800"/>
         <image name="fairfield county outline.png" width="4011" height="5402"/>
         <image name="icons8-Cloud Filled-50.png" width="25" height="25"/>

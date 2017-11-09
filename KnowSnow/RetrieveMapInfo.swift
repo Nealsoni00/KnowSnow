@@ -102,25 +102,37 @@ class RetrieveMapInfo {
                     // Get all percentages
                     //iterate through array and set each one
                     allTownObjects.append(TownObject(name: town, delay: "-", closing: "-", early: "-"))
+                    
+                    if (allTownObjects.count == 23) {
+                        let settingsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as! SetSchoolViewController
+                      
+                        //running code but NOT showing the vc
+                        //            present(settingsVC, animated: true, completion: nil)
+                        
+                        UIApplication.topViewController()?.present(settingsVC, animated: true, completion: nil)
+                    }
+                    
                 } else {
                     allTownObjects.append(TownObject(name: town, delay: totalData?["delay"] as? String ?? "", closing: totalData?["closing"] as? String ?? "", early: totalData?["early"] as? String ?? ""))
+                    
+                    if (allTownObjects.count == 23) {
+                        let settingsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as! SetSchoolViewController
+                        
+                        self.ref.child("dates").child(formattedDate).observeSingleEvent(of: .value, with: { (snapshot)  in
+                            // Get all percentages
+                            let totalData = snapshot.value as? NSDictionary
+                            message = totalData?["message"] as! String
+                        })
+                        //running code but NOT showing the vc
+                        //            present(settingsVC, animated: true, completion: nil)
+                        
+                        UIApplication.topViewController()?.present(settingsVC, animated: true, completion: nil)
+                    }
                     
                     
                 }
                 
-                if (allTownObjects.count == 23) {
-                    let settingsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as! SetSchoolViewController
-                    
-                    self.ref.child("dates").child(formattedDate).observeSingleEvent(of: .value, with: { (snapshot)  in
-                        // Get all percentages
-                        let totalData = snapshot.value as? NSDictionary
-                        message = totalData?["message"] as! String
-                    })
-                    //running code but NOT showing the vc
-                    //            present(settingsVC, animated: true, completion: nil)
-                    
-                                UIApplication.topViewController()?.present(settingsVC, animated: true, completion: nil)
-                }
+              
             })
             
         }
@@ -145,20 +157,31 @@ class RetrieveMapInfo {
                     // Get all percentages
                     //iterate through array and set each one
                     allTownObjects.append(TownObject(name: town, delay: "-", closing: "-", early: "-"))
+                    if (allTownObjects.count == 23 ) {
+                      
+                        GetWeather().getWeatherInitial()
+                        
+                    }
+
                 } else {
                     allTownObjects.append(TownObject(name: town, delay: totalData?["delay"] as? String ?? "", closing: totalData?["closing"] as? String ?? "", early: totalData?["early"] as? String ?? ""))
+                    print("i am here")
+                    if (allTownObjects.count == 23 ) {
+                        self.ref.child("dates").child(formattedDate).observeSingleEvent(of: .value, with: { (snapshot)  in
+                            // Get all percentages
+                            let totalData = snapshot.value as? NSDictionary
+                            print(totalData?["message"] as! String)
+                            message = totalData?["message"] as! String
+                            GetWeather().getWeatherInitial()
+
+                        })
+                        
+                    }
 
 
                 }
 
-                if (allTownObjects.count == 23) {
-                    self.ref.child("dates").child(formattedDate).observeSingleEvent(of: .value, with: { (snapshot)  in
-                        // Get all percentages
-                        let totalData = snapshot.value as? NSDictionary
-                        message = totalData?["message"] as! String
-                        GetWeather().getWeatherInitial()
-                    })
-                }
+            
             })
 
         }
