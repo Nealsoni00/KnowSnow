@@ -284,6 +284,7 @@
                         <outlet property="stamford" destination="npS-Tf-gyK" id="4ch-Su-Hnf"/>
                         <outlet property="stratford" destination="10q-Vy-zfX" id="9aC-co-gef"/>
                         <outlet property="tabbedButtons" destination="8L1-3j-bkz" id="0Mw-Xm-NN7"/>
+                        <outlet property="topConstraint" destination="hg6-43-B2L" id="mnE-Jp-nmk"/>
                         <outlet property="trumbull" destination="I7h-jJ-D43" id="RBg-2w-aL7"/>
                         <outlet property="weston" destination="nT3-SU-9Ho" id="oZD-5p-xcB"/>
                         <outlet property="westport" destination="WEr-an-Z5c" id="reH-fl-f1e"/>
@@ -746,12 +747,12 @@
                             <constraint firstItem="rcC-eC-vnt" firstAttribute="top" secondItem="ltC-zE-8gA" secondAttribute="bottom" id="S3y-bk-bYr"/>
                             <constraint firstItem="yC7-N0-cc9" firstAttribute="top" secondItem="jET-4d-X4D" secondAttribute="bottom" constant="7.3300000000000001" id="TEn-gn-sMl"/>
                             <constraint firstAttribute="trailing" secondItem="i7n-Cw-xZe" secondAttribute="trailing" id="Tla-Yv-nti"/>
+                            <constraint firstItem="NFd-UT-OA8" firstAttribute="top" secondItem="i7n-Cw-xZe" secondAttribute="bottom" id="U1e-mB-r31"/>
                             <constraint firstItem="jET-4d-X4D" firstAttribute="height" secondItem="9sZ-0d-8QP" secondAttribute="height" multiplier="1:4.5" id="VkJ-qr-YhY"/>
                             <constraint firstItem="ltC-zE-8gA" firstAttribute="top" secondItem="yC7-N0-cc9" secondAttribute="bottom" constant="8" id="Wjx-jK-wjS"/>
                             <constraint firstAttribute="trailing" secondItem="ltC-zE-8gA" secondAttribute="trailing" id="Yd9-jm-PBv"/>
                             <constraint firstAttribute="trailing" secondItem="rcC-eC-vnt" secondAttribute="trailing" id="buI-Sp-NXo"/>
                             <constraint firstItem="i7n-Cw-xZe" firstAttribute="top" secondItem="rcC-eC-vnt" secondAttribute="bottom" id="cNz-tG-07q"/>
-                            <constraint firstItem="NFd-UT-OA8" firstAttribute="top" secondItem="i7n-Cw-xZe" secondAttribute="bottom" id="e1h-a7-Ci5"/>
                             <constraint firstItem="rcC-eC-vnt" firstAttribute="leading" secondItem="9sZ-0d-8QP" secondAttribute="leading" id="hRn-vQ-vbx"/>
                             <constraint firstItem="jET-4d-X4D" firstAttribute="leading" secondItem="9sZ-0d-8QP" secondAttribute="leading" id="iWL-uA-OPc"/>
                             <constraint firstItem="i7n-Cw-xZe" firstAttribute="leading" secondItem="9sZ-0d-8QP" secondAttribute="leading" id="mnB-xh-emq"/>
@@ -779,6 +780,7 @@
                         <outlet property="progressView" destination="2yk-SJ-gPP" id="9ty-Np-OqD"/>
                         <outlet property="schoolNameLabel" destination="LPB-Lz-g6f" id="GFF-FD-m5A"/>
                         <outlet property="secondProgressText" destination="Mua-eB-kQD" id="KLK-rc-HwO"/>
+                        <outlet property="textConstraint" destination="UVZ-p2-XjH" id="oM1-bO-5gL"/>
                         <outlet property="thirdProgressText" destination="tvX-VM-Qmr" id="JPC-y2-jrr"/>
                         <outlet property="topConstraint" destination="WsZ-FP-iHD" id="6AE-VZ-vb9"/>
                         <outlet property="townButton" destination="LPB-Lz-g6f" id="Cil-Cp-lC5"/>

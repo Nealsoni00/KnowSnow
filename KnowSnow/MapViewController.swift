@@ -25,6 +25,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
     private let dataModel = RetrieveMapInfo()
 
     
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
     @IBOutlet weak var ridgefield: UILabel!
     @IBOutlet weak var bethel: UILabel!
     @IBOutlet weak var danbury: UILabel!
@@ -141,6 +142,26 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
         for _ in allTownObjects {
             changeMap(percentage: allTownObjects[j].closing, town: allTownObjects[j].name)
             j = j + 1
+        }
+        
+        if UIDevice().userInterfaceIdiom == .phone {
+            switch UIScreen.main.nativeBounds.height {
+            case 1136:
+                print("iPhone 5 or 5S or 5C")
+            case 1334:
+                print("iPhone 6/6S/7/8")
+            case 2208:
+                print("iPhone 6+/6S+/7+/8+")
+            case 2436:
+                print("iPhone X")
+                topConstraint.constant =  88
+                //58-37 - new constraint - default constraint(37) gives you 21. 21 puts the text in the middle
+//                textConstraint.constant = 21
+                view.layoutIfNeeded()
+                
+            default:
+                print("unknown")
+            }
         }
         
       
@@ -323,12 +344,16 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
             if (percentage != "-") {
                 townLabels[town]?.text = percentage
                 let intPercentage = Int(percentage.replacingOccurrences(of: "%", with: ""))!
-                if (intPercentage < 35){
-                    townLabels[town]?.textColor = UIColor(red:0.31, green:0.64, blue:0.71, alpha:1.0)
-                }else if(intPercentage < 70){
-                    townLabels[town]?.textColor = UIColor.blue
+                if (intPercentage < 25){
+                    townLabels[town]?.textColor = UIColor(red:0.17, green:0.68, blue:0.16, alpha:1.0)
+                    
+
+                }else if(intPercentage < 75){
+                    townLabels[town]?.textColor = UIColor(red:0.39, green:0.71, blue:0.96, alpha:1.0)
+                    
+
                 }else if(intPercentage < 99){
-                    townLabels[town]?.textColor = UIColor.purple
+                    townLabels[town]?.textColor = UIColor.red
                 }else if(intPercentage >= 100){
                     townLabels[town]?.textColor = UIColor.red
                     switch tabbedButtons.selectedSegmentIndex {

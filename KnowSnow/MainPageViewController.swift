@@ -41,6 +41,7 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
     @IBOutlet weak var closureProgress: KDCircularProgress!
     @IBOutlet weak var delayProgress: KDCircularProgress!
     
+    @IBOutlet weak var textConstraint: NSLayoutConstraint!
     @IBOutlet weak var townButton: UIButton!
     @IBOutlet weak var firstProgressText: UILabel!
     @IBOutlet weak var secondProgressText: UILabel!
@@ -110,8 +111,35 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         self.dateLabel.text = self.f.string(from:Date().tomorrow)
         
         
+        if UIDevice().userInterfaceIdiom == .phone {
+            switch UIScreen.main.nativeBounds.height {
+            case 1136:
+                print("iPhone 5 or 5S or 5C")
+            case 1334:
+                print("iPhone 6/6S/7/8")
+            case 2208:
+                print("iPhone 6+/6S+/7+/8+")
+            case 2436:
+                print("iPhone X")
+                topConstraint.constant = 58
+                //58-37 - new constraint - default constraint(37) gives you 21. 21 puts the text in the middle
+                textConstraint.constant = 21
+                view.layoutIfNeeded()
+
+            default:
+                print("unknown")
+            }
+        }
+
+        
     }
     
+    func modelIdentifier() -> String {
+        if let simulatorModelIdentifier = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] { return simulatorModelIdentifier }
+        var sysinfo = utsname()
+        uname(&sysinfo) // ignore return value
+        return String(bytes: Data(bytes: &sysinfo.machine, count: Int(_SYS_NAMELEN)), encoding: .ascii)!.trimmingCharacters(in: .controlCharacters)
+    }
   
     
     override func viewDidAppear(_ animated: Bool) {
@@ -398,6 +426,7 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
     }
     
 }
+
 
 
 

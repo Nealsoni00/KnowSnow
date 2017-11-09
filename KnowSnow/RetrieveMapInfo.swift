@@ -165,12 +165,10 @@ class RetrieveMapInfo {
 
                 } else {
                     allTownObjects.append(TownObject(name: town, delay: totalData?["delay"] as? String ?? "", closing: totalData?["closing"] as? String ?? "", early: totalData?["early"] as? String ?? ""))
-                    print("i am here")
                     if (allTownObjects.count == 23 ) {
                         self.ref.child("dates").child(formattedDate).observeSingleEvent(of: .value, with: { (snapshot)  in
                             // Get all percentages
                             let totalData = snapshot.value as? NSDictionary
-                            print(totalData?["message"] as! String)
                             message = totalData?["message"] as! String
                             GetWeather().getWeatherInitial()
 
