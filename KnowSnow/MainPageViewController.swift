@@ -133,6 +133,7 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
 
         
     }
+ 
     
     func modelIdentifier() -> String {
         if let simulatorModelIdentifier = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] { return simulatorModelIdentifier }
@@ -178,7 +179,10 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
     func setZoomScale(view: UIView, scrollView: UIScrollView) {
         let minZoom = min(self.view.bounds.size.width / view.bounds.size.width, self.view.bounds.size.height / view.bounds.size.height)
         
-        print("set zoom scale to \(minZoom)")
+        let minZoomY = max(self.view.bounds.size.height / view.bounds.size.width, self.view.bounds.size.height / view.bounds.size.height)
+
+        
+        print("set zoom scale to \(minZoom) OR \(minZoomY)")
         
         
         scrollView.minimumZoomScale = minZoom

@@ -266,9 +266,15 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
         print("set zoom scale to \(minZoom)")
 
         mapScrollView.minimumZoomScale = minZoom;
-        mapScrollView.zoomScale = minZoom;
         mapScrollView.maximumZoomScale = minZoom*1.25
+        mapScrollView.zoomScale = minZoom;
+
         
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.x != 0 && mapScrollView.zoomScale == mapScrollView.minimumZoomScale {
+            scrollView.contentOffset.x = 0
+        }
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
