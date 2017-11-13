@@ -66,6 +66,8 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
         let darkGrey = UIColor(red:0.27, green:0.33, blue:0.36, alpha:1.0)
         dataModel.delegate = self
         
+        
+        //navigationController.navigationBar.barStyle = UIBarStyle.;
         self.navigationController?.view.backgroundColor = UIColor.white
         self.navigationController?.navigationBar.barTintColor = darkGrey
         self.navigationController?.navigationBar.isTranslucent = true
@@ -259,22 +261,29 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
     }
     func setZoomScale() {
         let minZoom = min(self.view.bounds.size.width / mapView!.bounds.size.width, self.view.bounds.size.height / mapView!.bounds.size.height);
-        
-//        if (minZoom > 1.0) {
-//            minZoom = 1.0;
-//        }
+
         print("set zoom scale to \(minZoom)")
 
         mapScrollView.minimumZoomScale = minZoom;
         mapScrollView.maximumZoomScale = minZoom*1.25
-        mapScrollView.zoomScale = minZoom;
+        mapScrollView.zoomScale = minZoom * 0.99;
 
         
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.x != 0 && mapScrollView.zoomScale == mapScrollView.minimumZoomScale {
-            scrollView.contentOffset.x = 0
+            //scrollView.contentOffset.x = 0
         }
+        if scrollView.contentOffset.x < 0 && mapScrollView.zoomScale == mapScrollView.minimumZoomScale && !(navigationController?.visibleViewController is SlideMenuViewController){
+            present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
+        }
+//        if var topController = UIApplication.shared.keyWindow?.rootViewController {
+//            while let presentedViewController = topController.presentedViewController {
+//                topController = presentedViewController
+//            }
+//
+//            // topController should now be your topmost view controller
+//        }
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
