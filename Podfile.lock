@@ -41,10 +41,10 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - PopupDialog (0.6.0)
+  - PopupDialog (0.6.1)
   - Protobuf (3.4.0)
   - SideMenu (3.1.4)
-  - SwiftSpinner (1.4.1)
+  - SwiftSpinner (1.5.0)
   - SwiftyJSON (4.0.0)
   - UrbanAirship-iOS-SDK (8.6.2)
 
@@ -75,10 +75,10 @@ SPEC CHECKSUMS:
   KDCircularProgress: 12f677b2deb02409ab48c6cae1898d146b8ad549
   leveldb-library: 44ef425bfde64f5b41daef86b38db2d13edbbee1
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  PopupDialog: 687af43af0f7b89948cd411ac701865f931bd6dc
+  PopupDialog: 1bdd1efbfb49eb619a280faa9a3bbaac76f94120
   Protobuf: 03eef2ee0b674770735cf79d9c4d3659cf6908e8
   SideMenu: 99021e70b3f2eee65b5dd88e4274d09031b1221e
-  SwiftSpinner: bf7c13332ad008952a09358cadf24a186510ae31
+  SwiftSpinner: 4c058c7a1d6b444dd2e1d70988ead40783097133
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   UrbanAirship-iOS-SDK: c33d4e95d890313e02248c58c93b787d89f72328
 
