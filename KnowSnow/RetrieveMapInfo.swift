@@ -56,6 +56,9 @@ class RetrieveMapInfo {
                     //iterate through array and set each one
                     allTownObjects.append(TownObject(name: town, delay: "-", closing: "-", early: "-"))
                     if (allTownObjects.count == 23) {
+                        self.f.dateFormat = "EEEE, MMMM dd"
+                        dateString = self.f.string(from:data)
+                        message = "There is no data for \(dateString)."
                         self.delegate?.newDataReceieved()
                         //show loading screen, call db
                         
@@ -108,7 +111,9 @@ class RetrieveMapInfo {
                       
                         //running code but NOT showing the vc
                         //            present(settingsVC, animated: true, completion: nil)
-                        
+                        self.f.dateFormat = "EEEE, MMMM dd"
+                        dateString = self.f.string(from:Date().tomorrow)
+                        message = "There is no data for \(dateString)."
                         UIApplication.topViewController()?.present(settingsVC, animated: true, completion: nil)
                     }
                     
@@ -158,7 +163,10 @@ class RetrieveMapInfo {
                     //iterate through array and set each one
                     allTownObjects.append(TownObject(name: town, delay: "-", closing: "-", early: "-"))
                     if (allTownObjects.count == 23 ) {
-                      
+                        self.f.dateFormat = "EEEE, MMMM dd"
+                        dateString = self.f.string(from:Date().tomorrow)
+                        message = "There is no data for \(dateString)."
+
                         GetWeather().getWeatherInitial()
                         
                     }

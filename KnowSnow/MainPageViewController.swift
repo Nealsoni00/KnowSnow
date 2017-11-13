@@ -253,7 +253,6 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         townButton.setTitle(correctObject?.fullName, for: .normal)
         
         updateLabel.text = message;
-        print(message)
         
         
         firstProgressText.text = delay;

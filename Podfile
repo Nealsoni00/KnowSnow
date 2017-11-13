@@ -3,13 +3,13 @@ platform :ios, '10.0'
 use_frameworks!
 
 target 'KnowSnow' do
-	pod 'Alamofire', '~> 4.3'
+	pod 'Alamofire'
 	pod 'Firebase/Database'
 	pod 'KDCircularProgress'
 	pod 'SideMenu'
 	pod ‘SwiftyJSON’
   	pod ‘SwiftSpinner’
-	pod 'PopupDialog', '~> 0.5'
+	pod 'PopupDialog'
 	pod 'Firebase/Core'
 	pod 'Firebase/Messaging'
     	pod 'FirebaseInstanceID'

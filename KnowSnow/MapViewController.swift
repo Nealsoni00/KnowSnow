@@ -86,7 +86,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
         //ca-app-pub-6421137549100021~9702408169
         bannerView.adUnitID = "ca-app-pub-6421137549100021/7399678458" // real one
 //        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // Test one
-        //request.testDevices = @[ kGADSimulatorID ]
+//        request.testDevices = @[ kGADSimulatorID ]
         let request = GADRequest()
         request.testDevices = [ kGADSimulatorID ];
         bannerView.rootViewController = self
@@ -271,20 +271,19 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
         
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.x != 0 && mapScrollView.zoomScale == mapScrollView.minimumZoomScale {
-            //scrollView.contentOffset.x = 0
+        if scrollView.contentOffset.x > 0 && mapScrollView.zoomScale == mapScrollView.minimumZoomScale {
+            scrollView.contentOffset.x = 0
         }
         if scrollView.contentOffset.x < 0 && mapScrollView.zoomScale == mapScrollView.minimumZoomScale && !(navigationController?.visibleViewController is SlideMenuViewController){
+
             present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
+            scrollView.contentOffset.x = 0
+
         }
-//        if var topController = UIApplication.shared.keyWindow?.rootViewController {
-//            while let presentedViewController = topController.presentedViewController {
-//                topController = presentedViewController
-//            }
 //
-//            // topController should now be your topmost view controller
-//        }
     }
+    
+    //TURN OFF HORIONTAL SCROLLING
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return mapView
@@ -360,7 +359,8 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
                 townLabels[town]?.text = percentage
                 let intPercentage = Int(percentage.replacingOccurrences(of: "%", with: ""))!
                 if (intPercentage < 25){
-                    townLabels[town]?.textColor = UIColor(red:0.17, green:0.68, blue:0.16, alpha:1.0)
+                    townLabels[town]?.textColor = UIColor(red:0.15, green:0.91, blue:0.20, alpha:1.0)
+                    
                     
 
                 }else if(intPercentage < 75){
@@ -405,7 +405,6 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
     func newDataReceieved() {
         var j = 0
         for _ in allTownObjects {
-            print(allTownObjects[j])
             changeMap(percentage: allTownObjects[j].closing, town: allTownObjects[j].name)
             j = j + 1
         }
