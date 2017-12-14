@@ -107,6 +107,8 @@ class SecondViewController: UIViewController, UIScrollViewDelegate, DataReturned
         
 
         self.f.dateFormat = "EEEE, MMMM dd"
+        //check data
+        
         dateString = self.f.string(from:Date().tomorrow)
         self.dateLabel.text = self.f.string(from:Date().tomorrow)
         

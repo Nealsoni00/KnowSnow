@@ -68,12 +68,20 @@ class InfoViewController: UITableViewController, MFMailComposeViewControllerDele
                 tableView.deselectRow(at: indexPath, animated: true)
             case 3:
                 if let url = URL(string: "https://darksky.net/poweredby/") {
-                    UIApplication.shared.open(url, options: [:])
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(url, options: [:])
+                    } else {
+                        // Fallback on earlier versions
+                    }
                 }
                 tableView.deselectRow(at: indexPath, animated: true)
             case 4:
                 if let url = URL(string: "http://www.ctweather.com") {
-                    UIApplication.shared.open(url, options: [:])
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(url, options: [:])
+                    } else {
+                        // Fallback on earlier versions
+                    }
                 }
                 tableView.deselectRow(at: indexPath, animated: true)
             default:

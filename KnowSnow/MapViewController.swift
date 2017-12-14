@@ -359,18 +359,23 @@ class FirstViewController: UIViewController, UIScrollViewDelegate, DataReturnedD
                 townLabels[town]?.text = percentage
                 let intPercentage = Int(percentage.replacingOccurrences(of: "%", with: ""))!
                 if (intPercentage < 25){
-                    townLabels[town]?.textColor = UIColor(red:0.15, green:0.91, blue:0.20, alpha:1.0)
+                    townLabels[town]?.textColor = UIColor(red:0.39, green:0.62, blue:0.98, alpha:1.0)
                     
                     
+                }else if(intPercentage < 50){
+                   
+                    townLabels[town]?.textColor =  UIColor(red:0.14, green:0.17, blue:0.70, alpha:1.0)
+                    
+                } else if(intPercentage < 75){
 
-                }else if(intPercentage < 75){
-                    townLabels[town]?.textColor = UIColor(red:0.39, green:0.71, blue:0.96, alpha:1.0)
-                    
-
+                    townLabels[town]?.textColor = UIColor(red:0.54, green:0.11, blue:0.82, alpha:1.0)
+ 
                 }else if(intPercentage < 99){
-                    townLabels[town]?.textColor = UIColor.red
+                    townLabels[town]?.textColor = UIColor(red:0.83, green:0.14, blue:0.14, alpha:1.0)
+                    
                 }else if(intPercentage >= 100){
-                    townLabels[town]?.textColor = UIColor.red
+                    townLabels[town]?.textColor = UIColor(red:0.83, green:0.14, blue:0.14, alpha:1.0)
+                    
                     switch tabbedButtons.selectedSegmentIndex {
                     case 0:
                         townLabels[town]?.text = "Closed"
